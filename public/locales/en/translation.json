@@ -292,16 +292,91 @@
     "title": "Help Center"
   },
   "landing": {
-    "cta": {
-      "main": "Sign in",
-      "mainAuth": "Continue as {{name}}",
-      "secondary": "Source code"
+    "nav": {
+      "howItWorks": "How it works",
+      "aboutUs": "About us",
+      "community": "Community",
+      "cta": "Sign in"
     },
-    "features": {
-      "more": "More on Github",
-      "title": "Main Features"
+    "hero": {
+      "title": "Join is in the fight against hunger!",
+      "subTitle": "Whether you have food to share or need assistance, our platform is here to help. Be a part of our community, and together, we can nourish lives and spread hope.",
+      "imgAlt": "A woman handing a cardboard donation box to a man, symbolizing a charitable act of giving and community support.",
+      "cta": "Get started"
     },
-    "title": "Free and open-source admin application made with React and Material-UI"
+    "howItWorks": {
+      "title": "How it works?",
+      "donor": {
+        "toggleText": "Donor",
+        "steps": {
+          "1": {
+            "message": "Create a new donation",
+            "imgAlt": "Creating a donation screen"
+          },
+          "2": {
+            "message": "Set the details",
+            "imgAlt": "Setting donation details screen"
+          },
+          "3": {
+            "message": "Choose a pick-up location",
+            "imgAlt": "Map with a pick-up location screen"
+          },
+          "4": {
+            "message": "Confirm",
+            "imgAlt": "Donation confirmation screen"
+          }
+        }
+      },
+      "receiver": {
+        "toggleText": "Receiver",
+        "steps": {
+          "1": "Create a new donation",
+          "2": "Set the details",
+          "3": "Choose a pick-up location",
+          "4": "Confirm"
+        }
+      }
+    },
+    "aboutUs": {
+      "title": "About us",
+      "paragraphs": {
+        "1": {
+          "title": "Our story",
+          "text": "Founded in 2023, DishDash was born out of a simple yet powerful idea: to bridge the gap between surplus food and those in need. We recognized that food waste is a growing problem, while many people in our community go to bed hungry every night. This realization led to the inception of our organization, with a mission to reduce food waste and alleviate hunger.",
+          "imgAlt": ""
+        },
+        "2": {
+          "title": "Our mission",
+          "text": "At DishDash, our mission is clear: to connect surplus food resources with individuals and families who are struggling with food insecurity. We are driven by a deep commitment to ensure that no one in our community goes to bed hungry. We believe that every meal saved from being wasted can make a significant difference in the lives of those who need it the most.",
+          "imgAlt": ""
+        },
+        "3": {
+          "title": "What we do",
+          "text": "At DishDash, our mission is clear: to connect surplus food resources with individuals and families who are struggling with food insecurity. We are driven by a deep commitment to ensure that no one in our community goes to bed hungry. We believe that every meal saved from being wasted can make a significant difference in the lives of those who need it the most.",
+          "imgAlt": ""
+        },
+        "4": {
+          "title": "How you can help",
+          "text": "We understand that no change is possible without the support of our community. Whether you're an individual looking to make a difference, a business with surplus food resources, or a volunteer eager to join our cause, there are many ways to get involved. Your contribution, whether it's a donation, your time, or simply spreading the word about our cause, can play a pivotal role in our efforts to combat hunger and food waste.",
+          "imgAlt": ""
+        }
+      }
+    },
+    "getInTouch": {
+      "title": "Get in touch",
+      "form": {
+        "email": {
+          "label": "Email Address"
+        },
+        "message": {
+          "label": "Message"
+        },
+        "submit": "Send"
+      }
+    },
+    "notifications": {
+      "formSubmitted": "Message has been successfully sent."
+    }
   },
   "notifications": {
     "newComment": "<bold>{{user}}</bold> has written a new comment on your profile",

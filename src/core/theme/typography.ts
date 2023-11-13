@@ -1,15 +1,15 @@
 const typography = {
-  fontFamily: "Nunito, sans-serif",
+  fontFamily: "Poppins, sans-serif",
   fontWeightMedium: 700,
   fontWeightBold: 800,
   h1: {
     fontWeight: 800,
-    fontSize: "2rem",
+    fontSize: "4rem",
     letterSpacing: 0,
   },
   h2: {
     fontWeight: 800,
-    fontSize: "1.5rem",
+    fontSize: "2.5rem",
     letterSpacing: 0,
   },
   h3: {

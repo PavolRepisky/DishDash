@@ -63,8 +63,9 @@ export const createThemeComponents = (theme: any) => ({
     },
     styleOverrides: {
       root: {
-        padding: "16px 24px",
+        padding: "10px 18px",
         textTransform: "none" as any,
+        borderRadius: "50px",
       },
       label: {
         fontWeight: theme.typography.fontWeightMedium,

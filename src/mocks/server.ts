@@ -16,6 +16,9 @@ function generateId() {
 // This sets the mock adapter on the default instance
 let mock = new MockAdapter(axios, { delayResponse: 2000 });
 
+// Landing
+mock.onPost("/api/message").reply(200);
+
 // Activity
 mock.onGet("/api/activity-logs").reply(200, activityLogs);
 
