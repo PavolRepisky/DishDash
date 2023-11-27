@@ -52,10 +52,10 @@ const Register = () => {
         .max(30, t("common.validations.max", { size: 30 }))
         .required(t("common.validations.required")),
       email: Yup.string()
-        .email("common.validations.email")
+        .email(t("common.validations.email"))
         .required(t("common.validations.required")),
       phone: Yup.string()
-        .matches(phoneReg, "common.validations.phone")
+        .matches(phoneReg, t("common.validations.phone"))
         .required(t("common.validations.required")),
       password: Yup.string()
         .min(8, t("common.validations.min", { size: 8 }))
@@ -67,6 +67,7 @@ const Register = () => {
   const handleRegister = async (values: Partial<UserInfo>) => {
     try {
       await register(values as UserInfo);
+      snackbar.success(t("auth.register.notifications.success"));
       navigate(`/${process.env.PUBLIC_URL}/login`);
     } catch {
       snackbar.error(t("common.errors.unexpected.subTitle"));
@@ -98,6 +99,22 @@ const Register = () => {
                 margin="normal"
                 required
                 fullWidth
+                id="firstName"
+                label={t("auth.register.form.firstName.label")}
+                name="firstName"
+                autoComplete="given-name"
+                disabled={isRegistering}
+                value={formik.values.firstName}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.firstName && Boolean(formik.errors.firstName)
+                }
+                helperText={formik.touched.firstName && formik.errors.firstName}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
                 id="lastName"
                 label={t("auth.register.form.lastName.label")}
                 name="lastName"
@@ -110,22 +127,6 @@ const Register = () => {
                   formik.touched.lastName && Boolean(formik.errors.lastName)
                 }
                 helperText={formik.touched.lastName && formik.errors.lastName}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="firstName"
-                label={t("auth.register.form.firstName.label")}
-                name="firstName"
-                autoComplete="given-name"
-                disabled={isRegistering}
-                value={formik.values.firstName}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.firstName && Boolean(formik.errors.firstName)
-                }
-                helperText={formik.touched.firstName && formik.errors.firstName}
               />
               <TextField
                 margin="normal"

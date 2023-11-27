@@ -32,10 +32,10 @@ mock.onPost("/api/forgot-password").reply((config) => {
   if (user) {
     return [200];
   } else {
-    return [401];
+    return [400];
   }
 });
-mock.onPost("/api/forgot-password-submit").reply(200);
+mock.onPost("/api/forgot-password-submit").reply(400);
 mock.onPost("/api/login").reply((config) => {
   const { email, password } = JSON.parse(config.data);
 

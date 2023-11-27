@@ -85,7 +85,8 @@
         "success": "Your password has been changed!"
       },
       "subTitle": "Enter the code you received by mail and choose a new password.",
-      "title": "Change your password"
+      "title": "Change your password",
+      "invalidCode": "Invalid validation code"
     },
     "login": {
       "forgotPasswordLink": "Forgot password?",

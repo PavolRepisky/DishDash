@@ -21,7 +21,6 @@ const ForgotPassword = () => {
   const snackbar = useSnackbar();
   const { t } = useTranslation();
   const [validationStatus, setValidationStatus] = useState("");
-
   const { forgotPassword, isLoading } = useForgotPassword();
 
   const formik = useFormik({
@@ -42,7 +41,7 @@ const ForgotPassword = () => {
       snackbar.success(t("auth.forgotPassword.notifications.success"));
       navigate(`/${process.env.PUBLIC_URL}/forgot-password-submit`);
     } catch (err: any) {
-      if (err.response && err.response.status === 401) {
+      if (err.response && err.response.status === 400) {
         setValidationStatus(t("common.validations.email"));
         return;
       }
