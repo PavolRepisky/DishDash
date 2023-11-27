@@ -310,19 +310,19 @@
         "toggleText": "Donor",
         "steps": {
           "1": {
-            "message": "Create a new donation",
+            "message": "Donation - Step 1",
             "imgAlt": "Creating a donation screen"
           },
           "2": {
-            "message": "Set the details",
+            "message": "Donation - Step 2",
             "imgAlt": "Setting donation details screen"
           },
           "3": {
-            "message": "Choose a pick-up location",
+            "message": "Donation - Step 3",
             "imgAlt": "Map with a pick-up location screen"
           },
           "4": {
-            "message": "Confirm",
+            "message": "Donation - Step 4",
             "imgAlt": "Donation confirmation screen"
           }
         }
@@ -330,10 +330,22 @@
       "receiver": {
         "toggleText": "Receiver",
         "steps": {
-          "1": "Create a new donation",
-          "2": "Set the details",
-          "3": "Choose a pick-up location",
-          "4": "Confirm"
+          "1": {
+            "message": "Reservation - Step 1",
+            "imgAlt": "Alt"
+          },
+          "2": {
+            "message": "Reservation - Step 2",
+            "imgAlt": "Alt"
+          },
+          "3": {
+            "message": "Reservation - Step 3",
+            "imgAlt": "Alt"
+          },
+          "4": {
+            "message": "Reservation - Step 4",
+            "imgAlt": "Alt"
+          }
         }
       }
     },

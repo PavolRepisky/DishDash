@@ -157,11 +157,11 @@ const Landing = () => {
                   height: "100%",
                   width: "100%",
                 }}
-                alt={t(`landing.howItWorks.donor.steps.${step}.imgAlt`)}
+                alt={t(`landing.howItWorks.${userRole}.steps.${step}.imgAlt`)}
                 src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
               />
               <Typography variant="h6" textAlign="center">
-                {t(`landing.howItWorks.donor.steps.${step}.message`)}
+                {t(`landing.howItWorks.${userRole}.steps.${step}.message`)}
               </Typography>
             </Grid>
           ))}
