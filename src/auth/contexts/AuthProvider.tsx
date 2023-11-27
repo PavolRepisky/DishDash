@@ -22,6 +22,7 @@ type AuthProviderProps = {
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const [authKey, setAuthKey] = useLocalStorage<string>("authkey", "");
+  console.log(authKey);
 
   const { isLoggingIn, login } = useLogin();
   const { isLoggingOut, logout } = useLogout();

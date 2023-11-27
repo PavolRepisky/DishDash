@@ -44,7 +44,7 @@ mock.onPost("/api/login").reply((config) => {
   );
 
   if (user) {
-    return [200, { token: "AUTHKEY123" }];
+    return [200, "AUTHKEY123"];
   } else {
     return [401, { error: "Invalid credentials" }];
   }
