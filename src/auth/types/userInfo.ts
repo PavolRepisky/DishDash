@@ -7,4 +7,6 @@ export interface UserInfo {
   lastName: string;
   progress: number;
   role: string;
+  phone: string;
+  password: string;
 }
