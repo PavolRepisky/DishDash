@@ -26,7 +26,19 @@ mock.onGet("/api/activity-logs").reply(200, activityLogs);
 mock.onPut("/api/password").reply(({ data }) => [200, data]);
 mock.onPost("/api/forgot-password").reply(200);
 mock.onPost("/api/forgot-password-submit").reply(200);
-mock.onPost("/api/login").reply(200, "AUTHKEY123");
+mock.onPost("/api/login").reply((config) => {
+  const { email, password } = JSON.parse(config.data);
+
+  const user = users.find(
+    (user) => user.email === email && user.password === password
+  );
+
+  if (user) {
+    return [200, { token: "AUTHKEY123" }];
+  } else {
+    return [401, { error: "Invalid credentials" }];
+  }
+});
 mock.onPost("/api/logout").reply(200);
 mock.onPost("/api/register").reply(201);
 mock

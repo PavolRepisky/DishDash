@@ -97,36 +97,47 @@
           "label": "Password"
         }
       },
-      "newAccountLink": "Don't have an account? Sign Up!",
+      "newAccount": "Don't have an account?",
+      "newAccountLink": "Sign Up!",
       "submit": "Sign in",
-      "title": "Sign in"
+      "title": "Sign in",
+      "subTitle": "Welcome back! Log in to access your account.",
+      "invalidCredentials": "Incorrect e-mail address or password"
     },
     "register": {
       "back": "Back to login",
       "form": {
-        "email": {
-          "label": "E-mail Address"
-        },
         "firstName": {
           "label": "First Name"
         },
-        "gender": {
-          "label": "Gender",
-          "options": {
-            "f": "F",
-            "m": "M",
-            "n": "NC"
-          }
-        },
         "lastName": {
           "label": "Last Name"
+        },
+        "email": {
+          "label": "E-mail Address"
+        },
+        "phone": {
+          "label": "Phone"
+        },
+        "password": {
+          "label": "Password"
+        },
+        "role": {
+          "label": "Role",
+          "options": {
+            "donor": "Donor",
+            "receiver": "Receiver"
+          }
         }
       },
       "notifications": {
         "success": "Your account has been created successfully!"
       },
       "submit": "Register",
-      "title": "Register"
+      "title": "Register",
+      "subTitle": "Join us by registering as a donator or a receiver.",
+      "existingAccount": "Already have an account?",
+      "existingAccountLink": "Sign In!"
     }
   },
   "calendar": {
@@ -202,6 +213,7 @@
     "update": "Update",
     "validations": {
       "email": "Invalid email address",
+      "phone": "Invalid phone number",
       "max": "Must be {{size}} characters or less",
       "min": "Must be {{size}} characters or more",
       "passwordMatch": "Password does not match",

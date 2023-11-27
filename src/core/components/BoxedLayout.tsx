@@ -1,16 +1,5 @@
-import { Settings as SettingsIcon } from "@mui/icons-material";
-import {
-  AppBar,
-  Box,
-  Container,
-  GlobalStyles,
-  IconButton,
-  Toolbar,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, GlobalStyles, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import Logo from "./Logo";
-import SettingsDrawer from "./SettingsDrawer";
 
 type BoxedLayoutProps = {
   children: React.ReactNode;
@@ -29,34 +18,17 @@ const BoxedLayout = ({ children }: BoxedLayoutProps) => {
       <GlobalStyles
         styles={{ body: { backgroundColor: theme.palette.background.paper } }}
       />
-      <AppBar color="transparent" position="relative">
-        <Toolbar>
-          <Box sx={{ flexGrow: 1 }} />
-          <IconButton
-            aria-label="settings"
-            component="span"
-            onClick={handleSettingsToggle}
-          >
-            <SettingsIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
       <Container component="main" maxWidth="xs" sx={{ mt: 6 }}>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
           }}
         >
-          <Logo sx={{ mb: 2 }} />
           {children}
-          <Box>
-            <SettingsDrawer
-              onDrawerToggle={handleSettingsToggle}
-              open={settingsOpen}
-            />
-          </Box>
         </Box>
       </Container>
     </React.Fragment>
