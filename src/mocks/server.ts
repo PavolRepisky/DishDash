@@ -24,7 +24,17 @@ mock.onGet("/api/activity-logs").reply(200, activityLogs);
 
 // Auth
 mock.onPut("/api/password").reply(({ data }) => [200, data]);
-mock.onPost("/api/forgot-password").reply(200);
+mock.onPost("/api/forgot-password").reply((config) => {
+  const { email } = JSON.parse(config.data);
+
+  const user = users.find((user) => user.email === email);
+
+  if (user) {
+    return [200];
+  } else {
+    return [401];
+  }
+});
 mock.onPost("/api/forgot-password-submit").reply(200);
 mock.onPost("/api/login").reply((config) => {
   const { email, password } = JSON.parse(config.data);

@@ -101,7 +101,7 @@
       "newAccountLink": "Sign Up!",
       "submit": "Sign in",
       "title": "Sign in",
-      "subTitle": "Welcome back! Log in to access your account.",
+      "subTitle": "Welcome back! Sign in, to access your account.",
       "invalidCredentials": "Incorrect e-mail address or password"
     },
     "register": {
@@ -133,9 +133,9 @@
       "notifications": {
         "success": "Your account has been created successfully!"
       },
-      "submit": "Register",
-      "title": "Register",
-      "subTitle": "Join us by registering as a donator or a receiver.",
+      "submit": "Sign up",
+      "title": "Sign up",
+      "subTitle": "Join us by signing up either as a donator or a receiver.",
       "existingAccount": "Already have an account?",
       "existingAccountLink": "Sign In!"
     }
