@@ -15,6 +15,8 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       retry: 0,
       suspense: true,
+      staleTime: Infinity,
+      cacheTime: Infinity,
     },
   },
 });
@@ -24,18 +26,18 @@ function App() {
 
   return (
     <React.Suspense fallback={<Loader />}>
-        <QueryClientProvider client={queryClient}>
-          <SettingsProvider>
-            <QueryWrapper>
-              <SnackbarProvider>
-                <AuthProvider>
-                  <AppRoutes />
-                </AuthProvider>
-              </SnackbarProvider>
-            </QueryWrapper>
-          </SettingsProvider>
-          <ReactQueryDevtools initialIsOpen />
-        </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <SettingsProvider>
+          <QueryWrapper>
+            <SnackbarProvider>
+              <AuthProvider>
+                <AppRoutes />
+              </AuthProvider>
+            </SnackbarProvider>
+          </QueryWrapper>
+        </SettingsProvider>
+        <ReactQueryDevtools initialIsOpen />
+      </QueryClientProvider>
     </React.Suspense>
   );
 }
