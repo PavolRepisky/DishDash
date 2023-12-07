@@ -19,8 +19,8 @@
     "howItWorks": {
       "title": "How it works",
       "donor": {
-        "toggleText": "Donor",
-        "toggleAriaLabel": "Donor role",
+        "toggleText": "How to donate",
+        "toggleAriaLabel": "Donation procedure toggle button",
         "steps": {
           "1": {
             "title": " Register as a food donor ",
@@ -49,8 +49,8 @@
         }
       },
       "receiver": {
-        "toggleText": "Receiver",
-        "toggleAriaLabel": "Donor role",
+        "toggleText": "How to reserve",
+        "toggleAriaLabel": "Receiver steps toggle button",
         "steps": {
           "1": {
             "title": "<Receiver step 1>",
