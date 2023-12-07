@@ -270,6 +270,10 @@
           "label": "Type",
           "aria": "Type"
         },
+        "unit": {
+          "label": "Unit",
+          "aria": "Unit"
+        },
         "submit": "Add"
       },
       "foodTypes": {
@@ -287,6 +291,26 @@
         },
         "fruitsVegetables": {
           "label": "Fruits & vegetables"
+        }
+      },
+      "units": {
+        "grams": {
+          "label": "Grams"
+        },
+        "kilograms": {
+          "label": "Kilograms"
+        },
+        "liters": {
+          "label": "Liters"
+        },
+        "deciliters": {
+          "label": "Deciliters"
+        },
+        "milliliters": {
+          "label": "Milliliters"
+        },
+        "pieces": {
+          "label": "Pices"
         }
       },
       "removeItemAria": "Remove item",

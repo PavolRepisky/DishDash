@@ -63,6 +63,33 @@ const foodTypes = [
   },
 ];
 
+const units = [
+  {
+    label: "donor.editDonation.units.grams.label",
+    value: "g",
+  },
+  {
+    label: "donor.editDonation.units.kilograms.label",
+    value: "kg",
+  },
+  {
+    label: "donor.editDonation.units.liters.label",
+    value: "l",
+  },
+  {
+    label: "donor.editDonation.units.deciliters.label",
+    value: "dl",
+  },
+  {
+    label: "donor.editDonation.units.milliliters.label",
+    value: "ml",
+  },
+  {
+    label: "donor.editDonation.units.pieces.label",
+    value: "pc",
+  },
+];
+
 const EditDonation = () => {
   const { id } = useParams();
   const { t } = useTranslation();
@@ -91,6 +118,7 @@ const EditDonation = () => {
       .min(1, t("common.validations.invalid"))
       .required(t("common.validations.required")),
     type: Yup.string().required(t("common.validations.required")),
+    unit: Yup.string().required(t("common.validations.required")),
   });
 
   type ItemFormData = Yup.InferType<typeof itemValidationSchema>;
@@ -102,9 +130,7 @@ const EditDonation = () => {
     if (existingItem) {
       setItems((prevItems) =>
         prevItems.map((item) =>
-          item.name === existingItem.name
-            ? { ...item, quantity: newItem.quantity }
-            : item
+          item.name === existingItem.name ? newItem : item
         )
       );
     } else {
@@ -124,6 +150,7 @@ const EditDonation = () => {
       name: "",
       quantity: 0,
       type: "grocery",
+      unit: "g",
     },
     validationSchema: itemValidationSchema,
     onSubmit: handleAddItem,
@@ -398,7 +425,7 @@ const EditDonation = () => {
             sx={{ mb: 1 }}
           >
             <Grid container spacing={2} alignItems="center">
-              <Grid item xs={5}>
+              <Grid item xs={4}>
                 <TextField
                   margin="normal"
                   required
@@ -415,7 +442,7 @@ const EditDonation = () => {
                   helperText={itemFormik.touched.name && itemFormik.errors.name}
                 />
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={2}>
                 <FormControl
                   component="fieldset"
                   margin="normal"
@@ -463,6 +490,32 @@ const EditDonation = () => {
                 />
               </Grid>
               <Grid item xs={2}>
+                <FormControl
+                  component="fieldset"
+                  margin="normal"
+                  sx={{ maxWidth: "100%", width: "100%" }}
+                >
+                  <InputLabel id="unitLabel">
+                    {t("donor.editDonation.itemForm.unit.label")}
+                  </InputLabel>
+                  <Select
+                    labelId="unitLabel"
+                    id="unit"
+                    name="unit"
+                    required
+                    value={itemFormik.values.unit}
+                    label={t("donor.editDonation.itemForm.unit.label")}
+                    onChange={itemFormik.handleChange}
+                  >
+                    {units.map((unit, index) => (
+                      <MenuItem key={index} value={unit.value}>
+                        {t(unit.label)}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={2}>
                 <LoadingButton
                   type="submit"
                   fullWidth
@@ -497,7 +550,7 @@ const EditDonation = () => {
 
                 <ListItemText
                   primary={item.name}
-                  secondary={item.quantity}
+                  secondary={item.quantity + item.unit}
                   sx={{
                     ml: 2,
                     whiteSpace: "nowrap",
