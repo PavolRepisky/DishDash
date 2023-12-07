@@ -51,10 +51,10 @@ const SnackbarProvider = ({ children }: SnackbarProviderProps) => {
         key={message}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "right",
+          horizontal: "center",
         }}
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={5000}
         onClose={handleClose}
       >
         <Alert onClose={handleClose} severity={severity}>
