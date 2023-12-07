@@ -27,19 +27,19 @@ type LandingLayoutProps = {
 const landingNavItems = [
   {
     key: "landing.nav.getStarted",
-    path: "./register",
+    path: "register",
   },
   {
     key: "landing.nav.howItWorks",
-    path: "./howItWorks",
+    path: "howItWorks",
   },
   {
     key: "landing.nav.aboutUs",
-    path: "./aboutUs",
+    path: "aboutUs",
   },
   {
     key: "landing.nav.contact",
-    path: "./contact",
+    path: "contact",
   },
 ];
 
@@ -88,7 +88,7 @@ const LandingLayout = ({ children }: LandingLayoutProps) => {
                   end={true}
                   component={NavLink}
                   label={t(item.key)}
-                  to={item.path}
+                  to={`/${process.env.PUBLIC_URL}/${item.path}`}
                 />
               ))}
             </Tabs>

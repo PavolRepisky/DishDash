@@ -27,6 +27,8 @@ const Landing = () => {
     event: React.MouseEvent<HTMLElement>,
     newUserRole: string
   ) => {
+    event.currentTarget.parentElement?.parentElement?.scrollIntoView({ behavior: "smooth"}); // pan how it works into view -> related to user feedback/confusion
+    if (newUserRole == null) return;
     setUserRole(newUserRole);
   };
 

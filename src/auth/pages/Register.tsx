@@ -11,6 +11,10 @@ import {
   RadioGroup,
   TextField,
   Typography,
+  Select,
+  InputAdornment,
+  MenuItem,
+  SelectChangeEvent
 } from "@mui/material";
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
@@ -22,17 +26,35 @@ import LandingLayout from "../../landing/components/LandingLayout";
 import { useRegister } from "../hooks/useRegister";
 import { phoneRegex } from "../types/PhoneRegex";
 import { UserInfo } from "../types/userInfo";
+import React, { useState } from "react";
 
 const roles = [
   { label: "auth.register.form.role.options.donor", value: "donor" },
   { label: "auth.register.form.role.options.receiver", value: "receiver" },
 ];
 
+const areaCodes = [
+  {
+    value: '+421',
+    label: '+421'
+  },
+  {
+    value: '+420',
+    label: '+420'
+  }
+]
+
 const Register = () => {
   const navigate = useNavigate();
   const snackbar = useSnackbar();
   const { t } = useTranslation();
   const { isRegistering, register } = useRegister();
+
+  const [areaCode, setAreaCode] = useState('+421');
+
+  const handleNumberChange = (event: SelectChangeEvent<string>) => {
+    setAreaCode(event.target.value);
+  }
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -60,6 +82,8 @@ const Register = () => {
 
   const handleRegister = async (values: FormData) => {
     try {
+      console.log(values);
+
       await register(values as UserInfo);
       snackbar.success(t("auth.register.notifications.success"));
       navigate(`/${process.env.PUBLIC_URL}/login`);
@@ -73,13 +97,14 @@ const Register = () => {
       firstName: "",
       lastName: "",
       email: "",
-      phone: "",
+      phone: "+421",
       password: "",
       role: "donor",
     },
     validationSchema,
     onSubmit: handleRegister,
   });
+
 
   return (
     <LandingLayout>
@@ -155,12 +180,29 @@ const Register = () => {
                 required
                 fullWidth
                 id="phone"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <Select value={areaCode} onChange={handleNumberChange} sx={{ '& fieldset': { border: 'none' }}}>
+                        {areaCodes.map((option) => (
+                          <MenuItem key={option.value} value={option.value}> 
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </InputAdornment>
+                  ) 
+                }}
                 label={t("auth.register.form.phone.label")}
                 name="phone"
                 autoComplete="tel"
                 disabled={isRegistering}
-                value={formik.values.phone}
-                onChange={formik.handleChange}
+                value={formik.values.phone.slice(areaCode.length)}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  formik.setFieldValue('phone', `${areaCode}${event.target.value}`);
+
+                  console.log(`visible num: ${formik.values.phone.slice(areaCode.length)}\nformik num: ${formik.values.phone}`);
+                }}
                 error={formik.touched.phone && Boolean(formik.errors.phone)}
                 helperText={formik.touched.phone && formik.errors.phone}
               />
