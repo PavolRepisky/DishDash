@@ -157,6 +157,7 @@ const Register = () => {
                 id="phone"
                 label={t("auth.register.form.phone.label")}
                 name="phone"
+                placeholder="Phone number with country code"
                 autoComplete="tel"
                 disabled={isRegistering}
                 value={formik.values.phone}
