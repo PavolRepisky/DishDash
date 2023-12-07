@@ -19,16 +19,72 @@ import {
   TableHead,
   TablePagination,
   TableRow,
+  TableSortLabel,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import Empty from "../../core/components/Empty";
 import * as selectUtils from "../../core/utils/selectUtils";
 import { Donation } from "../types/Donation";
+import { visuallyHidden } from '@mui/utils';
+
+
+
+function descendingComparator(a: any, b: any, orderBy: string) {
+  const order = 
+    orderBy === 'donation' ? 'title' :
+    orderBy === 'date' ? 'createdAt' :
+    orderBy === 'status' ? 'active' : 'title';
+
+  const c1 = orderBy === 'date' ? Date.parse(a?.[order]) : (a?.[order] ?? '0');
+  const c2 = orderBy === 'date' ? Date.parse(b?.[order]) : (b?.[order] ?? '0');
+
+  if (c2 < c1) {
+    return -1;
+  }
+  if (c2 > c1) {
+    return 1;
+  }
+  return 0;
+}
+
+type Order = 'asc' | 'desc';
+
+function getComparator<Key extends keyof any>(
+  order: Order,
+  orderBy: string,
+): (
+  a: { [key in Key]: number | string },
+  b: { [key in Key]: number | string },
+) => number {
+  return order === 'desc'
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
+}
+
+function stableSort<T>(array: Donation[], comparator: (a: T, b: T) => number) {
+  const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
+  stabilizedThis.sort((a, b) => {
+    const order = comparator(a[0], b[0]);
+    if (order !== 0) {
+      return order;
+    }
+    return a[1] - b[1];
+  });
+
+  return stabilizedThis.map((el) => el[0] as Donation);
+}
+
+interface Data {
+  id: number;
+  donation: string;
+  date: string;
+  status: string;
+}
 
 interface HeadCell {
-  id: string;
+  id: keyof Data;
   label: string;
   align: "center" | "left" | "right";
 }
@@ -53,15 +109,19 @@ const headCells: HeadCell[] = [
 
 interface EnhancedTableProps {
   numSelected: number;
+  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  order: Order;
+  orderBy: string;
   rowCount: number;
 }
 
-function EnhancedTableHead({
-  onSelectAllClick,
-  numSelected,
-  rowCount,
-}: EnhancedTableProps) {
+function EnhancedTableHead(props: EnhancedTableProps) {
+  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort} = props;
+  const createSortHandler = (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+    onRequestSort(event, property);
+  }
+
   const { t } = useTranslation();
 
   return (
@@ -79,8 +139,25 @@ function EnhancedTableHead({
           />
         </TableCell>
         {headCells.map((headCell) => (
-          <TableCell key={headCell.id} align={headCell.align} sx={{ py: 0 }}>
-            {t(headCell.label)}
+          <TableCell 
+            key={headCell.id} 
+            align={headCell.align} 
+            sx={{ py: 0 }}
+            sortDirection={orderBy === headCell.id ? order : false}
+          >
+            <TableSortLabel
+              active={orderBy === headCell.id}
+              direction={orderBy === headCell.id ? order : 'asc'}
+              onClick={createSortHandler(headCell.id)}
+            >
+              {orderBy === headCell.id ? (
+                <Box component="span" sx={visuallyHidden}>
+                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                </Box>
+              ) : null}
+              {t(headCell.label)}
+            </TableSortLabel>
+
           </TableCell>
         ))}
         <TableCell align="right" sx={{ py: 0 }}>
@@ -250,9 +327,17 @@ const DonationTable = ({
   selected,
   donations = [],
 }: DonationTableProps) => {
+  const [order, setOrder] = useState<Order>('asc');
+  const [orderBy, setOrderBy] = useState<keyof Data>('date');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const { t } = useTranslation();
+
+  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  }
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
@@ -281,6 +366,15 @@ const DonationTable = ({
 
   const isSelected = (id: string) => selected.indexOf(id) !== -1;
 
+  const visibleRows = useMemo(
+    () =>
+      stableSort(donations, getComparator(order, orderBy)).slice(
+        page * rowsPerPage,
+        page * rowsPerPage + rowsPerPage,
+      ),
+    [donations, order, orderBy, page, rowsPerPage],
+  );
+
   if (donations.length === 0) {
     return <Empty title={t("donor.donationManagement.noDonations")} />;
   }
@@ -298,24 +392,27 @@ const DonationTable = ({
         >
           <EnhancedTableHead
             numSelected={selected.length}
+            order={order}
+            orderBy={orderBy}
             onSelectAllClick={handleSelectAllClick}
+            onRequestSort={handleRequestSort}
             rowCount={donations.length}
           />
           <TableBody>
-            {donations
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((donation, index) => (
-                <DonationRow
-                  index={index}
-                  key={donation.id}
-                  onCheck={handleClick}
-                  onDelete={onDelete}
-                  onEdit={onEdit}
-                  processing={processing}
-                  selected={isSelected(donation.id ?? "")}
-                  donation={donation}
-                />
-              ))}
+            {visibleRows
+                .map((donation, index) => (
+                  <DonationRow
+                    index={index}
+                    key={donation.id}
+                    onCheck={handleClick}
+                    onDelete={onDelete}
+                    onEdit={onEdit}
+                    processing={processing}
+                    selected={isSelected(donation.id ?? "")}
+                    donation={donation}
+                  />
+                ))
+              }
           </TableBody>
         </Table>
       </TableContainer>
