@@ -5,18 +5,19 @@ import {
   FormControlLabel,
   FormLabel,
   Grid,
+  InputAdornment,
   Link,
+  MenuItem,
   Paper,
   Radio,
   RadioGroup,
+  Select,
+  SelectChangeEvent,
   TextField,
   Typography,
-  Select,
-  InputAdornment,
-  MenuItem,
-  SelectChangeEvent
 } from "@mui/material";
 import { useFormik } from "formik";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
@@ -24,25 +25,18 @@ import BoxedLayout from "../../core/components/BoxedLayout";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import LandingLayout from "../../landing/components/LandingLayout";
 import { useRegister } from "../hooks/useRegister";
+import countryCodes from "../types/CountryCodes.json";
 import { phoneRegex } from "../types/PhoneRegex";
 import { UserInfo } from "../types/userInfo";
-import React, { useState } from "react";
 
 const roles = [
   { label: "auth.register.form.role.options.donor", value: "donor" },
   { label: "auth.register.form.role.options.receiver", value: "receiver" },
 ];
 
-const areaCodes = [
-  {
-    value: '+421',
-    label: '+421'
-  },
-  {
-    value: '+420',
-    label: '+420'
-  }
-]
+const sortedcountryCodes = countryCodes
+  .slice()
+  .sort((a, b) => a.code.localeCompare(b.code));
 
 const Register = () => {
   const navigate = useNavigate();
@@ -50,11 +44,11 @@ const Register = () => {
   const { t } = useTranslation();
   const { isRegistering, register } = useRegister();
 
-  const [areaCode, setAreaCode] = useState('+421');
+  const [areaCode, setAreaCode] = useState("+421");
 
   const handleNumberChange = (event: SelectChangeEvent<string>) => {
     setAreaCode(event.target.value);
-  }
+  };
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -104,7 +98,6 @@ const Register = () => {
     validationSchema,
     onSubmit: handleRegister,
   });
-
 
   return (
     <LandingLayout>
@@ -182,16 +175,20 @@ const Register = () => {
                 id="phone"
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position='start'>
-                      <Select value={areaCode} onChange={handleNumberChange} sx={{ '& fieldset': { border: 'none' }}}>
-                        {areaCodes.map((option) => (
-                          <MenuItem key={option.value} value={option.value}> 
-                            {option.label}
+                    <InputAdornment position="start">
+                      <Select
+                        value={areaCode}
+                        onChange={handleNumberChange}
+                        sx={{ "& fieldset": { border: "none" } }}
+                      >
+                        {sortedcountryCodes.map((option) => (
+                          <MenuItem key={option.code} value={option.dial_code}>
+                            {`${option.code} ${option.dial_code}`}
                           </MenuItem>
                         ))}
                       </Select>
                     </InputAdornment>
-                  ) 
+                  ),
                 }}
                 label={t("auth.register.form.phone.label")}
                 name="phone"
@@ -199,9 +196,10 @@ const Register = () => {
                 disabled={isRegistering}
                 value={formik.values.phone.slice(areaCode.length)}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  formik.setFieldValue('phone', `${areaCode}${event.target.value}`);
-
-                  console.log(`visible num: ${formik.values.phone.slice(areaCode.length)}\nformik num: ${formik.values.phone}`);
+                  formik.setFieldValue(
+                    "phone",
+                    `${areaCode}${event.target.value}`
+                  );
                 }}
                 error={formik.touched.phone && Boolean(formik.errors.phone)}
                 helperText={formik.touched.phone && formik.errors.phone}

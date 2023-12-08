@@ -29,8 +29,6 @@ import * as selectUtils from "../../core/utils/selectUtils";
 import { Donation } from "../types/Donation";
 import { visuallyHidden } from '@mui/utils';
 
-
-
 function descendingComparator(a: any, b: any, orderBy: string) {
   const order = 
     orderBy === 'donation' ? 'title' :
