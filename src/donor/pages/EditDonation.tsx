@@ -179,7 +179,6 @@ const EditDonation = () => {
   };
 
   const handleAddDonation = async (infoData: InfoFormData) => {
-    console.log("add called");
     try {
       const donationData = { ...infoData, items };
       await createDonation(donationData as Donation);
@@ -250,6 +249,9 @@ const EditDonation = () => {
               fullWidth
               id="title"
               label={t("donor.editDonation.infoForm.donationTitle.label")}
+              placeholder={t(
+                "donor.editDonation.infoForm.donationTitle.placeholder"
+              )}
               name="title"
               autoFocus
               disabled={processing}
@@ -266,6 +268,9 @@ const EditDonation = () => {
               fullWidth
               id="location"
               label={t("donor.editDonation.infoForm.location.label")}
+              placeholder={t(
+                "donor.editDonation.infoForm.location.placeholder"
+              )}
               name="location"
               disabled={processing}
               value={infoFormik.values.location}
@@ -375,6 +380,11 @@ const EditDonation = () => {
               fullWidth
               id="additionalInfo"
               label={t("donor.editDonation.infoForm.additionalInfo.label")}
+              placeholder={t(
+                "donor.editDonation.infoForm.additionalInfo.placeholder"
+              )}
+              multiline={true}
+              rows={3}
               name="additionalInfo"
               disabled={processing}
               value={infoFormik.values.additionalInfo}
@@ -432,6 +442,9 @@ const EditDonation = () => {
                   fullWidth
                   id="name"
                   label={t("donor.editDonation.itemForm.name.label")}
+                  placeholder={t(
+                    "donor.editDonation.itemForm.name.placeholder"
+                  )}
                   name="name"
                   disabled={processing}
                   value={itemFormik.values.name}

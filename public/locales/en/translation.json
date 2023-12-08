@@ -238,10 +238,12 @@
       "infoForm": {
         "title": "Information",
         "donationTitle": {
-          "label": "Title"
+          "label": "Title",
+          "placeholder": "Enter a brief and descriptive title for your donation."
         },
         "location": {
-          "label": "Location"
+          "label": "Pick-up Location",
+          "placeholder": "Enter a location, where receiver can pick up the donation."
         },
         "from": {
           "label": "Available From*",
@@ -254,14 +256,16 @@
           "time": "Time"
         },
         "additionalInfo": {
-          "label": "Additional Information"
+          "label": "Additional Information",
+          "placeholder": "Enter your preferences or provide any special instructions regarding the food items or pickup process, if necessary."
         },
         "submit": "Update"
       },
       "itemForm": {
         "title": "Items",
         "name": {
-          "label": "Item name"
+          "label": "Name",
+          "placeholder": "Enter single item name"
         },
         "quantity": {
           "label": "Quantity"
