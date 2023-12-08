@@ -9,13 +9,15 @@ import {
   Avatar,
   Box,
   Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
+  useTheme,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../../auth/contexts/AuthProvider";
 import Logo from "../../core/components/Logo";
 import { drawerCollapsedWidth, drawerWidth } from "../../core/config/layout";
@@ -53,12 +55,27 @@ const AdminDrawer = ({
 }: AdminDrawerProps) => {
   const { userInfo } = useAuth();
   const { t } = useTranslation();
+  const theme = useTheme();
 
   const width = collapsed ? drawerCollapsedWidth : drawerWidth;
 
   const drawer = (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
-      <Logo sx={{ display: "flex", p: 4 }} />
+      <IconButton
+        component={RouterLink}
+        to={"/admin"}
+        sx={{
+          "&:hover": { background: "transparent" },
+          p: 4,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "left",
+          color: theme.palette.text.primary,
+        }}
+      >
+        <Logo />
+      </IconButton>
+
       <List component="nav" sx={{ px: 2 }}>
         {menuItems.map((item) => (
           <ListItem
