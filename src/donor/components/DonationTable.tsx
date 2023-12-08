@@ -22,21 +22,25 @@ import {
   TableSortLabel,
   Typography,
 } from "@mui/material";
-import React, { useState, useMemo } from "react";
+import { visuallyHidden } from "@mui/utils";
+import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Empty from "../../core/components/Empty";
 import * as selectUtils from "../../core/utils/selectUtils";
 import { Donation } from "../types/Donation";
-import { visuallyHidden } from '@mui/utils';
 
 function descendingComparator(a: any, b: any, orderBy: string) {
-  const order = 
-    orderBy === 'donation' ? 'title' :
-    orderBy === 'date' ? 'createdAt' :
-    orderBy === 'status' ? 'active' : 'title';
+  const order =
+    orderBy === "donation"
+      ? "title"
+      : orderBy === "date"
+      ? "createdAt"
+      : orderBy === "status"
+      ? "active"
+      : "title";
 
-  const c1 = orderBy === 'date' ? Date.parse(a?.[order]) : (a?.[order] ?? '0');
-  const c2 = orderBy === 'date' ? Date.parse(b?.[order]) : (b?.[order] ?? '0');
+  const c1 = orderBy === "date" ? Date.parse(a?.[order]) : a?.[order] ?? "0";
+  const c2 = orderBy === "date" ? Date.parse(b?.[order]) : b?.[order] ?? "0";
 
   if (c2 < c1) {
     return -1;
@@ -47,16 +51,16 @@ function descendingComparator(a: any, b: any, orderBy: string) {
   return 0;
 }
 
-type Order = 'asc' | 'desc';
+type Order = "asc" | "desc";
 
 function getComparator<Key extends keyof any>(
   order: Order,
-  orderBy: string,
+  orderBy: string
 ): (
   a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string },
+  b: { [key in Key]: number | string }
 ) => number {
-  return order === 'desc'
+  return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
@@ -107,7 +111,10 @@ const headCells: HeadCell[] = [
 
 interface EnhancedTableProps {
   numSelected: number;
-  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void;
+  onRequestSort: (
+    event: React.MouseEvent<unknown>,
+    property: keyof Data
+  ) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
   orderBy: string;
@@ -115,10 +122,18 @@ interface EnhancedTableProps {
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort} = props;
-  const createSortHandler = (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
-    onRequestSort(event, property);
-  }
+  const {
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props;
+  const createSortHandler =
+    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+      onRequestSort(event, property);
+    };
 
   const { t } = useTranslation();
 
@@ -137,25 +152,24 @@ function EnhancedTableHead(props: EnhancedTableProps) {
           />
         </TableCell>
         {headCells.map((headCell) => (
-          <TableCell 
-            key={headCell.id} 
-            align={headCell.align} 
+          <TableCell
+            key={headCell.id}
+            align={headCell.align}
             sx={{ py: 0 }}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
+              direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
             >
               {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                  {order === "desc" ? "sorted descending" : "sorted ascending"}
                 </Box>
               ) : null}
               {t(headCell.label)}
             </TableSortLabel>
-
           </TableCell>
         ))}
         <TableCell align="right" sx={{ py: 0 }}>
@@ -325,17 +339,20 @@ const DonationTable = ({
   selected,
   donations = [],
 }: DonationTableProps) => {
-  const [order, setOrder] = useState<Order>('asc');
-  const [orderBy, setOrderBy] = useState<keyof Data>('date');
+  const [order, setOrder] = useState<Order>("desc");
+  const [orderBy, setOrderBy] = useState<keyof Data>("date");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const { t } = useTranslation();
 
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
+  const handleRequestSort = (
+    event: React.MouseEvent<unknown>,
+    property: keyof Data
+  ) => {
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  }
+  };
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
@@ -368,9 +385,9 @@ const DonationTable = ({
     () =>
       stableSort(donations, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
-        page * rowsPerPage + rowsPerPage,
+        page * rowsPerPage + rowsPerPage
       ),
-    [donations, order, orderBy, page, rowsPerPage],
+    [donations, order, orderBy, page, rowsPerPage]
   );
 
   if (donations.length === 0) {
@@ -397,20 +414,18 @@ const DonationTable = ({
             rowCount={donations.length}
           />
           <TableBody>
-            {visibleRows
-                .map((donation, index) => (
-                  <DonationRow
-                    index={index}
-                    key={donation.id}
-                    onCheck={handleClick}
-                    onDelete={onDelete}
-                    onEdit={onEdit}
-                    processing={processing}
-                    selected={isSelected(donation.id ?? "")}
-                    donation={donation}
-                  />
-                ))
-              }
+            {visibleRows.map((donation, index) => (
+              <DonationRow
+                index={index}
+                key={donation.id}
+                onCheck={handleClick}
+                onDelete={onDelete}
+                onEdit={onEdit}
+                processing={processing}
+                selected={isSelected(donation.id ?? "")}
+                donation={donation}
+              />
+            ))}
           </TableBody>
         </Table>
       </TableContainer>

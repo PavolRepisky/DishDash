@@ -99,7 +99,7 @@
       { "name": "Peanut Butter (500g)", "quantity": 25, "type": "grocery" },
       { "name": "Canned Tomatoes", "quantity": 30, "type": "grocery" }
     ],
-    "createdAt": "2023-12-10T14:30:00Z"
+    "createdAt": "2023-11-10T14:30:00Z"
   },
   {
     "id": "7",
@@ -116,7 +116,7 @@
       { "name": "Vegetarian Stir-Fry", "quantity": 15, "type": "preparedFood" },
       { "name": "Beef Stew", "quantity": 25, "type": "preparedFood" }
     ],
-    "createdAt": "2023-12-15T10:00:00Z"
+    "createdAt": "2023-11-15T10:00:00Z"
   },
   {
     "id": "8",
@@ -133,7 +133,7 @@
       { "name": "Broccoli", "quantity": 40, "type": "fruitsVegetables" },
       { "name": "Grapes", "quantity": 30, "type": "fruitsVegetables" }
     ],
-    "createdAt": "2023-12-12T12:30:00Z"
+    "createdAt": "2023-10-12T12:30:00Z"
   },
   {
     "id": "9",
@@ -149,7 +149,7 @@
       { "name": "Dog Treats", "quantity": 20, "type": "petFood" },
       { "name": "Bird Seed", "quantity": 10, "type": "petFood" }
     ],
-    "createdAt": "2023-12-18T15:45:00Z"
+    "createdAt": "2023-12-07T15:45:00Z"
   },
   {
     "id": "10",
@@ -166,6 +166,6 @@
       { "name": "Canned Beans", "quantity": 40, "type": "grocery" },
       { "name": "Cooking Oil", "quantity": 30, "type": "grocery" }
     ],
-    "createdAt": "2023-12-08T12:30:00Z"
+    "createdAt": "2023-12-03T12:30:00Z"
   }
 ]
