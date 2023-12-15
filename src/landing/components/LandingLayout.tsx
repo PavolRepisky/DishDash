@@ -1,8 +1,9 @@
 import {
   Login as LoginIcon,
   Settings as SettingsIcon,
-} from "@mui/icons-material";
-import MenuIcon from '@mui/icons-material/Menu';
+  Menu as MenuIcon,
+  AccountCircle as AccountCircleIcon
+} from '@mui/icons-material';
 
 import {
   AppBar,
@@ -17,13 +18,13 @@ import {
   Container,
   Menu,
   MenuItem,
-} from "@mui/material";
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { NavLink, Link as RouterLink } from "react-router-dom";
-import Footer from "../../core/components/Footer";
-import Logo from "../../core/components/Logo";
-import SettingsDrawer from "../../core/components/SettingsDrawer";
+} from '@mui/material';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { NavLink, Link as RouterLink } from 'react-router-dom';
+import Footer from '../../core/components/Footer';
+import Logo from '../../core/components/Logo';
+import SettingsDrawer from '../../core/components/SettingsDrawer';
 
 type LandingLayoutProps = {
   children: React.ReactNode;
@@ -31,20 +32,20 @@ type LandingLayoutProps = {
 
 const landingNavItems = [
   {
-    key: "landing.nav.getStarted",
-    path: "register",
+    key: 'landing.nav.getStarted',
+    path: 'register',
   },
   {
-    key: "landing.nav.howItWorks",
-    path: "howItWorks",
+    key: 'landing.nav.howItWorks',
+    path: 'howItWorks',
   },
   {
-    key: "landing.nav.aboutUs",
-    path: "aboutUs",
+    key: 'landing.nav.aboutUs',
+    path: 'aboutUs',
   },
   {
-    key: "landing.nav.contact",
-    path: "contact",
+    key: 'landing.nav.contact',
+    path: 'contact',
   },
 ];
 
@@ -68,7 +69,7 @@ const LandingLayout = ({ children }: LandingLayoutProps) => {
 
   return (
     <Paper square>
-      <AppBar color='transparent' position='static' sx={{ mb: 5 }}>
+      <AppBar color='secondary' position='static' sx={{ mb: 5 }}>
         <Container maxWidth={false}>
           <Toolbar disableGutters>
 
@@ -180,22 +181,30 @@ const LandingLayout = ({ children }: LandingLayoutProps) => {
               </Box> 
 
               {/* Login and settings buttons */}
-              <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Button
                   component={RouterLink}
                   to={`/${process.env.PUBLIC_URL}/login`}
-                  variant="contained"
+                  variant='contained'
                   startIcon={<LoginIcon />}
-                  sx={{ mr: 1 }}
-                  size="small"
+                  sx={{ mr: 1, display: { xs: 'none', md: 'inline-flex'}}}
+                  size='small'
                 >
-                  {t("landing.nav.cta")}
+                  {t('landing.nav.cta')}
                 </Button>
 
                 <IconButton
-                  color="default"
-                  aria-label={t("landing.nav.settingsAria")}
-                  component="span"
+                  component={RouterLink}
+                  to={`/${process.env.PUBLIC_URL}/login`}
+                  sx={{ pr: 0, display: { xs: 'inline-flex', md: 'none'}}}
+                > 
+                  <AccountCircleIcon />
+                </IconButton>
+
+                <IconButton
+                  color='default'
+                  aria-label={t('landing.nav.settingsAria')}
+                  component='span'
                   onClick={handleSettingsToggle}
                 >
                   <SettingsIcon />
