@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import AdminAppBar from "../../admin/components/AdminAppBar";
@@ -17,6 +17,11 @@ const Home = () => {
   const { userInfo } = useAuth();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const theme = useTheme();
+  const xs = useMediaQuery(theme.breakpoints.up(450));
+  const sm = useMediaQuery(theme.breakpoints.up(840));
+  const md = useMediaQuery(theme.breakpoints.up(1100));
+  const l = useMediaQuery(theme.breakpoints.up(1300));
 
   const compareDonations = (donation1: Donation, donation2: Donation) => {
     const date1 = new Date(donation1.createdAt ?? "").getDate();
@@ -87,11 +92,28 @@ const Home = () => {
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
         {t("donor.home.activeDonations.title")}
       </Typography>
-      <CardCarousel cards={activeDonationsData} cardsPerPage={5} />
+      <CardCarousel 
+        cards={activeDonationsData} 
+        cardsPerPage={ 
+          l ? 5 :
+          md ? 4 :
+          sm ? 3 :
+          xs ? 2 :
+          1
+        } 
+      />
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
         {t("donor.home.fulfilledDonations.title")}
       </Typography>
-      <CardCarousel cards={recentFulfilledDonationsData} cardsPerPage={5} />
+      <CardCarousel cards={recentFulfilledDonationsData} 
+        cardsPerPage={ 
+          l ? 5 :
+          md ? 4 :
+          sm ? 3 :
+          xs ? 2 :
+          1
+        } 
+      />
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
         {t("donor.home.upcomingEvents.title")}
       </Typography>
