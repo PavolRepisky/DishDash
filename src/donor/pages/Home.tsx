@@ -95,9 +95,9 @@ const Home = () => {
       <CardCarousel 
         cards={activeDonationsData} 
         cardsPerPage={ 
-          l ? 5 :
-          md ? 4 :
-          sm ? 3 :
+          l ? 6 :
+          md ? 6 :
+          sm ? 4 :
           xs ? 2 :
           1
         } 

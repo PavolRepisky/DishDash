@@ -10,7 +10,7 @@ import {
   Slide,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface CardCarouselProps {
@@ -29,6 +29,7 @@ interface CardCarouselProps {
 const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
+  const cardRef = useRef<any>(null);
 
   const handleNext = () => {
     setCurrentPage(
@@ -46,6 +47,9 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
 
   const startIndex = currentPage * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
+
+  console.log(cardRef.current);
+  console.log(cardRef.current?.offsetWidth);
 
   return (
     <>
@@ -75,8 +79,8 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
       <Slide direction="left" in mountOnEnter unmountOnExit>
         <Grid container spacing={3} justifyContent="left">
           {cards.slice(startIndex, endIndex).map((card, index) => (
-            <Grid item key={index} width={`${100 / cardsPerPage}%`}>
-              <Card
+            <Grid item key={index} xs={ Math.round(12 / cardsPerPage) }>
+              <Card ref={cardRef}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -97,9 +101,12 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
                     textOverflow: "ellipsis",
                   }}
                 >
-                  <Typography
+                  <Typography 
                     variant="h5"
                     component="div"
+                    noWrap
+                    width={ '100%' }
+                    textOverflow={ 'ellipsis' }
                     sx={{
                       mb: 1,
                       textOverflow: "ellipsis",
