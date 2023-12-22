@@ -8,7 +8,7 @@
     "additionalInfo": "",
     "imageUrl": "https://plantbasedjuniors.com/wp-content/uploads/2021/01/Canned-plant-based-foods1-scaled.jpg",
     "imageAlt": "Canned Vegetables",
-    "pickedUp": false,
+    "active": false,
     "items": [
       {
         "name": "Canned Green Beans",
@@ -35,7 +35,7 @@
     "additionalInfo": "Donate a bag of essential groceries to support families in need.",
     "imageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FLifestyle%2F2021-07-MEGALIST-Brilliant-Ways-To-Reuse-Plastic-Grocery-Bags%20%2Fkitchn-2021-plastic-grocery-bags-1",
     "imageAlt": "Grocery Bag",
-    "pickedUp": false,
+    "active": true,
     "items": [
       { "name": "Rice", "quantity": 1, "type": "grocery", "unit": "kg" },
       { "name": "Pasta", "quantity": 1, "type": "grocery", "unit": "kg" }
@@ -51,7 +51,7 @@
     "additionalInfo": "Provide warm, nutritious meals.",
     "imageUrl": "https://i.cbc.ca/1.4560064.1698961615!/fileImage/httpImage/image.jpg_gen/derivatives/original_780/root-vegetable-stew.jpg",
     "imageAlt": "Hot Meals",
-    "pickedUp": false,
+    "active": false,
     "items": [
       {
         "name": "Vegetable Curry",
@@ -83,7 +83,7 @@
     "additionalInfo": "Support local farmers and provide fresh produce to those in need.",
     "imageUrl": "https://cdn.statefoodsafety.com/blog/2017/09/Is_Fresh_Produce_Safe_to_Eat_Small-compressor.jpeg",
     "imageAlt": "Fresh Produce",
-    "pickedUp": false,
+    "active": false,
     "items": [
       {
         "name": "Apples",
@@ -109,7 +109,7 @@
     "additionalInfo": "Donating pet food for cats and dogs.",
     "imageUrl": "https://ga-petfoodpartners.co.uk/content/uploads/2021/11/Pet-Food-Trends-Main-Banner.png",
     "imageAlt": "Pet Food",
-    "pickedUp": true,
+    "active": false,
     "items": [
       {
         "name": "Dry Cat Food",
@@ -129,7 +129,7 @@
     "additionalInfo": "Contribute to our community grocery drive and help families in need.",
     "imageUrl": "https://miro.medium.com/v2/resize:fit:1004/0*j0IVk3RVnZ6tz3iS.jpg",
     "imageAlt": "Cereal Boxes",
-    "pickedUp": true,
+    "active": true,
     "items": [
       {
         "name": "Cereal Boxes",
@@ -161,7 +161,7 @@
     "additionalInfo": "Donate homemade meals to bring warmth and comfort to those in need.",
     "imageUrl": "https://hometaste.my/wp-content/uploads/2020/12/istock-588595864-1199x800.jpg",
     "imageAlt": "Prepared Meals",
-    "pickedUp": true,
+    "active": true,
     "items": [
       {
         "name": "Lasagna",
@@ -193,7 +193,7 @@
     "additionalInfo": "Support local farmers and share the goodness of fresh fruits and vegetables.",
     "imageUrl": "https://www.instacart.com/company/wp-content/uploads/2022/12/strawberry-season-hero.jpg",
     "imageAlt": "Fresh Harvest",
-    "pickedUp": false,
+    "active": false,
     "items": [
       {
         "name": "Strawberries",
@@ -225,7 +225,7 @@
     "additionalInfo": "Help furry friends in need by donating pet food and supplies.",
     "imageUrl": "https://www.allrecipes.com/thmb/62wdNuSvQguM7MqxsUXN6Zr_sfo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/133123-Peanut-Butter-and-Pumpkin-Dog-Treats-mfs-018-0ba2166a6f1a4f56840f08d2cc8948c2.jpg",
     "imageAlt": "Pet Supplies",
-    "pickedUp": true,
+    "active": false,
     "items": [
       { "name": "Dog Treats", "quantity": 1, "type": "petFood", "unit": "kg" }
     ],
@@ -240,7 +240,7 @@
     "additionalInfo": "Join us in gathering essential groceries for families in Bratislava.",
     "imageUrl": "https://www.tastingtable.com/img/gallery/12-best-canned-baked-beans-ranked/l-intro-1653336642.jpg",
     "imageAlt": "Grocery Collection",
-    "pickedUp": true,
+    "active": true,
     "items": [
       { "name": "Pasta", "quantity": 2, "type": "grocery", "unit": "kg" }
     ],

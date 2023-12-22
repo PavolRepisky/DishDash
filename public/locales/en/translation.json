@@ -372,7 +372,8 @@
   "receiver": {
     "drawer": {
       "menu": {
-        "home": "Home"
+        "home": "Home",
+        "reservationManagement": "Reservations"
       }
     },
     "home": {
@@ -402,6 +403,29 @@
       "notifications": {
         "cancelSuccess": "Reservation have been canceled!"
       }
+    },
+    "reservationManagement": {
+      "title": "Reservations",
+      "confirmations": {
+        "delete": "Are you sure you want to delete this reservation?"
+      },
+      "table": {
+        "headers": {
+          "actions": "Actions",
+          "reservation": "Reservation",
+          "createdAt": "Date",
+          "status": "Status"
+        }
+      },
+      "notifications": {
+        "deleteSuccess": "Reservation(s) have been deleted!"
+      },
+      "active": "Active",
+      "pickedUp": "Picked Up",
+      "noReservations": "No reservations yet."
+    },
+    "donationListing": {
+      "title": "Available donations"
     }
   },
   "admin": {

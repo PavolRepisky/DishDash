@@ -49,7 +49,7 @@ const Home = () => {
   };
 
   const unpickedReservationsData: any = (data || [])
-    .filter((reservation) => !reservation.pickedUp)
+    .filter((reservation) => reservation.active)
     .map((reservation) => ({
       title: reservation.title,
       description: reservation.location,

@@ -1,4 +1,7 @@
-import { Home as HomeIcon } from "@mui/icons-material";
+import {
+  Home as HomeIcon,
+  Inventory as InventoryIcon,
+} from "@mui/icons-material";
 import { Box, Toolbar } from "@mui/material";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -12,6 +15,11 @@ const menuItems = [
     icon: HomeIcon,
     key: "receiver.drawer.menu.home",
     path: "/receiver",
+  },
+  {
+    icon: InventoryIcon,
+    key: "receiver.drawer.menu.reservationManagement",
+    path: "/receiver/reservations",
   },
 ];
 

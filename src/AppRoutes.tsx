@@ -38,6 +38,10 @@ const ReceiverHome = lazy(() => import("./receiver/pages/Home"));
 const ReceiverLayout = lazy(
   () => import("./receiver/components/ReceiverLayout")
 );
+const ReservationManagement = lazy(
+  () => import("./receiver/pages/ReservationManagement")
+);
+const DonationListing = lazy(() => import("./receiver/pages/DonationListing"));
 
 const AppRoutes = () => {
   return (
@@ -71,6 +75,10 @@ const AppRoutes = () => {
         roles={["receiver"]}
       >
         <PrivateRoute path="/" element={<ReceiverHome />} />
+
+        <PrivateRoute path="reservations" element={<ReservationManagement />} />
+
+       
 
         <PrivateRoute path="profile" element={<Profile />}>
           <PrivateRoute path="/" element={<ProfileActivity />} />

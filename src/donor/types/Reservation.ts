@@ -7,7 +7,7 @@ export interface Reservation {
   from: string;
   until: string;
   additionalInfo?: string;
-  pickedUp?: boolean;
+  active?: boolean;
   items: DonationItem[];
   createdAt?: string;
   imageAlt: string;
