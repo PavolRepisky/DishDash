@@ -20,6 +20,7 @@ const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isDonationVisible, setIsDonationVisible] = useState(false);
+  const [modalId, setModalId] = useState("");
 
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.up(450));
@@ -49,7 +50,7 @@ const Home = () => {
       imageAlt: donation.imageAlt,
       imageUrl: donation.imageUrl,
       primaryActionText: t("common.view"),
-      primaryAction: () => handleOpenDonationModal(),
+      primaryAction: () => handleOpenDonationModal(donation.id),
       secondaryActionText: t("common.repeat"),
       secondaryAction: () => handleRepeatDonation(donation.id),
     }));
@@ -82,7 +83,10 @@ const Home = () => {
     actionText: t("donor.home.community.action"),
   }));
 
-  const handleOpenDonationModal = () => setIsDonationVisible(true);
+  const handleOpenDonationModal = (id: string) => { 
+    setModalId(id);
+    setIsDonationVisible(true);
+  }
   const handleCloseDonationModal = () => setIsDonationVisible(false);
 
   return (
@@ -93,9 +97,11 @@ const Home = () => {
         </AdminToolbar>
       </AdminAppBar>
 
-      <DonationModal open={isDonationVisible} handleClose={handleCloseDonationModal}>
-      </DonationModal>
-
+      <DonationModal 
+        open={isDonationVisible} 
+        handleClose={handleCloseDonationModal}
+        id={modalId} 
+      />
       <Typography component="div" variant="h1" sx={{ mb: 2 }}>
         {t("donor.home.welcome.title", { name: userInfo?.firstName })}
       </Typography>
