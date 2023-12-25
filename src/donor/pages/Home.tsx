@@ -11,12 +11,17 @@ import articles from "../../mocks/articles.json";
 import donations from "../../mocks/donations.json";
 import events from "../../mocks/events.json";
 import ArticleList from "../components/ArticleList";
+import DonationModal from "../components/DonationModal";
 import { Donation } from "../types/Donation";
+import { useState } from "react";
 
 const Home = () => {
   const { userInfo } = useAuth();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [isDonationVisible, setIsDonationVisible] = useState(false);
+  const [modalId, setModalId] = useState("");
+
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.up(450));
   const sm = useMediaQuery(theme.breakpoints.up(840));
@@ -30,7 +35,11 @@ const Home = () => {
   };
 
   const handleRepeatDonation = (donationId: string) => {
-    navigate(`/${process.env.PUBLIC_URL}/admin/donations/repeat/${donationId}`);
+    navigate(`/${process.env.PUBLIC_URL}/donor/donations/repeat/${donationId}`);
+  };
+
+  const handleEventSelect = (id: String) => { 
+    navigate(`/${process.env.PUBLIC_URL}/donor/event/${id}`);
   };
 
   const activeDonationsData = donations
@@ -41,6 +50,7 @@ const Home = () => {
       imageAlt: donation.imageAlt,
       imageUrl: donation.imageUrl,
       primaryActionText: t("common.view"),
+      primaryAction: () => handleOpenDonationModal(donation.id),
       secondaryActionText: t("common.repeat"),
       secondaryAction: () => handleRepeatDonation(donation.id),
     }));
@@ -65,12 +75,19 @@ const Home = () => {
     imageAlt: event.imageAlt,
     imageUrl: event.imageUrl,
     primaryActionText: t("donor.home.upcomingEvents.action"),
+    primaryAction: () => handleEventSelect(event.id)
   }));
 
   const articleData = articles.map((article) => ({
     ...article,
     actionText: t("donor.home.community.action"),
   }));
+
+  const handleOpenDonationModal = (id: string) => { 
+    setModalId(id);
+    setIsDonationVisible(true);
+  }
+  const handleCloseDonationModal = () => setIsDonationVisible(false);
 
   return (
     <>
@@ -79,6 +96,12 @@ const Home = () => {
           <RecentNotifications />
         </AdminToolbar>
       </AdminAppBar>
+
+      <DonationModal 
+        open={isDonationVisible} 
+        handleClose={handleCloseDonationModal}
+        id={modalId} 
+      />
       <Typography component="div" variant="h1" sx={{ mb: 2 }}>
         {t("donor.home.welcome.title", { name: userInfo?.firstName })}
       </Typography>
@@ -87,7 +110,7 @@ const Home = () => {
       </Typography>
       <RotatingNavButton
         buttonText={t("donor.home.welcome.cta")}
-        to={`/${process.env.PUBLIC_URL}/admin/donations/new`}
+        to={`/${process.env.PUBLIC_URL}/donor/donations/new`}
       />
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
         {t("donor.home.activeDonations.title")}

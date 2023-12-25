@@ -14,10 +14,11 @@ import {
   useTheme,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { NavLink, Link as RouterLink } from "react-router-dom";
+import { NavLink, Link as RouterLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../auth/contexts/AuthProvider";
 import { drawerCollapsedWidth, drawerWidth } from "../config/layout";
 import Logo from "./Logo";
+import { useEffect } from "react";
 
 type SidebarProps = {
   collapsed: boolean;
@@ -37,8 +38,19 @@ const Sidebar = ({
   const { userInfo } = useAuth();
   const { t } = useTranslation();
   const theme = useTheme();
+  const { pathname } = useLocation();
 
   const width = collapsed ? drawerCollapsedWidth : drawerWidth;
+
+  useEffect(() => {
+    const eventsBtn = document.getElementsByClassName("events420")[0] as HTMLElement;
+    if (pathname.includes("/donor/event")) {
+      console.log("triggered useffect");
+      eventsBtn.classList.add("Mui-selected");    
+    } else {
+      eventsBtn.classList.remove("Mui-selected");
+    }
+  })
 
   const drawer = (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
@@ -63,6 +75,7 @@ const Sidebar = ({
             button
             component={NavLink}
             key={item.path}
+            className={item.path === "/donor/event/0" ? "events420" : ""} // tuttifrutti classname hack
             activeClassName="Mui-selected"
             end={true}
             to={`/${process.env.PUBLIC_URL}${item.path}`}

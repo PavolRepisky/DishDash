@@ -14,7 +14,7 @@ function generateId() {
 }
 
 // This sets the mock adapter on the default instance
-let mock = new MockAdapter(axios, { delayResponse: 2000 });
+let mock = new MockAdapter(axios, { delayResponse: 100 });
 
 // Landing
 mock.onPost("/api/message").reply(200);

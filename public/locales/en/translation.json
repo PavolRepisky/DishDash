@@ -220,7 +220,8 @@
         "help": "Help",
         "home": "Home",
         "settings": "Settings",
-        "donationManagement": "Donations"
+        "donationManagement": "Donations",
+        "events": "Events"
       }
     },
     "home": {
@@ -682,5 +683,10 @@
       },
       "title": "Settings"
     }
+  },
+  "events": {
+    "location": "Location",
+    "date": "Date",
+    "website": "Website"
   }
 }

@@ -2,6 +2,7 @@ import {
   HelpCenter as HelpCenterIcon,
   Home as HomeIcon,
   VolunteerActivism as VolunteerActivismIcon,
+  Event as EventIcon
 } from "@mui/icons-material";
 import { Box, Toolbar } from "@mui/material";
 import { useState } from "react";
@@ -21,12 +22,17 @@ const menuItems = [
     icon: VolunteerActivismIcon,
     key: "donor.drawer.menu.donationManagement",
     path: "/donor/donations",
+  },  
+  {
+    icon: EventIcon,
+    key: "donor.drawer.menu.events",
+    path: "/donor/event/0",
   },
   {
     icon: HelpCenterIcon,
     key: "donor.drawer.menu.help",
     path: "/donor/help",
-  },
+  }
 ];
 
 const DonorLayout = () => {

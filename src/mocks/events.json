@@ -3,15 +3,39 @@
     "id": "1",
     "title": "Harvest Festival Food Drive",
     "location": "Bratislava Town Square",
-    "description": "Celebrate the season of giving at our Harvest Festival Food Drive. Bring non-perishable food items to donate, enjoy live music, and participate in fun activities for the whole family.",
+    "date": "2024-01-10T08:00:00Z",
+    "webpage": "https://www.google.com",
+    "description": "Are you looking for a fun and meaningful way to celebrate the season of giving? Do you want to support your local community and help those in need? If so, join us at our Harvest Festival Food Drive, where you can bring non-perishable food items to donate, enjoy live music, and participate in fun activities for the whole family. Our Harvest Festival Food Drive is a great opportunity to show your gratitude and generosity during this festive time of year. By donating food items, you will help us provide nutritious meals and essentials to families who are struggling with hunger and poverty.",
     "imageUrl": "https://www.travelsouthdakota.com/sites/default/files/styles/hero_l/public/2020-02/strawbalewineryharvestfest0089opt.jpg?h=88dc8d8e&itok=CW7N2emm",
-    "imageAlt": "Harvest Festival Food Drive"
+    "imageAlt": "Harvest Festival Food Drive",
+    "data": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed laudantium blanditiis quis aliquid quisquam dolorum autem praesentium? Similique mollitia sit cum quod earum numquam ad harum, inventore aspernatur blanditiis omnis ratione distinctio repudiandae doloremque eveniet modi, eum pariatur eligendi cupiditate laboriosam, debitis ipsa veritatis! Eaque perspiciatis praesentium magni minima illo eos veniam inventore beatae non ut obcaecati quasi eligendi accusamus ratione quidem incidunt, commodi rerum blanditiis temporibus culpa aperiam, possimus voluptate consequatur aliquid. Quisquam quas consequatur beatae sunt nostrum, cum ea, maiores id maxime aliquid laudantium distinctio ipsa aliquam eos at quia nemo laboriosam deserunt! Eaque excepturi culpa aliquam magnam!",
+        "imageUrl": "https://www.travelsouthdakota.com/sites/default/files/styles/hero_l/public/2020-02/strawbalewineryharvestfest0089opt.jpg?h=88dc8d8e&itok=CW7N2emm",
+        "imageAlt": "Harvest Festival Food Drive"
+      },
+      {
+        "heading": "Heading 2",
+        "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed laudantium blanditiis quis aliquid quisquam dolorum autem praesentium? Similique mollitia sit cum quod earum numquam ad harum, inventore aspernatur blanditiis omnis ratione distinctio repudiandae doloremque eveniet modi, eum pariatur eligendi cupiditate laboriosam, debitis ipsa veritatis! Eaque perspiciatis praesentium magni minima illo eos veniam inventore beatae non ut obcaecati quasi eligendi accusamus ratione quidem incidunt, commodi rerum blanditiis temporibus culpa aperiam, possimus voluptate consequatur aliquid. Quisquam quas consequatur beatae sunt nostrum, cum ea, maiores id maxime aliquid laudantium distinctio ipsa aliquam eos at quia nemo laboriosam deserunt! Eaque excepturi culpa aliquam magnam!",
+        "imageUrl": "https://www.travelsouthdakota.com/sites/default/files/styles/hero_l/public/2020-02/strawbalewineryharvestfest0089opt.jpg?h=88dc8d8e&itok=CW7N2emm",
+        "imageAlt": "Harvest Festival Food Drive"
+      },
+      {
+        "heading": "Heading 3",
+        "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed laudantium blanditiis quis aliquid quisquam dolorum autem praesentium? Similique mollitia sit cum quod earum numquam ad harum, inventore aspernatur blanditiis omnis ratione distinctio repudiandae doloremque eveniet modi, eum pariatur eligendi cupiditate laboriosam, debitis ipsa veritatis! Eaque perspiciatis praesentium magni minima illo eos veniam inventore beatae non ut obcaecati quasi eligendi accusamus ratione quidem incidunt, commodi rerum blanditiis temporibus culpa aperiam, possimus voluptate consequatur aliquid. Quisquam quas consequatur beatae sunt nostrum, cum ea, maiores id maxime aliquid laudantium distinctio ipsa aliquam eos at quia nemo laboriosam deserunt! Eaque excepturi culpa aliquam magnam!",
+        "imageUrl": "https://www.travelsouthdakota.com/sites/default/files/styles/hero_l/public/2020-02/strawbalewineryharvestfest0089opt.jpg?h=88dc8d8e&itok=CW7N2emm",
+        "imageAlt": "Harvest Festival Food Drive"
+      }
+    ]
   },
   {
-    "id": "3",
+    "id": "2",
     "title": "Cooking Class for a Cause",
     "location": "Bratislava Culinary Academy",
-    "description": "Join our special cooking class where you'll learn new recipes and cooking techniques. All proceeds will go towards supporting local food banks and helping those in need.",
+    "date": "2024-01-12T08:00:00Z",
+    "webpage": "https://www.google.com",
+    "description": "Cooking Class for a Cause desc: Do you love cooking and want to make a difference in your community? If so, you are invited to join our special cooking class for a cause. In this class, you will learn new recipes and cooking techniques from our experienced chefs, while having fun with other food enthusiasts. You will also get to enjoy the delicious dishes you make at the end of the class. The best part is, all the proceeds from this event will go towards supporting local food banks and helping those in need. This is a great opportunity to improve your culinary skills, meet new friends, and contribute to a noble cause. Don’t miss it! Register now and secure your spot.",
     "imageUrl": "https://www.essexresort.com/i/SITE_170315_14300405_91EOU/content/CMS_10022017_111254590_R3HK4/A07CD8A2-D44E-3AEF-DE94D1A92EE1B1B3.JPG",
     "imageAlt": "Cooking Class for a Cause"
   },
@@ -19,6 +43,7 @@
     "id": "3",
     "title": "Bratislava Food Festival for Charity",
     "location": "City Center Plaza, Bratislava",
+    "date": "2024-02-01T08:00:00Z",
     "description": "Indulge in a culinary adventure at the Bratislava Food Festival for Charity. Local restaurants and vendors will showcase their specialties, and a portion of the proceeds will go towards supporting local food banks. Join us for a day of great food and giving back to the community!",
     "imageUrl": "https://www.mainefiddleheadfestival.com/wp-content/uploads/2020/06/Food-Fest.jpg",
     "imageAlt": "Bratislava Food Festival for Charity"
