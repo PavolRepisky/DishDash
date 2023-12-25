@@ -298,6 +298,9 @@
         "submit": "Add"
       },
       "foodTypes": {
+        "all": {
+          "label": "All"
+        },
         "beverages": {
           "label": "Beverages"
         },
@@ -374,7 +377,8 @@
     "drawer": {
       "menu": {
         "home": "Home",
-        "reservationManagement": "Reservations"
+        "reservationManagement": "Reservations",
+        "donations": "Donations"
       }
     },
     "home": {
@@ -426,7 +430,32 @@
       "noReservations": "No reservations yet."
     },
     "donationListing": {
-      "title": "Available donations"
+      "title": "Available donations",
+      "search": {
+        "placeholder": "Search...",
+        "submit": "Search"
+      },
+      "filters": {
+        "title": "Filters",
+        "distance": {
+          "label": "Distance (m)"
+        },
+        "from": {
+          "label": "Available From"
+        },
+        "until": {
+          "label": "Available Until"
+        },
+        "date": {
+          "label": "Date"
+        },
+        "time": {
+          "label": "Time"
+        }
+      },
+      "categories": {
+        "grocery": "Grocery"
+      }
     }
   },
   "admin": {
@@ -459,6 +488,7 @@
     "view": "View",
     "repeat": "Repeat",
     "edit": "Edit",
+    "apply": "Apply",
     "errors": {
       "forbidden": {
         "subTitle": "You don't have access to view this page"

@@ -24,7 +24,8 @@
       },
       { "name": "Canned Peas", "quantity": 50, "type": "grocery", "unit": "pc" }
     ],
-    "createdAt": "2023-12-01T10:30:00Z"
+    "createdAt": "2023-12-01T10:30:00Z",
+    "distance": 1000
   },
   {
     "id": "2",
@@ -41,7 +42,8 @@
       { "name": "Pasta", "quantity": 2, "type": "grocery", "unit": "kg" },
       { "name": "Canned Soup", "quantity": 10, "type": "grocery", "unit": "pc" }
     ],
-    "createdAt": "2023-11-25T14:45:00Z"
+    "createdAt": "2023-11-25T14:45:00Z",
+    "distance": 5000
   },
   {
     "id": "3",
@@ -73,7 +75,8 @@
         "unit": "g"
       }
     ],
-    "createdAt": "2023-12-02T09:15:00Z"
+    "createdAt": "2023-12-02T09:15:00Z",
+    "distance": 500
   },
   {
     "id": "4",
@@ -105,9 +108,6 @@
         "unit": "kg"
       }
     ],
-    "reservations": {
-
-    },
     "createdAt": "2023-11-28T12:00:00Z"
   },
   {
@@ -140,7 +140,8 @@
         "unit": "kg"
       }
     ],
-    "createdAt": "2023-12-05T11:00:00Z"
+    "createdAt": "2023-12-05T11:00:00Z",
+    "distance": 18000
   },
   {
     "id": "6",
@@ -172,7 +173,8 @@
         "unit": "pc"
       }
     ],
-    "createdAt": "2023-11-10T14:30:00Z"
+    "createdAt": "2023-11-10T14:30:00Z",
+    "distance": 2000
   },
   {
     "id": "7",
@@ -204,7 +206,8 @@
         "unit": "g"
       }
     ],
-    "createdAt": "2023-11-15T10:00:00Z"
+    "createdAt": "2023-11-15T10:00:00Z",
+    "distance": 12555
   },
   {
     "id": "8",
@@ -236,7 +239,8 @@
         "unit": "kg"
       }
     ],
-    "createdAt": "2023-10-12T12:30:00Z"
+    "createdAt": "2023-10-12T12:30:00Z",
+    "distance": 14555
   },
   {
     "id": "9",
@@ -274,6 +278,7 @@
       },
       { "name": "Cooking Oil", "quantity": 4, "type": "grocery", "unit": "l" }
     ],
-    "createdAt": "2023-12-03T12:30:00Z"
+    "createdAt": "2023-12-03T12:30:00Z",
+    "distance": 750
   }
 ]

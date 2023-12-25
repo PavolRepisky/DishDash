@@ -20,7 +20,7 @@ import { useTranslation } from "react-i18next";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
 import RecentNotifications from "../../admin/components/RecentNotifications";
-import CardCarousel from "../../core/components/CardCarousel";
+import CardCarousel from "../components/CardCarousel";
 import events from "../../mocks/events.json";
 import React from "react";
 

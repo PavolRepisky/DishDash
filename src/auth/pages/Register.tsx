@@ -76,8 +76,6 @@ const Register = () => {
 
   const handleRegister = async (values: FormData) => {
     try {
-      console.log(values);
-
       await register(values as UserInfo);
       snackbar.success(t("auth.register.notifications.success"));
       navigate(`/${process.env.PUBLIC_URL}/login`);
