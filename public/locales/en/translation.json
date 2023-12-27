@@ -247,7 +247,8 @@
       },
       "community": {
         "title": "Community",
-        "action": "Read more"
+        "action": "Read more",
+        "actionAlt": "Read less"
       }
     },
     "editDonation": {

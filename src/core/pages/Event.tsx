@@ -22,7 +22,7 @@ import AdminToolbar from "../../admin/components/AdminToolbar";
 import RecentNotifications from "../../admin/components/RecentNotifications";
 import CardCarousel from "../components/CardCarousel";
 import events from "../../mocks/events.json";
-import React from "react";
+import React, { useEffect } from "react";
 
 
 const Event = () => {
@@ -33,9 +33,6 @@ const Event = () => {
 
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.down(450));
-  const sm = useMediaQuery(theme.breakpoints.up(840));
-  const md = useMediaQuery(theme.breakpoints.up(1100));
-  const l = useMediaQuery(theme.breakpoints.up(1300));
 
   const upcomingEventId = events.reduce((prev, curr) => 
     Math.abs(Date.parse(curr.date) - Date.now()) < Math.abs(Date.parse(prev.date) - Date.now()) ? curr : prev
@@ -67,6 +64,10 @@ const Event = () => {
       i18n.language
     )}`;
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

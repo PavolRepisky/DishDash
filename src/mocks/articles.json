@@ -4,49 +4,99 @@
     "title": "How to Make a Difference: The Art of Food Donation",
     "text": "Donating food is a wonderful way to contribute to your community and help those in need. The process is simple and can make a significant impact on the lives of individuals facing food insecurity. Start by gathering non-perishable items from your pantry, such as canned goods, rice, pasta, and other staples. Consider organizing a neighborhood food drive to collect donations from your community. Remember, even small contributions can add up to make a big difference.",
     "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/teamwork-in-homeless-shelter-royalty-free-image-1608327313.?crop=0.670xw:1.00xh;0.255xw,0&resize=1200:*",
-    "imageAlt": "Donate Food Image"
+    "imageAlt": "Donate Food Image",
+    "extras": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      },
+      {
+        "heading": "Heading 2",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      },
+      {
+        "heading": "Heading 3",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      }
+    ]
   },
   {
     "id": "2",
     "title": "Cooking for a Cause: How Your Culinary Skills Can Help Others",
     "text": "Explore the intersection of passion for cooking and community service by joining cooking classes for a cause. These workshops not only teach you new culinary skills but also provide an opportunity to give back to the community. Learn to create delicious meals while supporting local food banks and charities. It's a win-win for both food enthusiasts and those in need.",
     "imageUrl": "https://domf5oio6qrcr.cloudfront.net/medialibrary/11537/4a78f148-d427-4209-8173-f33d04c44106.jpg",
-    "imageAlt": "Child and dad cooking"
+    "imageAlt": "Child and dad cooking",
+    "extras": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      }
+    ]
   },
   {
     "id": "3",
     "title": "The Power of Community: Hosting Your Own Food Drive",
     "text": "Discover the impact you can make by organizing a food drive in your community. Hosting a food drive is a fantastic way to engage your neighbors and collect essential items for those facing food insecurity. Spread the word through social media, local community centers, and schools to encourage widespread participation. Your efforts, no matter how small, contribute to building a stronger and more supportive community.",
     "imageUrl": "https://www.edmonton.ca/sites/default/files/public-files/documents/NeighbourDayPhoto4.jpg",
-    "imageAlt": "Community meeting"
+    "imageAlt": "Community meeting",
+    "extras": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      }
+    ]
   },
   {
     "id": "4",
     "title": "Sustainable Eating: Reducing Food Waste and Supporting Others",
     "text": "Explore the concept of sustainable eating and its positive impact on both the environment and community. Learn practical tips for minimizing food waste in your household while also supporting local food banks. From meal planning to mindful grocery shopping, discover how small changes in your habits can contribute to a more sustainable and compassionate food culture.",
     "imageUrl": "https://www.colorado.edu/ecenter/sites/default/files/styles/large/public/callout/screen_shot_2022-02-16_at_3.02.13_pm.png?itok=xORAX6xT",
-    "imageAlt": "Food waste"
+    "imageAlt": "Food waste",
+    "extras": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      }
+    ]
   },
   {
     "id": "5",
     "title": "Volunteer Opportunities",
     "text": "Get involved in your community by exploring volunteer opportunities related to food donation and hunger relief. Many organizations rely on the support of volunteers to carry out their mission. Whether you have a few hours to spare each week or can participate in special events, your time and effort can make a meaningful difference. Connect with local charities, food banks, and community centers to find volunteer opportunities that align with your interests and schedule.",
     "imageUrl": "https://www.nami.org/NAMI/media/NAMI-Media/BlogImageArchive/2022/volunteer_Blog.png",
-    "imageAlt": "Volunteer Opportunities Image"
+    "imageAlt": "Volunteer Opportunities Image",
+    "extras": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      }
+    ]
   },
   {
     "id": "6",
     "title": "Understanding Food Labels",
     "text": "Navigate food labels and make informed choices when shopping for groceries. Learn about common terms and symbols on food packaging, including nutritional information, expiration dates, and certifications. Understanding food labels can help you make healthier choices for yourself and your family. Stay informed about the impact of your food choices on your health and the environment by reading and interpreting food labels accurately.",
     "imageUrl": "https://www.cdc.gov/diabetes/images/managing/food-labels-SM.jpg?_=10714",
-    "imageAlt": "Food labels detial"
+    "imageAlt": "Food labels detial",
+    "extras": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      }
+    ]
   },
   {
     "id": "7",
     "title": "Reducing Food Waste",
     "text": "Discover practical tips for reducing food waste at home and in your community. Explore strategies for proper meal planning, smart shopping, and creative ways to use leftovers. By minimizing food waste, you not only save money but also contribute to environmental sustainability. Learn about the global impact of food waste and how small changes in your habits can make a big difference in preserving resources and minimizing landfill contributions.",
     "imageUrl": "https://fruitguys.com/wp-content/uploads/2019/03/2017-10-WORKLIFE-compost-recycling-food-waste-vector-illo-123rf-60048552-EDIT-MAIN-1024x768.png",
-    "imageAlt": "Reducing Food Waste Image"
+    "imageAlt": "Reducing Food Waste Image",
+    "extras": [
+      {
+        "heading": "Heading 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+      }
+    ]
   },
   {
     "id": "8",
