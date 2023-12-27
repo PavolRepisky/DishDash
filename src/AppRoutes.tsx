@@ -83,6 +83,7 @@ const AppRoutes = () => {
 
         <PrivateRoute path="reservations" element={<ReservationManagement />} />
         <PrivateRoute path="donations" element={<DonationListing />} />
+        <PrivateRoute path="event/:id" element={<Event />} />
 
         <PrivateRoute path="profile" element={<Profile />}>
           <PrivateRoute path="/" element={<ProfileActivity />} />

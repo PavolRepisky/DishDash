@@ -2,6 +2,7 @@ import {
   Home as HomeIcon,
   Inventory as InventoryIcon,
   VolunteerActivism as VolunteerActivismIcon,
+  Event as EventIcon
 } from "@mui/icons-material";
 import { Box, Toolbar } from "@mui/material";
 import { useState } from "react";
@@ -26,6 +27,11 @@ const menuItems = [
     icon: VolunteerActivismIcon,
     key: "receiver.drawer.menu.donations",
     path: "/receiver/donations",
+  },
+  {
+    icon: EventIcon,
+    key: "donor.drawer.menu.events",
+    path: "/receiver/event/0",
   }
 ];
 

@@ -15,7 +15,7 @@ import {
 
 } from "@mui/icons-material";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
@@ -30,6 +30,7 @@ const Event = () => {
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams();
+  const { pathname } = useLocation()
 
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.down(450));
@@ -41,7 +42,12 @@ const Event = () => {
   const eventId = (id === "0") ? upcomingEventId : id
 
   const handleEventSelect = (id: String) => {
-    navigate(`/${process.env.PUBLIC_URL}/donor/event/${id}`);
+    if (pathname.includes("donor")) {
+      navigate(`/${process.env.PUBLIC_URL}/donor/event/${id}`);
+    } else if (pathname.includes("receiver")) {
+      navigate(`/${process.env.PUBLIC_URL}/receiver/event/${id}`);
+    }
+
   }
 
   const eventData = events

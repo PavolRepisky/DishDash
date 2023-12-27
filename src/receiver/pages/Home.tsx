@@ -11,13 +11,16 @@ import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import ArticleList from "../../donor/components/ArticleList";
 import articles from "../../mocks/articles.json";
 import events from "../../mocks/events.json";
+import DonationModal from "../../donor/components/DonationModal";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
+import { useNavigate } from "react-router";
 
 const Home = () => {
   const { userInfo } = useAuth();
   const snackbar = useSnackbar();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [openConfirmCancelDialog, setOpenConfirmCancelDialog] = useState(false);
   const [reservationCanceled, setReservationCanceled] = useState<string[]>([]);
   const theme = useTheme();
@@ -27,6 +30,9 @@ const Home = () => {
   const l = useMediaQuery(theme.breakpoints.up(1300));
   const { deleteReservations, isDeleting } = useDeleteReservations();
   const { data } = useReservations();
+
+  const [isDonationVisible, setIsDonationVisible] = useState(false);
+  const [modalId, setModalId] = useState("");
 
   const handleCloseConfirmCancelDialog = () => {
     setOpenConfirmCancelDialog(false);
@@ -48,6 +54,11 @@ const Home = () => {
     }
   };
 
+  const handleEventSelect = (id: String) => { 
+    navigate(`/${process.env.PUBLIC_URL}/receiver/event/${id}`);
+  };
+
+
   const unpickedReservationsData: any = (data || [])
     .filter((reservation) => reservation.active)
     .map((reservation) => ({
@@ -56,6 +67,7 @@ const Home = () => {
       imageAlt: reservation.imageAlt,
       imageUrl: reservation.imageUrl,
       primaryActionText: t("common.view"),
+      primaryAction: () => handleOpenDonationModal(reservation.id),
       secondaryActionText: t("common.cancel"),
       secondaryAction: () => handleOpenConfirmCancelDialog(reservation.id),
     }));
@@ -65,7 +77,8 @@ const Home = () => {
     description: event.location,
     imageAlt: event.imageAlt,
     imageUrl: event.imageUrl,
-    primaryActionText: t("donor.home.upcomingEvents.action")
+    primaryActionText: t("donor.home.upcomingEvents.action"),
+    primaryAction: () => handleEventSelect(event.id)
   }));
 
   const articleData = articles.map((article) => ({
@@ -74,11 +87,24 @@ const Home = () => {
     actionTextAlt: t("donor.home.community.actionAlt")
   }));
 
+  const handleOpenDonationModal = (id: string) => { 
+    setModalId(id);
+    setIsDonationVisible(true);
+  }
+  const handleCloseDonationModal = () => setIsDonationVisible(false);
+
+
   return (
     <>
       <AdminAppBar>
         <AdminToolbar></AdminToolbar>
       </AdminAppBar>
+
+      <DonationModal 
+        open={isDonationVisible} 
+        handleClose={handleCloseDonationModal}
+        id={modalId} 
+      />
 
       <Typography component="div" variant="h1" sx={{ mb: 2 }}>
         {t("receiver.home.welcome.title", { name: userInfo?.firstName })}

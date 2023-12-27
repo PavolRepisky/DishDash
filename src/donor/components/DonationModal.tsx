@@ -54,9 +54,6 @@ const DonationModal = (props: DonationModalProps) => {
   const { data } = useDonations();
   const donation = data?.find((donation) => donation.id === id);
 
-  const editMode = window.location.href.includes("/edit/");
-  const repeatMode = window.location.href.includes("/repeat/");
-
   const formatDate = (dateData: string) => {
     const date = new Date(dateData);
     return `${date.toLocaleDateString(i18n.language)} ${date.toLocaleTimeString(
@@ -75,8 +72,6 @@ const DonationModal = (props: DonationModalProps) => {
     if (donation) {
       setItems(donation.items);
       console.log(items);
-    } else if (editMode || repeatMode) {
-      navigate(`/${process.env.PUBLIC_URL}/404`);
     }
   }, [donation]);
 
