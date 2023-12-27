@@ -457,6 +457,50 @@
       "categories": {
         "grocery": "Grocery"
       }
+    },
+    "editReservation": {
+      "title": "Edit reservation",
+      "submit": "Update",
+      "notifications": {
+        "updateSuccess": "{{reservation}} has been updated!"
+      },
+      "details": {
+        "title": "Reservation details",
+        "form": {
+          "title": {
+            "label": "Title"
+          },
+          "location": {
+            "label": "Pick-up Location"
+          },
+          "from": {
+            "label": "Available From"
+          },
+          "until": {
+            "label": "Available Until"
+          },
+          "date": {
+            "label": "Date"
+          },
+          "time": {
+            "label": "Time"
+          },
+          "additionalInfo": {
+            "label": "Additional Information"
+          }
+        }
+      },
+      "items": {
+        "title": "Items"
+      }
+    },
+    "createReservation": {
+      "title": "Create reservation",
+      "submit": "Create",
+      "notifications": {
+        "createSuccess": "{{reservation}} has been created!",
+        "updateSuccess": "{{reservation}} has been updated!"
+      }
     }
   },
   "admin": {
