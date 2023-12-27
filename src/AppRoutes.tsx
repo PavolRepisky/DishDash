@@ -45,9 +45,6 @@ const ReservationManagement = lazy(
 const DonationListing = lazy(() => import("./receiver/pages/DonationListing"));
 
 
-// Events
-const Event = lazy(() => import("./events/pages/Event"));
-
 // Routes
 
 const AppRoutes = () => {

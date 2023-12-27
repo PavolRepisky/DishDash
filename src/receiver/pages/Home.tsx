@@ -65,12 +65,13 @@ const Home = () => {
     description: event.location,
     imageAlt: event.imageAlt,
     imageUrl: event.imageUrl,
-    primaryActionText: t("donor.home.upcomingEvents.action"),
+    primaryActionText: t("donor.home.upcomingEvents.action")
   }));
 
   const articleData = articles.map((article) => ({
     ...article,
     actionText: t("donor.home.community.action"),
+    actionTextAlt: t("donor.home.community.actionAlt")
   }));
 
   return (

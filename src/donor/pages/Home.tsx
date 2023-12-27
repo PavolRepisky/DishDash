@@ -30,7 +30,7 @@ const Home = () => {
 
   const compareDonations = (donation1: Donation, donation2: Donation) => {
     const date1 = new Date(donation1.createdAt ?? "").getDate();
-    const date2 = new Date(donation2.createdAt ?? "");
+    const date2 = new Date(donation2.createdAt ?? "").getDate();
     return Number(date1) - Number(date2);
   };
 
