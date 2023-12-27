@@ -65,6 +65,7 @@ const Home = () => {
       imageAlt: donation.imageAlt,
       imageUrl: donation.imageUrl,
       primaryActionText: t("common.view"),
+      primaryAction: () => handleOpenDonationModal(donation.id),
       secondaryActionText: t("common.repeat"),
       secondaryAction: () => handleRepeatDonation(donation.id),
     }));
@@ -81,7 +82,10 @@ const Home = () => {
   const articleData = articles.map((article) => ({
     ...article,
     actionText: t("donor.home.community.action"),
+    actionTextAlt: t("donor.home.community.actionAlt")
   }));
+
+  console.log(articleData);
 
   const handleOpenDonationModal = (id: string) => { 
     setModalId(id);

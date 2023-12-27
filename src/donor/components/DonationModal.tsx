@@ -181,7 +181,7 @@ const DonationModal = (props: DonationModalProps) => {
                 <ListItem
                   sx={{
                     borderRadius: 16,
-                    border: `1px solid`,
+                    border: "1px solid",
                     borderColor: "grey.200",
                     py: 0,
                     mb: 1,

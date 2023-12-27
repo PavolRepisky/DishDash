@@ -1,7 +1,6 @@
 import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./core/components/PrivateRoute";
-import Event from "./events/pages/Event";
 
 // Auth
 const Login = lazy(() => import("./auth/pages/Login"));
@@ -39,6 +38,12 @@ const ReceiverHome = lazy(() => import("./receiver/pages/Home"));
 const ReceiverLayout = lazy(
   () => import("./receiver/components/ReceiverLayout")
 );
+
+
+// Events
+const Event = lazy(() => import("./events/pages/Event"));
+
+// Routes
 
 const AppRoutes = () => {
   return (
