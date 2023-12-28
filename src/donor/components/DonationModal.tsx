@@ -1,6 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
-import { Donation } from "../types/Donation";
 import { useState, useEffect } from "react";
 import {
   Coffee as CoffeeIcon,
@@ -22,7 +20,6 @@ import {
   Fade,
   Backdrop
 } from "@mui/material";
-import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import { useDonations } from "../hooks/useDonations";
 import { DonationItem } from "../types/DonationItem";
 
@@ -50,7 +47,6 @@ const DonationModal = (props: DonationModalProps) => {
   const { t, i18n } = useTranslation();
   const [items, setItems] = useState<DonationItem[]>([]);
   const theme = useTheme();
-  const navigate = useNavigate();
   const { data } = useDonations();
   const donation = data?.find((donation) => donation.id === id);
 
@@ -68,10 +64,8 @@ const DonationModal = (props: DonationModalProps) => {
   }
 
   useEffect(() => {
-    console.log(id);
     if (donation) {
       setItems(donation.items);
-      console.log(items);
     }
   }, [donation]);
 

@@ -39,6 +39,7 @@ import { useDonations } from "../hooks/useDonations";
 import { useUpdateDonation } from "../hooks/useUpdateDonation";
 import { Donation } from "../types/Donation";
 import { DonationItem } from "../types/DonationItem";
+import ImagePicker from "../components/ImagePicker";
 
 const foodTypes = [
   {
@@ -94,6 +95,7 @@ const EditDonation = () => {
   const { id } = useParams();
   const { t } = useTranslation();
   const [items, setItems] = useState<DonationItem[]>([]);
+  const [imgItems, setImgItems] = useState<string[]>([]);
   const [isAdding, setIsAdding] = useState(false);
   const [itemsStatus, setItemsStatus] = useState("");
   const { createDonation, isCreating } = useCreateDonation();
@@ -588,7 +590,12 @@ const EditDonation = () => {
             ))}
           </List>
         </Grid>
+
+        <Grid item xs={12}>
+          <ImagePicker items={imgItems} setItems={setImgItems} />
+        </Grid>
       </Grid>
+
     </>
   );
 };

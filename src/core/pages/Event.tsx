@@ -8,7 +8,6 @@ import {
   Stack
 } from "@mui/material";
 import {
-  Home as HomeIcon,
   CalendarMonth as CalendarMonthIcon,
   Place as PlaceIcon,
   Web as WebIcon
