@@ -70,7 +70,7 @@ const ImagePicker = ({items, setItems}: ImagePickerProps) => {
             <Card sx={{height: "100%", position: "relative", p: 0, boxShadow: 2}}>
               <CardMedia 
                 component="img"
-                height="132"
+                height="134"
                 image={x}
                 sx={{
                   overflow: "hidden",

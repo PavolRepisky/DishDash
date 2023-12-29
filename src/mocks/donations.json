@@ -24,6 +24,9 @@
       },
       { "name": "Canned Peas", "quantity": 50, "type": "grocery", "unit": "pc" }
     ],
+    "images": [
+      "https://plantbasedjuniors.com/wp-content/uploads/2021/01/Canned-plant-based-foods1-scaled.jpg"
+    ],
     "createdAt": "2023-12-01T10:30:00Z",
     "distance": 1000
   },
@@ -41,6 +44,9 @@
       { "name": "Rice", "quantity": 3, "type": "grocery", "unit": "kg" },
       { "name": "Pasta", "quantity": 2, "type": "grocery", "unit": "kg" },
       { "name": "Canned Soup", "quantity": 10, "type": "grocery", "unit": "pc" }
+    ],
+    "images": [
+      "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FLifestyle%2F2021-07-MEGALIST-Brilliant-Ways-To-Reuse-Plastic-Grocery-Bags%20%2Fkitchn-2021-plastic-grocery-bags-1"
     ],
     "createdAt": "2023-11-25T14:45:00Z",
     "distance": 5000
@@ -74,6 +80,9 @@
         "type": "preparedFood",
         "unit": "g"
       }
+    ],    
+    "images": [
+      "https://i.cbc.ca/1.4560064.1698961615!/fileImage/httpImage/image.jpg_gen/derivatives/original_780/root-vegetable-stew.jpg"
     ],
     "createdAt": "2023-12-02T09:15:00Z",
     "distance": 500
@@ -108,6 +117,9 @@
         "unit": "kg"
       }
     ],
+    "images": [
+      "https://cdn.statefoodsafety.com/blog/2017/09/Is_Fresh_Produce_Safe_to_Eat_Small-compressor.jpeg"
+    ],
     "createdAt": "2023-11-28T12:00:00Z"
   },
   {
@@ -139,6 +151,9 @@
         "type": "petFood",
         "unit": "kg"
       }
+    ],
+    "images": [
+      "https://ga-petfoodpartners.co.uk/content/uploads/2021/11/Pet-Food-Trends-Main-Banner.png"
     ],
     "createdAt": "2023-12-05T11:00:00Z",
     "distance": 18000
@@ -173,6 +188,9 @@
         "unit": "pc"
       }
     ],
+    "images": [
+      "https://miro.medium.com/v2/resize:fit:1004/0*j0IVk3RVnZ6tz3iS.jpg"
+    ],
     "createdAt": "2023-11-10T14:30:00Z",
     "distance": 2000
   },
@@ -205,6 +223,9 @@
         "type": "preparedFood",
         "unit": "g"
       }
+    ],
+    "images": [
+      "https://hometaste.my/wp-content/uploads/2020/12/istock-588595864-1199x800.jpg"
     ],
     "createdAt": "2023-11-15T10:00:00Z",
     "distance": 12555
@@ -239,6 +260,9 @@
         "unit": "kg"
       }
     ],
+    "images": [
+      "https://www.instacart.com/company/wp-content/uploads/2022/12/strawberry-season-hero.jpg"
+    ],
     "createdAt": "2023-10-12T12:30:00Z",
     "distance": 14555
   },
@@ -255,6 +279,9 @@
     "items": [
       { "name": "Dog Treats", "quantity": 4, "type": "petFood", "unit": "kg" },
       { "name": "Bird Seed", "quantity": 1, "type": "petFood", "unit": "kg" }
+    ],
+    "images": [
+      "https://www.allrecipes.com/thmb/62wdNuSvQguM7MqxsUXN6Zr_sfo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/133123-Peanut-Butter-and-Pumpkin-Dog-Treats-mfs-018-0ba2166a6f1a4f56840f08d2cc8948c2.jpg"
     ],
     "createdAt": "2023-12-07T15:45:00Z"
   },
@@ -277,6 +304,9 @@
         "unit": "pc"
       },
       { "name": "Cooking Oil", "quantity": 4, "type": "grocery", "unit": "l" }
+    ],
+    "images": [
+      "https://www.tastingtable.com/img/gallery/12-best-canned-baked-beans-ranked/l-intro-1653336642.jpg"
     ],
     "createdAt": "2023-12-03T12:30:00Z",
     "distance": 750
