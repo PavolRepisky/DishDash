@@ -112,6 +112,11 @@ const EditDonation = () => {
   useEffect(() => {
     if (donation) {
       setItems(donation.items);
+      
+      if (donation.images) {
+        setImgItems(donation.images);
+      }
+
     } else if (editMode || repeatMode) {
       navigate(`/${process.env.PUBLIC_URL}/404`);
     }
@@ -187,7 +192,7 @@ const EditDonation = () => {
 
   const handleAddDonation = async (infoData: InfoFormData) => {
     try {
-      const donationData = { ...infoData, items };
+      const donationData = { ...infoData, items, images: imgItems };
       await createDonation(donationData as Donation);
       snackbar.success(
         t("donor.createDonation.notifications.createSuccess", {
@@ -202,7 +207,7 @@ const EditDonation = () => {
 
   const handleUpdateDonation = async (infoData: InfoFormData) => {
     try {
-      const donationData = { ...infoData, items };
+      const donationData = { ...infoData, items, images: imgItems };
       await updateDonation({ ...donationData, id });
       snackbar.success(
         t("donor.editDonation.notifications.updateSuccess", {

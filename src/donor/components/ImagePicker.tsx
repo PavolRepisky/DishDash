@@ -18,15 +18,16 @@ const ImagePicker = ({items, setItems}: ImagePickerProps) => {
       return;
     }
 
-    setItems((prevItems) => {
-      console.log(newItem);
-      return [...prevItems, URL.createObjectURL(newItem)];
-    })
+    const reader = new FileReader();
+    reader.readAsDataURL(newItem);
+    reader.onloadend = () => {
+      setItems((prevItems) => {
+        return [...prevItems, reader.result as string]
+      });
+    };
   };
 
   const handleDeleteItem = (_: React.MouseEvent<HTMLButtonElement>, i: number) => {
-    console.log(`clicked ${i}`)
-    
     setItems((prevItems) => {
       return prevItems.filter((_, index) => index !== i)
     });

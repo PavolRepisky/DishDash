@@ -12,4 +12,5 @@ export interface Donation {
   createdAt?: string;
   imageUrl?: string;
   imageAlt?: string;
+  images?: string[];
 }
