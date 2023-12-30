@@ -95,10 +95,14 @@ const Event = () => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
+          background: "white",
           mb: 10,
+          py: "24px",
+          borderRadius: "25px",
+          boxSizing: "border-box"        
         }}
       >
-        <Grid container rowSpacing={3} columnSpacing={5}>
+        <Grid container columnSpacing={5}>
           <Grid item xs={12} sm={7}>
             <Typography variant="body1">{currentEvent?.description}</Typography>
           </Grid>

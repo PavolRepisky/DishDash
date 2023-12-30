@@ -58,11 +58,13 @@ const ImagePicker = ({items, setItems}: ImagePickerProps) => {
         {items.map((x, i) =>
           <Grid key={`img-${i}`} item xs={12} md={2} p={1}
             sx={{
-              "&:first-child": {
-                paddingLeft: 0
-              },
-              "&:last-child": {
-                paddingRight: 0
+              [theme.breakpoints.up("md")]: {
+                "&:first-child": {
+                  paddingLeft: 0
+                },
+                "&:last-child": {
+                  paddingRight: 0
+                }
               }
             }}
           >
@@ -103,11 +105,16 @@ const ImagePicker = ({items, setItems}: ImagePickerProps) => {
 
         { items.length < 6 && 
         <Grid item xs={12} md={2} p={1} sx={{
-          "&:first-child": {
-            paddingLeft: 0
+          [theme.breakpoints.up("md")]: {
+            "&:first-child": {
+              paddingLeft: 0
+            },
+            "&:last-child": {
+              paddingRight: 0
+            }
           },
-          "&:last-child": {
-            paddingRight: 0
+          [theme.breakpoints.down("md")]: {
+            height: "150px"
           }
         }}>
 

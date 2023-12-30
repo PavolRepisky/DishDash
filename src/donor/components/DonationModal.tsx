@@ -29,16 +29,14 @@ interface DonationModalProps {
   id: string;
 }
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "auto",
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  borderRadius: "25px",
-  p: 4,
+
+
+const itemIcons = {
+  coffee: CoffeeIcon,
+  egg: EggIcon,
+  pizza: LocalPizzaIcon,
+  pet: PetsIcon,
+  other: ShoppingBagIcon,
 };
 
 const DonationModal = (props: DonationModalProps) => {
@@ -48,6 +46,22 @@ const DonationModal = (props: DonationModalProps) => {
   const theme = useTheme();
   const { data } = useDonations();
   const donation = data?.find((donation) => donation.id === id);
+
+  const style = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "auto",
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    borderRadius: "25px",
+    p: 4,
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+      overflow: "scroll"
+    }
+  };
 
   const formatDate = (dateData: string) => {
     const date = new Date(dateData);
