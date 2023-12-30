@@ -1,12 +1,11 @@
 import {
+  Inventory as InventoryIcon,
   Notifications as NotificationsIcon,
-  Person as PersonIcon,
 } from "@mui/icons-material";
 import {
   Avatar,
   Badge,
   Box,
-  Button,
   IconButton,
   List,
   ListItem,
@@ -18,12 +17,12 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useMemo, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
-import Empty from "../../core/components/Empty";
-import Loader from "../../core/components/Loader";
-import Result from "../../core/components/Result";
-import { useDateLocale } from "../../core/hooks/useDateLocale";
-import { notificationKeys } from "../config/notification";
-import { useNotifications } from "../hooks/useNotifications";
+import { notificationKeys } from "../../admin/config/notification";
+import { useNotifications } from "../../donor/hooks/useNotifications";
+import { useDateLocale } from "../hooks/useDateLocale";
+import Empty from "./Empty";
+import Loader from "./Loader";
+import Result from "./Result";
 
 const RecentNotifications = () => {
   const locale = useDateLocale();
@@ -52,10 +51,10 @@ const RecentNotifications = () => {
     <Box>
       <IconButton
         id="notifications-button"
-        aria-controls="notifications-popover"
+        aria-controls={t("common.header.notifications.ariaControls")}
         aria-haspopup="true"
         aria-expanded={open ? "true" : "false"}
-        aria-label="show recent notifications"
+        aria-label={t("common.header.notifications.ariaLabel")}
         color="inherit"
         onClick={handleClick}
       >
@@ -81,8 +80,8 @@ const RecentNotifications = () => {
           {!isLoading && !isError && data && data.length > 0 && (
             <List
               component="nav"
-              aria-label="notifications popover"
-              sx={{ px: 2 }}
+              aria-label={t("common.header.notifications.ariaControls")}
+              sx={{ p: 2 }}
             >
               {data.map((notification) => (
                 <ListItem
@@ -93,7 +92,7 @@ const RecentNotifications = () => {
                 >
                   <ListItemAvatar>
                     <Avatar>
-                      <PersonIcon />
+                      <InventoryIcon />
                     </Avatar>
                   </ListItemAvatar>
                   <ListItemText
@@ -115,7 +114,7 @@ const RecentNotifications = () => {
             </List>
           )}
           {!isLoading && !isError && (!data || data.length === 0) && (
-            <Empty title={t("admin.header.notifications.empty.title")} />
+            <Empty title={t("common.header.notifications.empty.title")} />
           )}
           {isError && (
             <Result
@@ -125,16 +124,6 @@ const RecentNotifications = () => {
             />
           )}
           {isLoading && <Loader />}
-          <Box sx={{ px: 2, pb: 2 }}>
-            <Button
-              color="secondary"
-              fullWidth
-              sx={{ bgcolor: "background.default" }}
-              variant="contained"
-            >
-              {t("admin.header.notifications.seeAll")}
-            </Button>
-          </Box>
         </Box>
       </Popover>
     </Box>

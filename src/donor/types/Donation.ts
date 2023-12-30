@@ -6,8 +6,9 @@ export interface Donation {
   location: string;
   from: string;
   until: string;
+  imageUrl: string;
   additionalInfo?: string;
-  active?: boolean;
+  active: boolean;
   items: DonationItem[];
   createdAt?: string;
   imageUrl?: string;

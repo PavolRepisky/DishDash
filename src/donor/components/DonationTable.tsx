@@ -4,6 +4,7 @@ import {
   MoreVert as MoreVertIcon,
   Photo as PhotoIcon,
   Repeat as RepeatIcon,
+  Visibility as VisibilityIcon,
 } from "@mui/icons-material";
 import {
   Box,
@@ -148,7 +149,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{
-              "aria-label": "select all donations",
+              "aria-label": t("donor.donationManagement.table.selectAria"),
             }}
           />
         </TableCell>
@@ -187,6 +188,7 @@ type DonationRowProps = {
   onDelete: (donationIds: string[]) => void;
   onEdit: (donationId: string) => void;
   onRepeat: (donationId: string) => void;
+  onView: (donationId: string) => void;
   processing: boolean;
   selected: boolean;
   donation: Donation;
@@ -197,6 +199,7 @@ const DonationRow = ({
   onCheck,
   onDelete,
   onEdit,
+  onView,
   onRepeat,
   processing,
   selected,
@@ -224,6 +227,11 @@ const DonationRow = ({
   const handleEdit = () => {
     handleCloseActions();
     onEdit(donation.id);
+  };
+
+  const handleView = () => {
+    handleCloseActions();
+    onView(donation.id);
   };
 
   const handleRepeat = () => {
@@ -288,7 +296,7 @@ const DonationRow = ({
       >
         <IconButton
           id="donation-row-menu-button"
-          aria-label="donation actions"
+          aria-label={t("donor.donationManagement.table.actionsAria")}
           aria-controls="donation-row-menu"
           aria-haspopup="true"
           aria-expanded={openActions ? "true" : "false"}
@@ -311,7 +319,14 @@ const DonationRow = ({
             vertical: "top",
             horizontal: "right",
           }}
+          sx={{ p: 2 }}
         >
+          <MenuItem onClick={handleView}>
+            <ListItemIcon>
+              <VisibilityIcon />
+            </ListItemIcon>{" "}
+            {t("common.view")}
+          </MenuItem>
           <MenuItem onClick={handleEdit}>
             <ListItemIcon>
               <EditIcon />
@@ -341,6 +356,7 @@ type DonationTableProps = {
   onDelete: (donationIds: string[]) => void;
   onEdit: (donationId: string) => void;
   onRepeat: (donationId: string) => void;
+  onView: (donationId: string) => void;
   onSelectedChange: (selected: string[]) => void;
   selected: string[];
   donations?: Donation[];
@@ -349,6 +365,7 @@ type DonationTableProps = {
 const DonationTable = ({
   onDelete,
   onEdit,
+  onView,
   onRepeat,
   onSelectedChange,
   processing,
@@ -434,6 +451,7 @@ const DonationTable = ({
               <DonationRow
                 index={index}
                 key={donation.id}
+                onView={onView}
                 onCheck={handleClick}
                 onDelete={onDelete}
                 onEdit={onEdit}

@@ -135,9 +135,14 @@ const EditDonation = () => {
 
   type ItemFormData = Yup.InferType<typeof itemValidationSchema>;
 
-  const handleAddItem = (newItem: ItemFormData) => {
+  const handleAddItem = (newItemData: ItemFormData) => {
     setIsAdding(true);
-    const existingItem = items.find((item) => item.name === newItem.name);
+    const existingItem = items.find((item) => item.name === newItemData.name);
+
+    const newItem = {
+      ...newItemData,
+      reserved: 0,
+    };
 
     if (existingItem) {
       setItems((prevItems) =>
@@ -207,8 +212,8 @@ const EditDonation = () => {
 
   const handleUpdateDonation = async (infoData: InfoFormData) => {
     try {
-      const donationData = { ...infoData, items, images: imgItems };
-      await updateDonation({ ...donationData, id });
+      const donationData = { ...infoData, items };
+      await updateDonation({ ...donationData, id, active: true, imageUrl: "" });
       snackbar.success(
         t("donor.editDonation.notifications.updateSuccess", {
           donation: infoData.title,

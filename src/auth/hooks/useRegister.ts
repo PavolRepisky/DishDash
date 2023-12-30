@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
+import { addOne } from "../../core/utils/crudUtils";
 import { UserInfo } from "../types/userInfo";
 
 const register = async (userInfo: UserInfo): Promise<UserInfo> => {
@@ -8,6 +9,15 @@ const register = async (userInfo: UserInfo): Promise<UserInfo> => {
 };
 
 export function useRegister() {
-  const { isLoading, mutateAsync } = useMutation(register);
+  const queryClient = useQueryClient();
+
+  const { isLoading, mutateAsync } = useMutation(register, {
+    onSuccess: (user: UserInfo) => {
+      queryClient.setQueryData<UserInfo[]>(["users"], (oldUsers) =>
+        addOne(oldUsers, user)
+      );
+    },
+  });
+
   return { isRegistering: isLoading, register: mutateAsync };
 }

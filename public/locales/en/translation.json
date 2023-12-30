@@ -1,13 +1,73 @@
 {
+  "common": {
+    "backHome": "Back to Home",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "confirmation": "Confirmation",
+    "delete": "Delete",
+    "view": "View",
+    "repeat": "Repeat",
+    "edit": "Edit",
+    "apply": "Apply",
+    "reset": "Reset",
+    "retry": "Try Again",
+    "selected": "Selected",
+    "update": "Update",
+    "errors": {
+      "forbidden": {
+        "subTitle": "You don't have access to view this page"
+      },
+      "notFound": {
+        "subTitle": "Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL? Be sure to check your spelling.",
+        "title": "Oops!"
+      },
+      "unexpected": {
+        "subTitle": "Something went wrong! If the problem persists, contact us!",
+        "title": "Oops!"
+      },
+      "underConstructions": {
+        "subTitle": "We are actively working on this page.",
+        "title": "Under constructions!"
+      }
+    },
+    "snackbar": {
+      "error": "Error",
+      "success": "Success"
+    },
+    "validations": {
+      "email": "Invalid email address",
+      "phone": "Invalid phone number",
+      "max": "Must be {{size}} characters or less",
+      "min": "Must be {{size}} characters or more",
+      "passwordMatch": "Password does not match",
+      "required": "Required",
+      "invalid": "Invalid value"
+    },
+    "carousel": {
+      "prevPage": "Previous",
+      "nextPage": "Next"
+    },
+    "header": {
+      "settings": "Settings",
+      "notifications": {
+        "empty": {
+          "title": "Your notification list is empty"
+        },
+        "seeAll": "See all notifications",
+        "ariaControls": "Notifications popover",
+        "ariaLabel": ""
+      }
+    }
+  },
   "landing": {
     "nav": {
-      "getStarted": "Get started",
+      "signUp": "Sign up",
       "howItWorks": "How it works",
       "aboutUs": "About us",
       "contact": "Contact",
       "cta": "Sign in",
-      "settingsAria": "Settings",
-      "tabsAria": "Navigation links"
+      "settingsAria": "Settings toggle button",
+      "tabsAria": "Navigation links menu"
     },
     "hero": {
       "title": "Join Us in the Fight Against Hunger",
@@ -23,14 +83,14 @@
         "toggleAriaLabel": "Donation procedure toggle button",
         "steps": {
           "1": {
-            "title": " Register as a food donor ",
+            "title": "Sign up as a food donor",
             "description": "If you have excess food that you want to donate, you can sign up on our website as a food donor. You will need to provide some basic information, such as your name, email and phone number.",
             "imgUrl": "img/register-as-donor.jpg",
             "imgAlt": "User registering into app using laptop"
           },
           "2": {
             "title": "Create a food listing",
-            "description": "Once you are registered, you can create a new food listing on our website. You will need to provide some information about the food you want to donate and specify the location and timeframe for the food to be picked up by the food receiver.",
+            "description": "Once you are logged in, you can create a new food listing on our website. You will need to provide some information about the food you want to donate and specify the location and timeframe for the food to be picked up by the food receiver.",
             "imgUrl": "img/create-donation.jpg",
             "imgAlt": "Food image on a website opened in laptop and mobile"
           },
@@ -53,7 +113,7 @@
         "toggleAriaLabel": "Receiver steps toggle button",
         "steps": {
           "1": {
-            "title": "Register as a food recipient",
+            "title": "Sign up as a food recipient",
             "imgUrl": "img/register-as-receiver.jpg",
             "imgAlt": "User identifying as a charity worker",
             "description": "If you need food, you can sign up on our website as a food recipient. You will need to provide some basic information, such as your name, email, phone number, and address. You will also need to verify your identity and eligibility by uploading a proof of income, hardship or charity employment."
@@ -62,7 +122,7 @@
             "title": "Browse food listings",
             "imgUrl": "img/browse-food.jpg",
             "imgAlt": "Receiver browsing the available food listings on a laptop",
-            "description": "Once you are registered, you can browse the available food listings on our website. You can filter the food listings by category, distance, and availability to find the food that suits your needs and preferences. When you find a food listing that you want, you can reserve it for pick up by clicking the reserve button."
+            "description": "Once you are logged in, you can browse the available food listings on our website. You can filter the food listings by category, distance, and availability to find the food that suits your needs and preferences. When you find a food listing that you want, you can reserve it for pick up by clicking the reserve button."
           },
           "3": {
             "title": "Receive a QR code",
@@ -143,7 +203,7 @@
         },
         "role": {
           "label": "Role",
-          "aria": "Role",
+          "aria": "User role options menu",
           "options": {
             "donor": "Donor",
             "receiver": "Receiver"
@@ -161,7 +221,7 @@
     },
     "login": {
       "title": "Sign in",
-      "subTitle": "Enter your credentials to access your account or create a new one",
+      "subTitle": "Enter your credentials to access your account.",
       "form": {
         "email": {
           "label": "E-mail Address"
@@ -174,7 +234,7 @@
       "forgotPassword": "Forgot password?",
       "newAccount": {
         "question": "Don't have an account?",
-        "action": "Sign up"
+        "action": "Sign up!"
       },
       "invalidCredentials": "Incorrect e-mail address or password"
     },
@@ -235,11 +295,13 @@
       },
       "activeDonations": {
         "title": "Active donations",
-        "action": "View"
+        "action": "View",
+        "actionAlt": "Repeat"
       },
       "fulfilledDonations": {
         "title": "Fulfilled donations",
-        "action": "View"
+        "action": "View",
+        "actionAlt": "Repeat"
       },
       "upcomingEvents": {
         "title": "Upcoming Events",
@@ -250,6 +312,30 @@
         "action": "Read more",
         "actionAlt": "Read less"
       }
+    },
+    "donationManagement": {
+      "title": "Donations",
+      "confirmations": {
+        "delete": "Are you sure you want to delete this donation?"
+      },
+      "table": {
+        "headers": {
+          "actions": "Actions",
+          "donation": "Donation",
+          "createdAt": "Date",
+          "status": "Status"
+        },
+        "selectAria": "Select all donations",
+        "actionsAria": "Donations actions",
+        "actionsMenuAria": "Donations actions menu"
+      },
+      "notifications": {
+        "deleteSuccess": "Donation(s) have been deleted!"
+      },
+      "active": "Active",
+      "fulfilled": "Fulfilled",
+      "noDonations": "No donations yet.",
+      "addDonation": "Add donation"
     },
     "editDonation": {
       "title": "Edit Donation",
@@ -351,27 +437,6 @@
         "createSuccess": "{{donation}} has been created!",
         "updateSuccess": "{{donation}} has been updated!"
       }
-    },
-    "donationManagement": {
-      "title": "Donations",
-      "confirmations": {
-        "delete": "Are you sure you want to delete this donation?"
-      },
-      "table": {
-        "headers": {
-          "actions": "Actions",
-          "donation": "Donation",
-          "createdAt": "Date",
-          "status": "Status"
-        }
-      },
-      "notifications": {
-        "deleteSuccess": "Donation(s) have been deleted!"
-      },
-      "active": "Active",
-      "fulfilled": "Fulfilled",
-      "noDonations": "No donations yet.",
-      "addDonation": "Add donation"
     }
   },
   "receiver": {
@@ -457,134 +522,51 @@
       "categories": {
         "grocery": "Grocery"
       }
-    }
-  },
-  "admin": {
-    "drawer": {
-      "menu": {
-        "calendar": "Calendar",
-        "dashboard": "Dashboard",
-        "help": "Help",
-        "home": "Home",
-        "projects": "Projects",
-        "settings": "Settings",
-        "donationManagement": "Donations"
-      }
     },
-    "header": {
+    "editReservation": {
+      "title": "Edit reservation",
+      "submit": "Update",
       "notifications": {
-        "empty": {
-          "title": "Your notification list is empty"
-        },
-        "seeAll": "See all notifications"
-      }
-    }
-  },
-  "common": {
-    "backHome": "Back to Home",
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmation": "Confirmation",
-    "delete": "Delete",
-    "view": "View",
-    "repeat": "Repeat",
-    "edit": "Edit",
-    "apply": "Apply",
-    "errors": {
-      "forbidden": {
-        "subTitle": "You don't have access to view this page"
+        "updateSuccess": "{{reservation}} has been updated!"
       },
-      "notFound": {
-        "subTitle": "Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL? Be sure to check your spelling.",
-        "title": "Oops!"
+      "details": {
+        "title": "Reservation details",
+        "form": {
+          "title": {
+            "label": "Title"
+          },
+          "location": {
+            "label": "Pick-up Location"
+          },
+          "from": {
+            "label": "Available From"
+          },
+          "until": {
+            "label": "Available Until"
+          },
+          "date": {
+            "label": "Date"
+          },
+          "time": {
+            "label": "Time"
+          },
+          "additionalInfo": {
+            "label": "Additional Information"
+          }
+        }
       },
-      "unexpected": {
-        "subTitle": "Something went wrong! If the problem persists, contact us!",
-        "title": "Oops!"
-      },
-      "underConstructions": {
-        "subTitle": "We are actively working on this page.",
-        "title": "Under constructions!"
+      "items": {
+        "title": "Items"
       }
     },
-    "reset": "Reset",
-    "retry": "Try Again",
-    "selected": "Selected",
-    "snackbar": {
-      "error": "Error",
-      "success": "Success"
-    },
-    "today": "Today",
-    "update": "Update",
-    "validations": {
-      "email": "Invalid email address",
-      "phone": "Invalid phone number",
-      "max": "Must be {{size}} characters or less",
-      "min": "Must be {{size}} characters or more",
-      "passwordMatch": "Password does not match",
-      "required": "Required",
-      "invalid": "Invalid value"
-    },
-    "carousel": {
-      "prevPage": "Previous",
-      "nextPage": "Next"
+    "createReservation": {
+      "title": "Create reservation",
+      "submit": "Create",
+      "notifications": {
+        "createSuccess": "{{reservation}} has been created!",
+        "updateSuccess": "{{reservation}} has been updated!"
+      }
     }
-  },
-  "dashboard": {
-    "activity": {
-      "title": "Activity"
-    },
-    "budget": {
-      "legend": {
-        "unit": "Budget ($K)"
-      },
-      "title": "Budget"
-    },
-    "orderProgress": {
-      "title": "Orders"
-    },
-    "overview": {
-      "orders": "Orders",
-      "sales": "Sales",
-      "users": "Users",
-      "visits": "Visits"
-    },
-    "progress": {
-      "title": "Progress"
-    },
-    "salesByAge": {
-      "title": "Sales by Age"
-    },
-    "salesByCategory": {
-      "legend": {
-        "books": "Books",
-        "movies": "Movies & TV",
-        "software": "Software"
-      },
-      "title": "Sales by Category"
-    },
-    "salesHistory": {
-      "title": "Sales History",
-      "unit": "$ today"
-    },
-    "salesProgress": {
-      "title": "Sales"
-    },
-    "teams": {
-      "columns": {
-        "progress": "Progress",
-        "team": "Team",
-        "value": "Value"
-      },
-      "title": "Teams Progress"
-    },
-    "users": {
-      "title": "Recent Users"
-    },
-    "visitProgress": {
-      "title": "Visits"
-    },
-    "title": "Dashboard"
   },
   "faq": {
     "noAnswerLink": "Can't find it here? Check out our Help Center.",
@@ -594,13 +576,13 @@
       "title2": "How does the application work?",
       "answer2": "This app works as a food donation marketplace where food donors can post their available food items and food recipients can reserve them for pick up. Food donors can create a profile, add their location, upload photos and descriptions of their food items, and specify the pick up time and method. Food recipients can browse the food items in their area, filter them by category, distance, and availability, and reserve the ones they want.",
       "title3": "Who can use this app?",
-      "answer3": "This app is open to anyone who wants to donate or receive food. However, food recipients need to register and verify their identity and eligibility before they can reserve food items. Food recipients can be charities, organizations, or individuals who are facing food insecurity or hardship. Food donors can be businesses or individuals who have surplus food that is still edible and safe to consume.",
+      "answer3": "This app is open to anyone who wants to donate or receive food. However, food recipients need to sign up and verify their identity and eligibility before they can reserve food items. Food recipients can be charities, organizations, or individuals who are facing food insecurity or hardship. Food donors can be businesses or individuals who have surplus food that is still edible and safe to consume.",
       "title4": "What types of food can be donated?",
       "answer4": "You can donate any type of food that is still safe to eat and meets the food safety standards in your area. This includes cooked or uncooked food, packaged or unpackaged food, fresh or frozen food, and leftovers or surplus food. However, please note that the app does not accept food that has passed its expiration date, has been opened or partially consumed, or has signs of spoilage or contamination. You are responsible for ensuring that the food you donate is of good quality and condition.",
       "title5": "How do I donate food?",
-      "answer5": "If you have excess food that you want to donate, you can register as a food donor on the website and create a food listing. When listing the food, you will need to provide a location and timeframe for the food to be picked up. Charities or individuals can then reserve these food items for pick up and will be given a QR code which they will have to present for scanning when picking up the food - this will confirm the completion of the donation.",
+      "answer5": "If you have excess food that you want to donate, you can sing up as a food donor on the website and create a food listing. When listing the food, you will need to provide a location and timeframe for the food to be picked up. Charities or individuals can then reserve these food items for pick up and will be given a QR code which they will have to present for scanning when picking up the food - this will confirm the completion of the donation.",
       "title6": "How do I reserve food?",
-      "answer6": "To reserve a food item, you have to register as a food recipient on the app and browse the available food listings in your area. You can filter the food listings by category, distance, and availability to find the food that suits your needs and preferences. When you find a food listing that you want, you can reserve it for pick up by clicking the reserve button. You will receive a QR code that you will need to show to the food donor when you arrive to pick up the food. This will confirm the receipt of the food.",
+      "answer6": "To reserve a food item, you have to sign up as a food recipient on the app and browse the available food listings in your area. You can filter the food listings by category, distance, and availability to find the food that suits your needs and preferences. When you find a food listing that you want, you can reserve it for pick up by clicking the reserve button. You will receive a QR code that you will need to show to the food donor when you arrive to pick up the food. This will confirm the receipt of the food.",
       "title7": "What happens if I can’t pick up my reserved food?",
       "answer7": "If you are unable to pick up your reserved food for any reason, please cancel your reservation as soon as possible through the app. This will free up the food for other food recipients who may need it",
       "title8": "Is there a cost to use this application?",
@@ -618,22 +600,16 @@
     "title": "Help Center"
   },
   "notifications": {
-    "newComment": "<bold>{{user}}</bold> has written a new comment on your profile",
-    "unreadMessages": "You have <bold>{{quantity}}</bold> unread messages"
+    "newReservation": "Items were reserved from your donation: {{donation}}."
   },
   "profile": {
     "activity": {
       "empty": "Logs of your activity will show up here!",
       "logs": {
-        "eventAdded": "<bold>You</bold> created a new event: <bold>{{resource}}</bold>",
-        "eventUpdated": "<bold>You</bold> updated event: <bold>{{resource}}</bold>",
-        "userAdded": "<bold>You</bold> added a new user: <bold>{{resource}}</bold>",
-        "userDeleted": "<bold>You</bold> deleted user: <bold>{{resource}}</bold>",
-        "userUpdated": "<bold>You</bold> updated user: <bold>{{resource}}</bold>"
+        "donationAdded": "<bold>You</bold> have created a new donation: <bold>{{resource}}</bold>",
+        "donationUpdated": "<bold>You</bold> have updated the donation: <bold>{{resource}}</bold>",
+        "donationDeleted": "<bold>You</bold> have deleted donation: <bold>{{resource}}</bold>"
       }
-    },
-    "completion": {
-      "title": "Profile Completion"
     },
     "info": {
       "form": {
@@ -695,7 +671,7 @@
         "aria": "Language",
         "options": {
           "en": "English",
-          "fr": "Français"
+          "sk": "Slovak"
         }
       },
       "mode": {

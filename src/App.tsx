@@ -5,10 +5,10 @@ import AppRoutes from "./AppRoutes";
 import AuthProvider from "./auth/contexts/AuthProvider";
 import Loader from "./core/components/Loader";
 import QueryWrapper from "./core/components/QueryWrapper";
+import ScrollToHashElement from "./core/components/ScrollToHashElement";
 import SettingsProvider from "./core/contexts/SettingsProvider";
 import SnackbarProvider from "./core/contexts/SnackbarProvider";
 import usePageTracking from "./core/hooks/usePageTracking";
-import ScrollToHashElement from "./core/components/ScrollToHashElement";
 
 const queryClient = new QueryClient({
   defaultOptions: {

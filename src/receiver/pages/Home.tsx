@@ -63,8 +63,7 @@ const Home = () => {
     .filter((reservation) => reservation.active)
     .map((reservation) => ({
       title: reservation.title,
-      description: reservation.location,
-      imageAlt: reservation.imageAlt,
+      location: reservation.location,
       imageUrl: reservation.imageUrl,
       primaryActionText: t("common.view"),
       primaryAction: () => handleOpenDonationModal(reservation.id),
@@ -74,8 +73,7 @@ const Home = () => {
 
   const eventData = events.map((event) => ({
     title: event.title,
-    description: event.location,
-    imageAlt: event.imageAlt,
+    location: event.location,
     imageUrl: event.imageUrl,
     primaryActionText: t("donor.home.upcomingEvents.action"),
     primaryAction: () => handleEventSelect(event.id)

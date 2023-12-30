@@ -18,6 +18,7 @@ import {
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
+import { useAuth } from "../../auth/contexts/AuthProvider";
 import { ReactComponent as HelpSvg } from "../../core/assets/help.svg";
 import SvgContainer from "../../core/components/SvgContainer";
 import AdminAppBar from "../components/AdminAppBar";
@@ -25,6 +26,7 @@ import AdminToolbar from "../components/AdminToolbar";
 
 const HelpCenter = () => {
   const { t } = useTranslation();
+  const { userInfo } = useAuth();
 
   return (
     <React.Fragment>
@@ -71,7 +73,7 @@ const HelpCenter = () => {
           <Card>
             <CardActionArea
               component={RouterLink}
-              to={`/${process.env.PUBLIC_URL}/admin/faq`}
+              to={`/${process.env.PUBLIC_URL}/${userInfo?.role}/faq`}
             >
               <CardHeader
                 avatar={

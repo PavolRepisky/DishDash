@@ -5,7 +5,6 @@ import { Donation } from "../types/Donation";
 
 const createDonation = async (donation: Donation): Promise<Donation> => {
   const { data } = await axios.post("/api/donations", donation);
-  console.log(data);
   return data;
 };
 

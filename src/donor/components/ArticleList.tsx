@@ -7,7 +7,12 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useEffect, useRef, useState } from "react";
+
+interface Extra {
+  heading: string;
+  text: string;
+}
 
 interface Extra {
   heading: string;
@@ -35,9 +40,8 @@ const ArticleCard = ({
   actionText,
   actionTextAlt,
   currentPage,
-  extras
+  extras,
 }: ArticleCardProps) => {
-
   const cardContentRef = useRef<HTMLDivElement>(null);
   const cardActionRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -45,28 +49,30 @@ const ArticleCard = ({
 
   const handleOnClick = () => {
     setIsExpanded((prevState) => !prevState);
-  }
+  };
 
   useEffect(() => {
-    setCardHeight((cardContentRef.current?.getBoundingClientRect().height ?? 0) + (cardActionRef.current?.getBoundingClientRect().height ?? 0));
-  }, [isExpanded])
+    setCardHeight(
+      (cardContentRef.current?.getBoundingClientRect().height ?? 0) +
+        (cardActionRef.current?.getBoundingClientRect().height ?? 0)
+    );
+  }, [isExpanded]);
 
-  // collapse all on page change
   useEffect(() => {
     setIsExpanded(false);
-  }, [currentPage])
+  }, [currentPage]);
 
   return (
     <Card
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: (isExpanded) ? cardHeight : "200px",
+        height: isExpanded ? cardHeight : "200px",
         overflow: "hidden",
       }}
     >
       <Grid container spacing={3}>
-        <Grid item md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <img
             style={{
               width: "100%",
@@ -78,7 +84,7 @@ const ArticleCard = ({
             src={imageUrl}
           />
         </Grid>
-        <Grid item xs >
+        <Grid item xs={12} sm={6} md={8}>
           <CardContent
             ref={cardContentRef}
             sx={{
@@ -100,34 +106,27 @@ const ArticleCard = ({
               {text}
             </Typography>
 
-            { isExpanded && extras && extras.map((extra: Extra, i: number) => (
-              
-              <div key={`extra${i}`}>
-                <Typography
-                  variant="h5"
-                  component="div"
-                >
-                  { extra.heading }
-                </Typography>
-                <Typography 
-                  variant="body2" 
-                  color="text.secondary"
-                >
-                  { extra.text}
-                </Typography>
-              </div>
-            ))
-            }
-            
+            {isExpanded &&
+              extras &&
+              extras.map((extra: Extra, i: number) => (
+                <div key={`extra${i}`}>
+                  <Typography variant="h5" component="div">
+                    {extra.heading}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {extra.text}
+                  </Typography>
+                </div>
+              ))}
           </CardContent>
           <CardActions ref={cardActionRef} sx={{ mt: "auto" }}>
-            <Button 
+            <Button
               onClick={handleOnClick}
-              size="small" 
-              variant={ (isExpanded) ? "contained" : "outlined" } 
+              size="small"
+              variant={isExpanded ? "outlined" : "contained"}
               sx={{ py: 0, mt: "auto" }}
             >
-              {(isExpanded) ? actionTextAlt : actionText}
+              {isExpanded ? actionTextAlt : actionText}
             </Button>
           </CardActions>
         </Grid>

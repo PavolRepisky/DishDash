@@ -2,46 +2,46 @@
   {
     "id": "1",
     "actor": "You",
-    "code": "eventAdded",
-    "createdAt": 1617868226000,
+    "code": "donationAdded",
+    "createdAt": "2023-12-01T10:30:00Z",
     "params": {
-      "resource": "React Summit"
+      "resource": "Canned Vegetables"
     }
   },
   {
     "id": "2",
-    "actor": "John Smith",
-    "code": "eventUpdated",
-    "createdAt": 1617868226000,
+    "actor": "You",
+    "code": "donationUpdated",
+    "createdAt": "2023-12-01T10:50:00Z",
     "params": {
-      "resource": "React Summit"
+      "resource": "Canned Vegetables"
     }
   },
   {
     "id": "3",
-    "actor": "John Smith",
-    "code": "userDeleted",
-    "createdAt": 1617868226000,
+    "actor": "You",
+    "code": "donationAdded",
+    "createdAt": "2023-11-25T14:45:00Z",
     "params": {
-      "resource": "John Smith"
+      "resource": "Community Grocery Bag Collection"
     }
   },
   {
     "id": "4",
-    "actor": "John Smith",
-    "code": "userUpdated",
-    "createdAt": 1617868226000,
+    "actor": "You",
+    "code": "donationDeleted",
+    "createdAt": "2023-11-20T11:25:00Z",
     "params": {
-      "resource": "John Smith"
+      "resource": "Free Meals"
     }
   },
   {
     "id": "5",
-    "actor": "John Smith",
-    "code": "userAdded",
-    "createdAt": 1617868226000,
+    "actor": "You",
+    "code": "donationAdded",
+    "createdAt": "2023-11-28T12:00:00Z",
     "params": {
-      "resource": "John Smith"
+      "resource": "Fresh Produce Drive"
     }
   }
 ]

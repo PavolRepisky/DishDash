@@ -215,8 +215,7 @@ export const createThemeComponents = (theme: any) => ({
   MuiMenu: {
     styleOverrides: {
       list: {
-        paddingRight: 8,
-        paddingLeft: 8,
+        padding: 0,
       },
     },
   },

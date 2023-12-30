@@ -8,6 +8,7 @@ import {
   CardMedia,
   Grid,
   Slide,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { useRef, useState } from "react";
@@ -16,10 +17,9 @@ import { useTranslation } from "react-i18next";
 interface CardCarouselProps {
   cards: Array<{
     title: string;
-    description: string;
+    location: string;
     imageUrl: string;
-    imageAlt: string;
-    primaryActionText: string;
+    primaryActionText?: string;
     primaryAction?: () => void;
     secondaryActionText?: string;
     secondaryAction?: () => void;
@@ -47,7 +47,7 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
   };
 
   const startIndex = currentPage * cardsPerPage;
-  const endIndex = startIndex + cardsPerPage;
+  const endIndex = Math.min(startIndex + cardsPerPage, cards.length);
 
   return (
     <>
@@ -77,7 +77,11 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
       <Slide direction="left" in mountOnEnter unmountOnExit>
         <Grid container spacing={3} justifyContent="left">
           {cards.slice(startIndex, endIndex).map((card, index) => (
-            <Grid item key={index} xs={Math.round(12 / cardsPerPage)}>
+            <Grid
+              item
+              key={index}
+              xs={12 / Math.min(cardsPerPage, endIndex - startIndex)}
+            >
               <Card
                 ref={cardRef}
                 sx={{
@@ -93,6 +97,7 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
                   image={card.imageUrl}
                   alt={card.title}
                 />
+
                 <CardContent
                   sx={{
                     flexGrow: 1,
@@ -100,24 +105,38 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
                     textOverflow: "ellipsis",
                   }}
                 >
-                  <Typography
-                    variant="h5"
-                    component="div"
-                    noWrap
-                    width={"100%"}
-                    textOverflow={"ellipsis"}
-                    sx={{
-                      mb: 1,
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {card.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {card.description}
-                  </Typography>
+                  <Tooltip title={card.title}>
+                    <Typography
+                      variant="h5"
+                      component="div"
+                      noWrap
+                      width={"100%"}
+                      textOverflow={"ellipsis"}
+                      sx={{
+                        mb: 1,
+                      }}
+                    >
+                      {card.title}
+                    </Typography>
+                  </Tooltip>
+
+                  <Tooltip title={card.location}>
+                    <Typography
+                      variant="body2"
+                      component="div"
+                      noWrap
+                      width={"100%"}
+                      textOverflow={"ellipsis"}
+                      color="text.secondary"
+                      sx={{
+                        mb: 1,
+                      }}
+                    >
+                      {card.location}
+                    </Typography>
+                  </Tooltip>
                 </CardContent>
+
                 <CardActions sx={{ mt: "auto", justifyContent: "start" }}>
                   {card.secondaryAction && (
                     <Button
@@ -129,7 +148,6 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
                       {card.secondaryActionText}
                     </Button>
                   )}
-
                   <Button
                     size="small"
                     variant="contained"

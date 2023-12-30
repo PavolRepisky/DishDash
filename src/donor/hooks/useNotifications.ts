@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { Notification } from "../types/notification";
+import { Notification } from "../../admin/types/notification";
 
 const fetchNotifications = async (): Promise<Notification[]> => {
   const { data } = await axios.get("/api/notifications");

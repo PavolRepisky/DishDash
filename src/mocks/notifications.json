@@ -1,19 +1,19 @@
 [
   {
     "id": "1",
-    "code": "unreadMessages",
-    "createdAt": 1617868226000,
+    "code": "newReservation",
+    "createdAt": "2023-12-07T17:45:00Z",
     "params": {
-      "quantity": "5"
+      "donation": "Pet Supplies Collection"
     },
     "unread": true
   },
   {
     "id": "2",
-    "code": "newComment",
-    "createdAt": 1617868226000,
+    "code": "newReservation",
+    "createdAt": "2023-12-20T14:00:00Z",
     "params": {
-      "user": "John Smith"
+      "donation": "Home-Cooked Meal Donations"
     },
     "unread": false
   }

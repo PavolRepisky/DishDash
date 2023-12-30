@@ -31,7 +31,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       return true;
     }
     if (!userInfo) {
-      console.log("no user info");
       return false;
     }
     return roles.includes(userInfo.role);

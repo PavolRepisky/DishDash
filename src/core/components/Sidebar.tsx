@@ -46,7 +46,6 @@ const Sidebar = ({
   useEffect(() => {
     const eventsBtn = document.getElementsByClassName("events420")[0] as HTMLElement;
     if (pathname.includes("event")) {
-      console.log("triggered useffect");
       eventsBtn.classList.add("Mui-selected");    
     } else {
       eventsBtn.classList.remove("Mui-selected");
@@ -126,7 +125,7 @@ const Sidebar = ({
             </Avatar>
           </ListItemAvatar>
           <ListItemText
-            primary={t("admin.drawer.menu.settings")}
+            primary={t("common.header.settings")}
             sx={{
               display: collapsed ? "none" : "block",
             }}

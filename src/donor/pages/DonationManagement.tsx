@@ -8,6 +8,7 @@ import AdminToolbar from "../../admin/components/AdminToolbar";
 import ConfirmDialog from "../../core/components/ConfirmDialog";
 import SelectToolbar from "../../core/components/SelectToolbar";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
+import DonationModal from "../components/DonationModal";
 import DonationTable from "../components/DonationTable";
 import { useDeleteDonations } from "../hooks/useDeleteDonations";
 import { useDonations } from "../hooks/useDonations";
@@ -21,6 +22,8 @@ const DonationManagement = () => {
   const [donationDeleted, setDonationDeleted] = useState<string[]>([]);
   const { deleteDonations, isDeleting } = useDeleteDonations();
   const { data } = useDonations();
+  const [isDonationVisible, setIsDonationVisible] = useState(false);
+  const [modalId, setModalId] = useState("");
 
   const processing = isDeleting;
 
@@ -37,6 +40,12 @@ const DonationManagement = () => {
       snackbar.error(t("common.errors.unexpected.subTitle"));
     }
   };
+
+  const handleViewDonation = (id: string) => {
+    setModalId(id);
+    setIsDonationVisible(true);
+  };
+  const handleCloseDonationModal = () => setIsDonationVisible(false);
 
   const handleCancelSelected = () => {
     setSelected([]);
@@ -95,6 +104,7 @@ const DonationManagement = () => {
         processing={processing}
         onDelete={handleOpenConfirmDeleteDialog}
         onEdit={handleEditDonation}
+        onView={handleViewDonation}
         onRepeat={handleRepeatDonation}
         onSelectedChange={handleSelectedChange}
         selected={selected}
@@ -107,6 +117,12 @@ const DonationManagement = () => {
         onConfirm={handleDeleteDonations}
         open={openConfirmDeleteDialog}
         title={t("common.confirmation")}
+      />
+
+      <DonationModal
+        open={isDonationVisible}
+        handleClose={handleCloseDonationModal}
+        id={modalId}
       />
     </React.Fragment>
   );

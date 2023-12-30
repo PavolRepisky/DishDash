@@ -3,6 +3,7 @@ import {
   Box,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
   Grid,
   InputAdornment,
@@ -66,9 +67,10 @@ const Register = () => {
     password: Yup.string()
       .min(8, t("common.validations.min", { size: 8 }))
       .required(t("common.validations.required")),
-    role: Yup.string().matches(
-      /^(donor|receiver)$/i,
-      t("common.validations.invalid")
+    role: Yup.string().test(
+      "valid-role",
+      t("common.validations.required"),
+      (value) => value === "donor" || value === "receiver"
     ),
   });
 
@@ -91,7 +93,7 @@ const Register = () => {
       email: "",
       phone: "+421",
       password: "",
-      role: "donor",
+      role: "",
     },
     validationSchema,
     onSubmit: handleRegister,
@@ -99,7 +101,10 @@ const Register = () => {
 
   return (
     <LandingLayout>
-      <Grid container sx={{ display: "flex", alignItems: "center" }}>
+      <Grid
+        container
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
         <Grid item xs={12} md={7} alignContent="center" height="100%">
           <Box
             component="img"
@@ -156,20 +161,6 @@ const Register = () => {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label={t("auth.register.form.email.label")}
-                name="email"
-                autoComplete="email"
-                disabled={isRegistering}
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
                 id="phone"
                 InputProps={{
                   startAdornment: (
@@ -177,7 +168,15 @@ const Register = () => {
                       <Select
                         value={areaCode}
                         onChange={handleNumberChange}
-                        sx={{ "& fieldset": { border: "none" }, "& .MuiSelect-select": { paddingRight: 0, paddingLeft: 0 }}}
+                        name="countryCode"
+                        id="countryCode"
+                        sx={{
+                          "& fieldset": { border: "none" },
+                          "& .MuiSelect-select": {
+                            paddingRight: 0,
+                            paddingLeft: 0,
+                          },
+                        }}
                       >
                         {sortedcountryCodes.map((option) => (
                           <MenuItem key={option.code} value={option.dial_code}>
@@ -190,7 +189,6 @@ const Register = () => {
                 }}
                 label={t("auth.register.form.phone.label")}
                 name="phone"
-                placeholder="Phone number with country code"
                 autoComplete="tel"
                 disabled={isRegistering}
                 value={formik.values.phone.slice(areaCode.length)}
@@ -202,6 +200,20 @@ const Register = () => {
                 }}
                 error={formik.touched.phone && Boolean(formik.errors.phone)}
                 helperText={formik.touched.phone && formik.errors.phone}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label={t("auth.register.form.email.label")}
+                name="email"
+                autoComplete="email"
+                disabled={isRegistering}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
               />
               <TextField
                 margin="normal"
@@ -220,10 +232,27 @@ const Register = () => {
                 }
                 helperText={formik.touched.password && formik.errors.password}
               />
-              <FormControl component="fieldset" margin="normal">
+              <FormControl
+                component="fieldset"
+                margin="normal"
+                error={formik.touched.role && Boolean(formik.errors.role)}
+                sx={{ ml: 2 }}
+              >
                 <FormLabel component="legend">
                   {t("auth.register.form.role.label")}
                 </FormLabel>
+                <FormHelperText
+                  error={formik.touched.role && Boolean(formik.errors.role)}
+                  sx={{
+                    m: 0,
+                    display:
+                      formik.touched.role && Boolean(formik.errors.role)
+                        ? "block"
+                        : "none",
+                  }}
+                >
+                  {formik.errors.role}
+                </FormHelperText>
                 <RadioGroup
                   row
                   aria-label={t("auth.register.form.role.aria")}

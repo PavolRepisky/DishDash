@@ -13,11 +13,36 @@ function generateId() {
   return (Math.floor(Math.random() * 10000) + 1).toString();
 }
 
+function generateToken(length: number): string {
+  const characters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const charactersLength = characters.length;
+  let token = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charactersLength);
+    token += characters.charAt(randomIndex);
+  }
+
+  return token;
+}
+
 // This sets the mock adapter on the default instance
 let mock = new MockAdapter(axios, { delayResponse: 100 });
 
 // Landing
 mock.onPost("/api/message").reply(200);
+
+// Auth
+mock.onPost("/api/register").reply((config) => {
+  const data = JSON.parse(config.data);
+  const user = { ...data };
+
+  user.id = generateId();
+  user.token = generateToken(14);
+
+  return [201, user];
+});
 
 // Activity
 mock.onGet("/api/activity").reply(200, activityLogs);
@@ -51,7 +76,6 @@ mock.onPost("/api/login").reply((config) => {
   }
 });
 mock.onPost("/api/logout").reply(200);
-mock.onPost("/api/register").reply(201);
 
 // Events
 mock.onDelete("/api/events").reply(({ data }) => [200, data]);

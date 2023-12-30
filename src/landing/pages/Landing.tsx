@@ -27,7 +27,9 @@ const Landing = () => {
     event: React.MouseEvent<HTMLElement>,
     newUserRole: string
   ) => {
-    event.currentTarget.parentElement?.parentElement?.scrollIntoView({ behavior: "smooth"}); // pan how it works into view -> related to user feedback/confusion
+    event.currentTarget.parentElement?.parentElement?.scrollIntoView({
+      behavior: "smooth",
+    }); // pan how it works into view -> related to user feedback/confusion
     if (newUserRole == null) return;
     setUserRole(newUserRole);
   };
@@ -168,7 +170,7 @@ const Landing = () => {
           alignItems="stretch"
         >
           {[1, 2, 3, 4].map((step) => (
-            <Grid item xs key={step} sx={{ display: "flex" }}>
+            <Grid item xs={12} sm={6} lg key={step} sx={{ display: "flex" }}>
               <Card
                 sx={{
                   bgcolor: "background.default",
@@ -210,7 +212,7 @@ const Landing = () => {
         }}
       >
         <Typography
-          id='aboutUs'
+          id="aboutUs"
           variant="h2"
           align="center"
           color="text.primary"
@@ -284,7 +286,7 @@ const Landing = () => {
             {t("landing.getInTouch.title")}
           </Typography>
           <Typography
-            id='contact'
+            id="contact"
             variant="body1"
             align="center"
             color="text.primary"

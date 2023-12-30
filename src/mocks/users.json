@@ -45,13 +45,24 @@
   },
   {
     "id": "5",
-    "email": "tester@uniba.sk",
-    "firstName": "Tester",
-    "lastName": "Dear",
-    "role": "receiver",
+    "email": "donor@uniba.sk",
+    "firstName": "Donor",
+    "lastName": "Tester",
+    "role": "donor",
     "password": "Password123",
     "phone": "+421951589027",
     "avatar": "",
     "token": "tur73XiZc12bcj"
+  },
+  {
+    "id": "6",
+    "email": "receiver@uniba.sk",
+    "firstName": "Receiver",
+    "lastName": "Tester",
+    "role": "receiver",
+    "password": "Password123",
+    "phone": "+421782389424",
+    "avatar": "",
+    "token": "a5r637iZfgcu2y9"
   }
 ]

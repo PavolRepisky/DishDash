@@ -2,9 +2,12 @@ import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./core/components/PrivateRoute";
 
+// Landing
+const Landing = lazy(() => import("./landing/pages/Landing"));
+
 // Auth
-const Login = lazy(() => import("./auth/pages/Login"));
 const Register = lazy(() => import("./auth/pages/Register"));
+const Login = lazy(() => import("./auth/pages/Login"));
 const ForgotPassword = lazy(() => import("./auth/pages/ForgotPassword"));
 const ForgotPasswordSubmit = lazy(
   () => import("./auth/pages/ForgotPasswordSubmit")
@@ -13,9 +16,6 @@ const ForgotPasswordSubmit = lazy(
 // Core
 const Forbidden = lazy(() => import("./core/pages/Forbidden"));
 const NotFound = lazy(() => import("./core/pages/NotFound"));
-
-// Landing
-const Landing = lazy(() => import("./landing/pages/Landing"));
 
 // Donor
 const DonorLayout = lazy(() => import("./donor/components/DonorLayout"));
@@ -43,7 +43,7 @@ const ReservationManagement = lazy(
   () => import("./receiver/pages/ReservationManagement")
 );
 const DonationListing = lazy(() => import("./receiver/pages/DonationListing"));
-
+const EditReservation = lazy(() => import("./receiver/pages/EditReservation"));
 
 // Routes
 
@@ -51,16 +51,18 @@ const AppRoutes = () => {
   return (
     <Routes basename="/">
       <Route path="/" element={<Landing />} />
+      <Route path="register" element={<Register />} />
+      <Route path="login" element={<Login />} />
       <Route path="forgot-password" element={<ForgotPassword />} />
       <Route path="forgot-password-submit" element={<ForgotPasswordSubmit />} />
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
 
       <PrivateRoute path="donor" element={<DonorLayout />} roles={["donor"]}>
         <PrivateRoute path="/" element={<DonorHome />} />
-        <PrivateRoute path="faq" element={<Faq />} />
-        <PrivateRoute path="help" element={<HelpCenter />} />
-        <PrivateRoute path="event/:id" element={<Event />} />
+
+        <PrivateRoute path="donations/new" element={<EditDonation />} />
+        <PrivateRoute path="donations/edit/:id" element={<EditDonation />} />
+        <PrivateRoute path="donations/repeat/:id" element={<EditDonation />} />
+        <PrivateRoute path="donations" element={<DonationManagement />} />
 
         <PrivateRoute path="profile" element={<Profile />}>
           <PrivateRoute path="/" element={<ProfileActivity />} />
@@ -68,10 +70,9 @@ const AppRoutes = () => {
           <PrivateRoute path="password" element={<ProfilePassword />} />
         </PrivateRoute>
 
-        <PrivateRoute path="donations/new" element={<EditDonation />} />
-        <PrivateRoute path="donations/edit/:id" element={<EditDonation />} />
-        <PrivateRoute path="donations/repeat/:id" element={<EditDonation />} />
-        <PrivateRoute path="donations" element={<DonationManagement />} />
+        <PrivateRoute path="faq" element={<Faq />} />
+        <PrivateRoute path="help" element={<HelpCenter />} />
+        <PrivateRoute path="event/:id" element={<Event />} />
       </PrivateRoute>
 
       <PrivateRoute
@@ -90,6 +91,12 @@ const AppRoutes = () => {
           <PrivateRoute path="information" element={<ProfileInformation />} />
           <PrivateRoute path="password" element={<ProfilePassword />} />
         </PrivateRoute>
+
+        <PrivateRoute path="reservations/new" element={<EditReservation />} />
+        <PrivateRoute
+          path="reservations/edit/:id"
+          element={<EditReservation />}
+        />
       </PrivateRoute>
 
       <Route path="403" element={<Forbidden />} />

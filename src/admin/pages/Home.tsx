@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
 import React from "react";
+import RecentNotifications from "../../core/components/RecentNotifications";
 import AdminAppBar from "../components/AdminAppBar";
 import AdminToolbar from "../components/AdminToolbar";
-import RecentNotifications from "../components/RecentNotifications";
 import AchievementWidget from "../widgets/AchievementWidget";
 import FollowersWidget from "../widgets/FollowersWidget";
 import MeetingWidgets from "../widgets/MeetingWidgets";
