@@ -7,7 +7,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { useEffect, useRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Extra {
   heading: string;
