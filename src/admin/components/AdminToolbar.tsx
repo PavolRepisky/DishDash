@@ -1,5 +1,5 @@
 import { Menu as MenuIcon } from "@mui/icons-material";
-import { IconButton, Toolbar, Typography } from "@mui/material";
+import { IconButton, Toolbar, Typography, useTheme } from "@mui/material";
 import { useSettings } from "../../core/contexts/SettingsProvider";
 
 type AdminToolbarProps = {
@@ -9,9 +9,15 @@ type AdminToolbarProps = {
 
 const AdminToolbar = ({ children, title }: AdminToolbarProps) => {
   const { toggleDrawer } = useSettings();
+  const theme = useTheme();
 
   return (
-    <Toolbar sx={{ px: { xs: 3, sm: 6 } }}>
+    <Toolbar
+      sx={{
+        px: { xs: 3, sm: 6 },
+        background: theme.palette.background.default,
+      }}
+    >
       <IconButton
         color="inherit"
         aria-label="open drawer"

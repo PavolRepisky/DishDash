@@ -54,7 +54,7 @@ const Login = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "tester@uniba.sk",
+      email: "donor@uniba.sk",
       password: "Password123",
     },
     validationSchema,
