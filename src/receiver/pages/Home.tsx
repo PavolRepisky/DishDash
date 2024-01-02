@@ -16,6 +16,7 @@ import articles from "../../mocks/articles.json";
 import events from "../../mocks/events.json";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
+import ReservationModal from "../components/ReservationModal";
 
 const Home = () => {
   const { userInfo } = useAuth();
@@ -36,7 +37,7 @@ const Home = () => {
   const { data: allReservations } = useReservations();
   const { data: allDonations } = useDonations();
 
-  const [isDonationVisible, setIsDonationVisible] = useState(false);
+  const [isReservationVisible, setIsReservationVisible] = useState(false);
   const [modalId, setModalId] = useState("");
 
   const handleCloseConfirmCancelDialog = () => {
@@ -75,7 +76,7 @@ const Home = () => {
         location: donation?.location,
         imageUrl: donation?.imageUrl,
         primaryActionText: t("common.view"),
-        primaryAction: () => {},
+        primaryAction: () => handleOpenReservationModal(reservation.id),
         secondaryActionText: t("common.cancel"),
         secondaryAction: () => handleOpenConfirmCancelDialog(reservation.id),
       };
@@ -95,11 +96,11 @@ const Home = () => {
     actionTextAlt: t("donor.home.community.actionAlt"),
   }));
 
-  const handleOpenDonationModal = (id: string) => {
+  const handleOpenReservationModal = (id: string) => {
     setModalId(id);
-    setIsDonationVisible(true);
+    setIsReservationVisible(true);
   };
-  const handleCloseDonationModal = () => setIsDonationVisible(false);
+  const handleCloseReservationModal = () => setIsReservationVisible(false);
 
   return (
     <>
@@ -107,9 +108,9 @@ const Home = () => {
         <AdminToolbar />
       </AdminAppBar>
 
-      <DonationModal
-        open={isDonationVisible}
-        handleClose={handleCloseDonationModal}
+      <ReservationModal
+        open={isReservationVisible}
+        handleClose={handleCloseReservationModal}
         id={modalId}
       />
 
