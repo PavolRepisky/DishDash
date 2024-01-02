@@ -113,7 +113,7 @@ const Home = () => {
       </Typography>
       <RotatingNavButton
         buttonText={t("receiver.home.welcome.cta")}
-        to={`/${process.env.PUBLIC_URL}/donor/donations/new`}
+        to={`/${process.env.PUBLIC_URL}/receiver/donations`}
       />
 
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
