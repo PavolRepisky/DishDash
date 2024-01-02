@@ -11,6 +11,7 @@ import RotatingNavButton from "../../core/components/RotatingNavButton";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import ArticleList from "../../donor/components/ArticleList";
 import DonationModal from "../../donor/components/DonationModal";
+import { useDonations } from "../../donor/hooks/useDonations";
 import articles from "../../mocks/articles.json";
 import events from "../../mocks/events.json";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
@@ -32,7 +33,8 @@ const Home = () => {
   const xl = useMediaQuery(theme.breakpoints.up(1920));
 
   const { deleteReservations, isDeleting } = useDeleteReservations();
-  const { data } = useReservations();
+  const { data: allReservations } = useReservations();
+  const { data: allDonations } = useDonations();
 
   const [isDonationVisible, setIsDonationVisible] = useState(false);
   const [modalId, setModalId] = useState("");
@@ -61,17 +63,23 @@ const Home = () => {
     navigate(`/${process.env.PUBLIC_URL}/receiver/event/${id}`);
   };
 
-  const unpickedReservationsData: any = (data || [])
+  const unpickedReservationsData: any = (allReservations || [])
     .filter((reservation) => reservation.active)
-    .map((reservation) => ({
-      title: reservation.title,
-      location: reservation.location,
-      imageUrl: reservation.imageUrl,
-      primaryActionText: t("common.view"),
-      primaryAction: () => handleOpenDonationModal(reservation.id),
-      secondaryActionText: t("common.cancel"),
-      secondaryAction: () => handleOpenConfirmCancelDialog(reservation.id),
-    }));
+    .map((reservation) => {
+      const donation = allDonations?.find(
+        (donation) => donation.id === reservation.donationId
+      );
+
+      return {
+        title: donation?.title,
+        location: donation?.location,
+        imageUrl: donation?.imageUrl,
+        primaryActionText: t("common.view"),
+        primaryAction: () => {},
+        secondaryActionText: t("common.cancel"),
+        secondaryAction: () => handleOpenConfirmCancelDialog(reservation.id),
+      };
+    });
 
   const eventData = events.map((event) => ({
     title: event.title,

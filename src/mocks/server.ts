@@ -1,8 +1,8 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import { DonationItem } from "../donor/types/DonationItem";
 import activityLogs from "./activityLogs.json";
 import donations from "./donations.json";
-import events from "./events.json";
 import notifications from "./notifications.json";
 import reservations from "./reservations.json";
 import users from "./users.json";
@@ -43,24 +43,6 @@ mock.onPost("/api/register").reply((config) => {
 
   return [201, user];
 });
-
-// Activity
-mock.onGet("/api/activity").reply(200, activityLogs);
-
-// Auth
-mock.onPut("/api/password").reply(({ data }) => [200, data]);
-mock.onPost("/api/forgot-password").reply((config) => {
-  const { email } = JSON.parse(config.data);
-
-  const user = users.find((user) => user.email === email);
-
-  if (user) {
-    return [200];
-  } else {
-    return [400];
-  }
-});
-mock.onPost("/api/forgot-password-submit").reply(400);
 mock.onPost("/api/login").reply((config) => {
   const { email, password } = JSON.parse(config.data);
 
@@ -76,17 +58,22 @@ mock.onPost("/api/login").reply((config) => {
   }
 });
 mock.onPost("/api/logout").reply(200);
+mock.onPut("/api/password").reply(({ data }) => [200, data]);
+mock.onPost("/api/forgot-password").reply((config) => {
+  const { email } = JSON.parse(config.data);
 
-// Events
-mock.onDelete("/api/events").reply(({ data }) => [200, data]);
-mock.onGet("/api/events").reply(
-  200,
-  events.map((e) => ({ ...e, start: now, end: now }))
-);
-mock
-  .onPost("/api/events")
-  .reply(({ data }) => [201, { ...JSON.parse(data), id: generateId() }]);
-mock.onPut("/api/events").reply(({ data }) => [200, data]);
+  const user = users.find((user) => user.email === email);
+
+  if (user) {
+    return [200];
+  } else {
+    return [400];
+  }
+});
+mock.onPost("/api/forgot-password-submit").reply(400);
+
+// Activity
+mock.onGet("/api/activity").reply(200, activityLogs);
 
 // Notifications
 mock.onGet("/api/notifications").reply(200, notifications);
@@ -114,8 +101,13 @@ mock.onGet(/\/api\/donations\/\d+/).reply((config) => {
 });
 mock.onGet("/api/donations").reply(200, donations);
 mock.onPost("/api/donations").reply((config) => {
+  let data = JSON.parse(config.data);
+  data.items.map((item: DonationItem) => {
+    return { ...item, id: generateId() };
+  });
+
   const newData = {
-    ...JSON.parse(config.data),
+    ...data,
     id: generateId(),
     active: true,
     createdAt: new Date().toISOString(),

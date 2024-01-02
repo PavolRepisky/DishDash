@@ -1,249 +1,150 @@
 [
   {
     "id": "1",
-    "title": "Canned Vegetables",
-    "location": "Bratislava, Staré Grunty 36",
-    "from": "2023-12-10T08:00:00Z",
-    "until": "2023-12-15T18:00:00Z",
-    "additionalInfo": "",
-    "imageUrl": "https://plantbasedjuniors.com/wp-content/uploads/2021/01/Canned-plant-based-foods1-scaled.jpg",
-    "imageAlt": "Canned Vegetables",
+    "donationId": "1",
     "active": false,
     "items": [
       {
-        "name": "Canned Green Beans",
-        "quantity": 1,
-        "type": "grocery",
-        "unit": "pc"
+        "id": "1",
+        "quantity": 3
       },
       {
-        "name": "Canned Corn",
-        "quantity": 5,
-        "type": "grocery",
-        "unit": "pc"
-      },
-      { "name": "Canned Peas", "quantity": 2, "type": "grocery", "unit": "pc" }
+        "id": "2",
+        "quantity": 5
+      }
     ],
     "createdAt": "2023-12-01T10:30:00Z"
   },
   {
     "id": "2",
-    "title": "Community Grocery Bag Collection",
-    "location": "Fakulta matematiky, fyziky a informatiky UK",
-    "from": "2023-12-08T09:00:00Z",
-    "until": "2023-12-12T17:00:00Z",
-    "additionalInfo": "Donate a bag of essential groceries to support families in need.",
-    "imageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FLifestyle%2F2021-07-MEGALIST-Brilliant-Ways-To-Reuse-Plastic-Grocery-Bags%20%2Fkitchn-2021-plastic-grocery-bags-1",
-    "imageAlt": "Grocery Bag",
+    "donationId": "2",
     "active": true,
     "items": [
-      { "name": "Rice", "quantity": 1, "type": "grocery", "unit": "kg" },
-      { "name": "Pasta", "quantity": 1, "type": "grocery", "unit": "kg" }
+      { "id": "1", "quantity": 3 },
+      { "id": "2", "quantity": 2 }
     ],
     "createdAt": "2023-11-25T14:45:00Z"
   },
   {
     "id": "3",
-    "title": "Hot Meals",
-    "location": "Bratislava, Mlynské Nivy 3",
-    "from": "2023-12-10T11:30:00Z",
-    "until": "2023-12-14T19:00:00Z",
-    "additionalInfo": "Provide warm, nutritious meals.",
-    "imageUrl": "https://i.cbc.ca/1.4560064.1698961615!/fileImage/httpImage/image.jpg_gen/derivatives/original_780/root-vegetable-stew.jpg",
-    "imageAlt": "Hot Meals",
+    "donationId": "3",
     "active": false,
     "items": [
       {
-        "name": "Vegetable Curry",
-        "quantity": 500,
-        "type": "preparedFood",
-        "unit": "g"
+        "id": "1",
+        "quantity": 500
       },
       {
-        "name": "Chicken Alfredo",
-        "quantity": 300,
-        "type": "preparedFood",
-        "unit": "g"
-      },
-      {
-        "name": "Vegan Chili",
-        "quantity": 400,
-        "type": "preparedFood",
-        "unit": "g"
+        "id": "3",
+        "quantity": 400
       }
     ],
     "createdAt": "2023-12-02T09:15:00Z"
   },
   {
     "id": "4",
-    "title": "Fresh Produce Drive",
-    "location": "Bratislava, Marketplace Miletičova",
-    "from": "2023-12-07T10:00:00Z",
-    "until": "2023-12-11T16:30:00Z",
-    "additionalInfo": "Support local farmers and provide fresh produce to those in need.",
-    "imageUrl": "https://cdn.statefoodsafety.com/blog/2017/09/Is_Fresh_Produce_Safe_to_Eat_Small-compressor.jpeg",
-    "imageAlt": "Fresh Produce",
+    "donationId": "4",
     "active": false,
     "items": [
       {
-        "name": "Apples",
-        "quantity": 3,
-        "type": "fruitsVegetables",
-        "unit": "kg"
+        "id": "1",
+        "quantity": 3
       },
       {
-        "name": "Carrots",
-        "quantity": 1,
-        "type": "fruitsVegetables",
-        "unit": "kg"
+        "id": "2",
+        "quantity": 2
+      },
+      {
+        "id": "3",
+        "quantity": 2
       }
     ],
     "createdAt": "2023-11-28T12:00:00Z"
   },
   {
     "id": "5",
-    "title": "Pet Food",
-    "location": "Bratislava, Animal Planet",
-    "from": "2023-12-12T13:00:00Z",
-    "until": "2023-12-16T18:00:00Z",
-    "additionalInfo": "Donating pet food for cats and dogs.",
-    "imageUrl": "https://ga-petfoodpartners.co.uk/content/uploads/2021/11/Pet-Food-Trends-Main-Banner.png",
-    "imageAlt": "Pet Food",
+    "donationId": "5",
     "active": false,
     "items": [
       {
-        "name": "Dry Cat Food",
-        "quantity": 5,
-        "type": "petFood",
-        "unit": "kg"
+        "id": "1",
+        "quantity": 5
       }
     ],
     "createdAt": "2023-12-05T11:00:00Z"
   },
   {
     "id": "6",
-    "title": "Community Grocery Drive",
-    "location": "Bratislava Community Center",
-    "from": "2023-12-18T09:00:00Z",
-    "until": "2023-12-22T17:00:00Z",
-    "additionalInfo": "Contribute to our community grocery drive and help families in need.",
-    "imageUrl": "https://miro.medium.com/v2/resize:fit:1004/0*j0IVk3RVnZ6tz3iS.jpg",
-    "imageAlt": "Cereal Boxes",
+    "donationId": "6",
     "active": true,
     "items": [
       {
-        "name": "Cereal Boxes",
-        "quantity": 2,
-        "type": "grocery",
-        "unit": "pc"
+        "id": "1",
+        "quantity": 2
       },
       {
-        "name": "Peanut Butter",
-        "quantity": 500,
-        "type": "grocery",
-        "unit": "g"
+        "id": "2",
+        "quantity": 500
       },
       {
-        "name": "Canned Tomatoes",
-        "quantity": 2,
-        "type": "grocery",
-        "unit": "pc"
+        "id": "3",
+        "quantity": 2
       }
     ],
     "createdAt": "2023-11-10T14:30:00Z"
   },
   {
     "id": "7",
-    "title": "Home-Cooked Meal Donations",
-    "location": "Bratislava Kitchen",
-    "from": "2023-12-20T12:00:00Z",
-    "until": "2023-12-24T20:00:00Z",
-    "additionalInfo": "Donate homemade meals to bring warmth and comfort to those in need.",
-    "imageUrl": "https://hometaste.my/wp-content/uploads/2020/12/istock-588595864-1199x800.jpg",
-    "imageAlt": "Prepared Meals",
+    "donationId": "7",
     "active": true,
     "items": [
       {
-        "name": "Lasagna",
-        "quantity": 600,
-        "type": "preparedFood",
-        "unit": "g"
+        "id": "1",
+        "quantity": 600
       },
       {
-        "name": "Vegetarian Stir-Fry",
-        "quantity": 800,
-        "type": "preparedFood",
-        "unit": "g"
+        "id": "2",
+        "quantity": 800
       },
       {
-        "name": "Beef Stew",
-        "quantity": 500,
-        "type": "preparedFood",
-        "unit": "g"
+        "id": "3",
+        "quantity": 500
       }
     ],
     "createdAt": "2023-11-15T10:00:00Z"
   },
   {
     "id": "8",
-    "title": "Harvest Freshness Drive",
-    "location": "Bratislava Farm Stand",
-    "from": "2023-12-16T11:00:00Z",
-    "until": "2023-12-20T16:30:00Z",
-    "additionalInfo": "Support local farmers and share the goodness of fresh fruits and vegetables.",
-    "imageUrl": "https://www.instacart.com/company/wp-content/uploads/2022/12/strawberry-season-hero.jpg",
-    "imageAlt": "Fresh Harvest",
+    "donationId": "8",
     "active": false,
     "items": [
       {
-        "name": "Strawberries",
-        "quantity": 1,
-        "type": "fruitsVegetables",
-        "unit": "kg"
+        "id": "Strawberries",
+        "quantity": 1
       },
       {
-        "name": "Broccoli",
-        "quantity": 1,
-        "type": "fruitsVegetables",
-        "unit": "kg"
+        "id": "Broccoli",
+        "quantity": 1
       },
       {
-        "name": "Grapes",
-        "quantity": 1,
-        "type": "fruitsVegetables",
-        "unit": "kg"
+        "id": "Grapes",
+        "quantity": 1
       }
     ],
     "createdAt": "2023-10-12T12:30:00Z"
   },
   {
     "id": "9",
-    "title": "Pet Supplies Collection",
-    "location": "Bratislava Pet Shop",
-    "from": "2023-12-22T14:00:00Z",
-    "until": "2023-12-26T18:00:00Z",
-    "additionalInfo": "Help furry friends in need by donating pet food and supplies.",
-    "imageUrl": "https://www.allrecipes.com/thmb/62wdNuSvQguM7MqxsUXN6Zr_sfo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/133123-Peanut-Butter-and-Pumpkin-Dog-Treats-mfs-018-0ba2166a6f1a4f56840f08d2cc8948c2.jpg",
-    "imageAlt": "Pet Supplies",
+    "donationId": "9",
     "active": false,
-    "items": [
-      { "name": "Dog Treats", "quantity": 1, "type": "petFood", "unit": "kg" }
-    ],
+    "items": [{ "id": "1", "quantity": 1 }],
     "createdAt": "2023-12-07T15:45:00Z"
   },
   {
     "id": "10",
-    "title": "Neighborhood Grocery Collection",
-    "location": "Bratislava Town Square",
-    "from": "2023-12-15T10:00:00Z",
-    "until": "2023-12-20T18:00:00Z",
-    "additionalInfo": "Join us in gathering essential groceries for families in Bratislava.",
-    "imageUrl": "https://www.tastingtable.com/img/gallery/12-best-canned-baked-beans-ranked/l-intro-1653336642.jpg",
-    "imageAlt": "Grocery Collection",
+    "donationId": "10",
     "active": true,
-    "items": [
-      { "name": "Pasta", "quantity": 2, "type": "grocery", "unit": "kg" }
-    ],
+    "items": [{ "id": "1", "quantity": 2 }],
     "createdAt": "2023-12-03T12:30:00Z"
   }
 ]

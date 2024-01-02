@@ -20,6 +20,7 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useReservations } from "../../receiver/hooks/useReservations";
 import { useDonations } from "../hooks/useDonations";
 import { DonationItem } from "../types/DonationItem";
 
@@ -44,8 +45,12 @@ const DonationModal = (props: DonationModalProps) => {
   const { t, i18n } = useTranslation();
   const [items, setItems] = useState<DonationItem[]>([]);
   const theme = useTheme();
-  const { data } = useDonations();
-  const donation = data?.find((donation) => donation.id === id);
+  const { data: allDonations } = useDonations();
+  const { data: allReservations } = useReservations();
+  const donation = allDonations?.find((donation) => donation.id === id);
+  const reservations = allReservations?.filter(
+    (reservation) => reservation.donationId === id
+  );
 
   const style = {
     position: "absolute" as "absolute",
@@ -189,12 +194,16 @@ const DonationModal = (props: DonationModalProps) => {
               </Typography>
               <Box sx={{ mt: 3 }}>
                 <List>
-                  {items.map((item, index) => {
+                  {items.map((donationItem, index) => {
                     const availableQuantity =
-                      item.quantity - (item.reserved || 0);
+                      donationItem.quantity -
+                      (reservations || [])
+                        .flatMap((reservation) => reservation.items || [])
+                        .filter((item) => item.id === donationItem.id)
+                        .reduce((sum, item) => sum + item.quantity, 0);
 
                     const gradientPercentage =
-                      (availableQuantity / item.quantity) * 100;
+                      (availableQuantity / donationItem.quantity) * 100;
 
                     const backgroundColor = `linear-gradient(to right, ${theme.palette.background.default} ${gradientPercentage}%, ${theme.palette.primary.contrastText} ${gradientPercentage}%)`;
 
@@ -210,15 +219,19 @@ const DonationModal = (props: DonationModalProps) => {
                           mb: 1,
                         }}
                       >
-                        {item.type === "grocery" && <ShoppingBagIcon />}
-                        {item.type === "preparedFood" && <LocalPizzaIcon />}
-                        {item.type === "fruitsVegetables" && <EggIcon />}
-                        {item.type === "beverages" && <CoffeeIcon />}
-                        {item.type === "petFood" && <PetsIcon />}
+                        {donationItem.type === "grocery" && <ShoppingBagIcon />}
+                        {donationItem.type === "preparedFood" && (
+                          <LocalPizzaIcon />
+                        )}
+                        {donationItem.type === "fruitsVegetables" && (
+                          <EggIcon />
+                        )}
+                        {donationItem.type === "beverages" && <CoffeeIcon />}
+                        {donationItem.type === "petFood" && <PetsIcon />}
 
                         <ListItemText
-                          primary={item.name}
-                          secondary={`${availableQuantity} ${item.unit} / ${item.quantity} ${item.unit}`}
+                          primary={donationItem.name}
+                          secondary={`${availableQuantity} ${donationItem.unit} / ${donationItem.quantity} ${donationItem.unit}`}
                           sx={{
                             ml: 2,
                             whiteSpace: "nowrap",

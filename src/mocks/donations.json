@@ -13,7 +13,6 @@
         "id": "1",
         "name": "Canned Green Beans",
         "quantity": 30,
-        "reserved": 30,
         "type": "grocery",
         "unit": "pc"
       },
@@ -21,7 +20,6 @@
         "id": "2",
         "name": "Canned Corn",
         "quantity": 25,
-        "reserved": 25,
         "type": "grocery",
         "unit": "pc"
       },
@@ -29,7 +27,6 @@
         "id": "3",
         "name": "Canned Peas",
         "quantity": 10,
-        "reserved": 10,
         "type": "grocery",
         "unit": "pc"
       }
@@ -54,7 +51,6 @@
         "id": "1",
         "name": "Rice",
         "quantity": 3,
-        "reserved": 3,
         "type": "grocery",
         "unit": "kg"
       },
@@ -62,7 +58,6 @@
         "id": "2",
         "name": "Pasta",
         "quantity": 2,
-        "reserved": 2,
         "type": "grocery",
         "unit": "kg"
       },
@@ -70,7 +65,6 @@
         "id": "3",
         "name": "Canned Soup",
         "quantity": 10,
-        "reserved": 10,
         "type": "grocery",
         "unit": "pc"
       }
@@ -95,7 +89,6 @@
         "id": "1",
         "name": "Vegetable Curry",
         "quantity": 500,
-        "reserved": 500,
         "type": "preparedFood",
         "unit": "g"
       },
@@ -103,7 +96,6 @@
         "id": "2",
         "name": "Chicken Alfredo",
         "quantity": 300,
-        "reserved": 0,
         "type": "preparedFood",
         "unit": "g"
       },
@@ -111,7 +103,6 @@
         "id": "3",
         "name": "Vegan Chili",
         "quantity": 400,
-        "reserved": 0,
         "type": "preparedFood",
         "unit": "g"
       }
@@ -176,7 +167,6 @@
         "id": "1",
         "name": "Dry Cat Food",
         "quantity": 10,
-        "reserved": 2,
         "type": "petFood",
         "unit": "kg"
       },
@@ -184,7 +174,6 @@
         "id": "2",
         "name": "Canned Dog Food",
         "quantity": 20,
-        "reserved": 4,
         "type": "petFood",
         "unit": "pc"
       },
@@ -192,7 +181,6 @@
         "id": "3",
         "name": "Treats Variety Pack",
         "quantity": 3,
-        "reserved": 1,
         "type": "petFood",
         "unit": "kg"
       }
@@ -217,7 +205,6 @@
         "id": "1",
         "name": "Cereal Boxes",
         "quantity": 15,
-        "reserved": 4,
         "type": "grocery",
         "unit": "pc"
       },
@@ -225,7 +212,6 @@
         "id": "2",
         "name": "Peanut Butter",
         "quantity": 500,
-        "reserved": 0,
         "type": "grocery",
         "unit": "g"
       },
@@ -233,7 +219,6 @@
         "id": "3",
         "name": "Canned Tomatoes",
         "quantity": 10,
-        "reserved": 4,
         "type": "grocery",
         "unit": "pc"
       }
@@ -258,7 +243,6 @@
         "id": "1",
         "name": "Lasagna",
         "quantity": 600,
-        "reserved": 0,
         "type": "preparedFood",
         "unit": "g"
       },
@@ -266,7 +250,6 @@
         "id": "2",
         "name": "Vegetarian Stir-Fry",
         "quantity": 800,
-        "reserved": 400,
         "type": "preparedFood",
         "unit": "g"
       },
@@ -274,7 +257,6 @@
         "id": "3",
         "name": "Beef Stew",
         "quantity": 500,
-        "reserved": 500,
         "type": "preparedFood",
         "unit": "g"
       }
@@ -299,7 +281,6 @@
         "id": "1",
         "name": "Strawberries",
         "quantity": 5,
-        "reserved": 5,
         "type": "fruitsVegetables",
         "unit": "kg"
       },
@@ -307,7 +288,6 @@
         "id": "2",
         "name": "Broccoli",
         "quantity": 2,
-        "reserved": 2,
         "type": "fruitsVegetables",
         "unit": "kg"
       },
@@ -315,7 +295,6 @@
         "id": "3",
         "name": "Grapes",
         "quantity": 10,
-        "reserved": 10,
         "type": "fruitsVegetables",
         "unit": "kg"
       }

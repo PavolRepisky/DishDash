@@ -259,10 +259,10 @@ const ReservationRow = ({
           <PhotoIcon sx={{ mr: 3, fontSize: "2.5rem" }} />
           <Box>
             <Typography component="div" variant="h6">
-              {reservation.title}
+              {/* {reservation.title} */}
             </Typography>
             <Typography color="textSecondary" variant="body2">
-              {reservation.location}
+              {/* {reservation.location} */}
             </Typography>
           </Box>
         </Box>

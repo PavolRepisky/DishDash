@@ -139,19 +139,14 @@ const EditDonation = () => {
     setIsAdding(true);
     const existingItem = items.find((item) => item.name === newItemData.name);
 
-    const newItem = {
-      ...newItemData,
-      reserved: 0,
-    };
-
     if (existingItem) {
       setItems((prevItems) =>
         prevItems.map((item) =>
-          item.name === existingItem.name ? newItem : item
+          item.name === existingItem.name ? newItemData : item
         )
       );
     } else {
-      setItems((prevItems) => [...prevItems, newItem as DonationItem]);
+      setItems((prevItems) => [...prevItems, newItemData as DonationItem]);
     }
     setIsAdding(false);
     setItemsStatus("");

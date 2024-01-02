@@ -42,7 +42,7 @@ const EditReservation = () => {
       navigate(`/${process.env.PUBLIC_URL}/404`);
     }
     if (editMode && reservation) {
-      setItems(reservation.items);
+      // setItems(reservation.items);
     }
   }, [reservation, navigate, editMode, donation]);
 
@@ -81,7 +81,7 @@ const EditReservation = () => {
               name="title"
               autoFocus
               disabled
-              value={editMode ? reservation?.title : donation?.title}
+              // value={editMode ? reservation?.title : donation?.title}
               sx={textFieldStyle}
             />
             <TextField
@@ -92,7 +92,7 @@ const EditReservation = () => {
               label={t("receiver.editReservation.details.form.location.label")}
               name="location"
               disabled
-              value={editMode ? reservation?.location : donation?.location}
+              // value={editMode ? reservation?.location : donation?.location}
               sx={textFieldStyle}
             />
 
@@ -108,7 +108,7 @@ const EditReservation = () => {
               <Grid item xs>
                 <DatePicker
                   label={t("receiver.editReservation.details.form.date.label")}
-                  value={dayjs(editMode ? reservation?.from : donation?.from)}
+                  // value={dayjs(editMode ? reservation?.from : donation?.from)}
                   disabled
                   sx={textFieldStyle}
                 />
@@ -116,7 +116,7 @@ const EditReservation = () => {
               <Grid item xs>
                 <TimePicker
                   label={t("receiver.editReservation.details.form.time.label")}
-                  value={dayjs(editMode ? reservation?.from : donation?.from)}
+                  // value={dayjs(editMode ? reservation?.from : donation?.from)}
                   disabled
                   sx={textFieldStyle}
                 />
@@ -135,12 +135,12 @@ const EditReservation = () => {
               <Grid item xs>
                 <DatePicker
                   label={t("receiver.editReservation.details.form.date.label")}
-                  value={dayjs(
-                    new Date(
-                      (editMode ? reservation?.until : donation?.until) ??
-                        new Date()
-                    )
-                  )}
+                  // value={dayjs(
+                  //   new Date(
+                  //     (editMode ? reservation?.until : donation?.until) ??
+                  //       new Date()
+                  //   )
+                  // )}
                   disabled
                   sx={textFieldStyle}
                 />
@@ -148,12 +148,12 @@ const EditReservation = () => {
               <Grid item xs>
                 <TimePicker
                   label={t("receiver.editReservation.details.form.time.label")}
-                  value={dayjs(
-                    new Date(
-                      (editMode ? reservation?.until : donation?.until) ??
-                        new Date()
-                    )
-                  )}
+                  // value={dayjs(
+                  //   new Date(
+                  //     (editMode ? reservation?.until : donation?.until) ??
+                  //       new Date()
+                  //   )
+                  // )}
                   disabled
                   sx={textFieldStyle}
                 />
@@ -171,11 +171,11 @@ const EditReservation = () => {
               rows={3}
               name="additionalInfo"
               disabled
-              value={
-                editMode
-                  ? reservation?.additionalInfo
-                  : donation?.additionalInfo
-              }
+              // value={
+              //   editMode
+              //     ? reservation?.additionalInfo
+              //     : donation?.additionalInfo
+              // }
               sx={textFieldStyle}
             />
           </Box>
@@ -208,13 +208,13 @@ const EditReservation = () => {
               </Grid>
               <Grid item xs>
                 <Slider
-                  value={
-                    editMode && reservation
-                      ? reservation.items.find(
-                          (reservedItem) => item.name === reservedItem.name
-                        )?.quantity || 0
-                      : 0
-                  }
+                  // value={
+                  //   editMode && reservation
+                  //     ? reservation.items.find(
+                  //         (reservedItem) => item.name === reservedItem.name
+                  //       )?.quantity || 0
+                  //     : 0
+                  // }
                   onChange={(event: Event, value: number | number[]) => {
                     setItems((prevItems) =>
                       prevItems.map((prevItem) =>
