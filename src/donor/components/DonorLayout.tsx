@@ -11,6 +11,7 @@ import QueryWrapper from "../../core/components/QueryWrapper";
 import SettingsDrawer from "../../core/components/SettingsDrawer";
 import Sidebar from "../../core/components/Sidebar";
 import { useSettings } from "../../core/contexts/SettingsProvider";
+import Footer from "../../core/components/Footer";
 
 const menuItems = [
   {
@@ -45,7 +46,7 @@ const DonorLayout = () => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", height: "100%" }}>
       <Sidebar
         collapsed={collapsed}
         mobileOpen={open}
@@ -57,11 +58,12 @@ const DonorLayout = () => {
         onDrawerToggle={handleSettingsToggle}
         open={settingsOpen}
       />
-      <Box component="main" sx={{ flexGrow: 1, pb: 3, px: { xs: 3, sm: 6 } }}>
+      <Box component="main" sx={{ display: "flex", flexDirection: "column", flexGrow: 1, pb: 3, px: { xs: 3, sm: 6 } }}>
         <Toolbar />
         <QueryWrapper>
           <Outlet />
         </QueryWrapper>
+        <Footer />
       </Box>
     </Box>
   );
