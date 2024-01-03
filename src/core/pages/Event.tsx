@@ -10,7 +10,7 @@ import {
   Stack,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
 
 import React, { useEffect } from "react";
@@ -21,6 +21,7 @@ import AdminToolbar from "../../admin/components/AdminToolbar";
 import events from "../../mocks/events.json";
 import CardCarousel from "../components/CardCarousel";
 import RecentNotifications from "../components/RecentNotifications";
+import BlurredEdgeImage from "../components/BlurredEdgeImage";
 
 const Event = () => {
   const { i18n, t } = useTranslation();
@@ -80,11 +81,20 @@ const Event = () => {
         </AdminToolbar>
       </AdminAppBar>
 
+      <Container component={"nav"} disableGutters>
+        <Typography component="div" variant="h2" sx={{ mt: 0 }}>
+          {t("donor.home.upcomingEvents.browse")}
+        </Typography>
+
+        <CardCarousel cards={eventData} cardsPerPage={xs ? 1 : 3} />
+      </Container>
+
+
       <Typography
         variant="h2"
         align="center"
         color="text.primary"
-        sx={{ mb: 10 }}
+        sx={{ my: 10 }}
       >
         {currentEvent?.title}
       </Typography>
@@ -197,20 +207,22 @@ const Event = () => {
                     <Typography variant="body1">{t(item.text)}</Typography>
                   </Grid>
                   <Grid item xs={12} sm={5}>
-                    <img
-                      src={item.imageUrl}
-                      alt={t(item.imageAlt)}
-                      style={{ width: "100%", height: "auto" }}
+                    <BlurredEdgeImage 
+                      background={theme.palette.background.default}
+                      imageSrc={item.imageUrl}
+                      imageAlt={item.imageAlt}
+                      sx={{ mt: -5 }}
                     />
                   </Grid>
                 </>
               ) : (
                 <>
                   <Grid item xs={12} sm={5}>
-                    <img
-                      src={item.imageUrl}
-                      alt={t(item.imageAlt)}
-                      style={{ width: "100%", height: "auto" }}
+                    <BlurredEdgeImage 
+                      background={theme.palette.background.default}
+                      imageSrc={item.imageUrl}
+                      imageAlt={item.imageAlt}
+                      sx={{ mt: -5 }}
                     />
                   </Grid>
                   <Grid item xs={12} sm={7}>
@@ -225,12 +237,6 @@ const Event = () => {
           ))}
         </Grid>
       </Container>
-
-      <Typography component="div" variant="h2" sx={{ mt: 10 }}>
-        {t("donor.home.upcomingEvents.title")}
-      </Typography>
-
-      <CardCarousel cards={eventData} cardsPerPage={xs ? 1 : 3} />
     </>
   );
 };

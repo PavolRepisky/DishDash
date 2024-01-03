@@ -10,22 +10,22 @@
     "imageAlt": "Harvest Festival Food Drive",
     "data": [
       {
-        "heading": "Heading 1",
-        "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed laudantium blanditiis quis aliquid quisquam dolorum autem praesentium? Similique mollitia sit cum quod earum numquam ad harum, inventore aspernatur blanditiis omnis ratione distinctio repudiandae doloremque eveniet modi, eum pariatur eligendi cupiditate laboriosam, debitis ipsa veritatis! Eaque perspiciatis praesentium magni minima illo eos veniam inventore beatae non ut obcaecati quasi eligendi accusamus ratione quidem incidunt, commodi rerum blanditiis temporibus culpa aperiam, possimus voluptate consequatur aliquid. Quisquam quas consequatur beatae sunt nostrum, cum ea, maiores id maxime aliquid laudantium distinctio ipsa aliquam eos at quia nemo laboriosam deserunt! Eaque excepturi culpa aliquam magnam!",
-        "imageUrl": "https://www.travelsouthdakota.com/sites/default/files/styles/hero_l/public/2020-02/strawbalewineryharvestfest0089opt.jpg?h=88dc8d8e&itok=CW7N2emm",
-        "imageAlt": "Harvest Festival Food Drive"
+        "heading": "What to bring",
+        "text": "We are accepting donations of non-perishable food items such as canned goods, pasta, rice, cereal, peanut butter, and more. Please make sure that the food items are unopened, undamaged, and within their expiration date. You can drop off your donations at the designated bins in the Bratislava Town Square. Every donation counts and makes a difference in someone’s life.",
+        "imageUrl": "img/event1_1.jpg",
+        "imageAlt": "Event 1 image 1"
       },
       {
-        "heading": "Heading 2",
-        "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed laudantium blanditiis quis aliquid quisquam dolorum autem praesentium? Similique mollitia sit cum quod earum numquam ad harum, inventore aspernatur blanditiis omnis ratione distinctio repudiandae doloremque eveniet modi, eum pariatur eligendi cupiditate laboriosam, debitis ipsa veritatis! Eaque perspiciatis praesentium magni minima illo eos veniam inventore beatae non ut obcaecati quasi eligendi accusamus ratione quidem incidunt, commodi rerum blanditiis temporibus culpa aperiam, possimus voluptate consequatur aliquid. Quisquam quas consequatur beatae sunt nostrum, cum ea, maiores id maxime aliquid laudantium distinctio ipsa aliquam eos at quia nemo laboriosam deserunt! Eaque excepturi culpa aliquam magnam!",
-        "imageUrl": "https://www.travelsouthdakota.com/sites/default/files/styles/hero_l/public/2020-02/strawbalewineryharvestfest0089opt.jpg?h=88dc8d8e&itok=CW7N2emm",
-        "imageAlt": "Harvest Festival Food Drive"
+        "heading": "What to expect",
+        "text": "Our Harvest Festival Food Drive is more than just a food drive. It’s also a celebration of our community and our spirit of giving. You can enjoy live music from local bands, play games and win prizes, and sample delicious food from our vendors. You can also learn more about our partner food distribution charities and how they help people in need. There will be something for everyone at our Harvest Festival Food Drive, so bring your friends and family and have a blast.",
+        "imageUrl": "img/event1_2.jpg",
+        "imageAlt": "Event 1 image 2"
       },
       {
-        "heading": "Heading 3",
-        "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed laudantium blanditiis quis aliquid quisquam dolorum autem praesentium? Similique mollitia sit cum quod earum numquam ad harum, inventore aspernatur blanditiis omnis ratione distinctio repudiandae doloremque eveniet modi, eum pariatur eligendi cupiditate laboriosam, debitis ipsa veritatis! Eaque perspiciatis praesentium magni minima illo eos veniam inventore beatae non ut obcaecati quasi eligendi accusamus ratione quidem incidunt, commodi rerum blanditiis temporibus culpa aperiam, possimus voluptate consequatur aliquid. Quisquam quas consequatur beatae sunt nostrum, cum ea, maiores id maxime aliquid laudantium distinctio ipsa aliquam eos at quia nemo laboriosam deserunt! Eaque excepturi culpa aliquam magnam!",
-        "imageUrl": "https://www.travelsouthdakota.com/sites/default/files/styles/hero_l/public/2020-02/strawbalewineryharvestfest0089opt.jpg?h=88dc8d8e&itok=CW7N2emm",
-        "imageAlt": "Harvest Festival Food Drive"
+        "heading": "How to get involved",
+        "text": "If you want to do more than just donate food items, you can also volunteer your time and skills to help us run the event. We need volunteers to help with setting up, sorting, packing, and distributing the food donations, as well as managing the activities and entertainment. Volunteering is a great way to meet new people, have fun, and make a positive impact. If you are interested in volunteering, please fill out this form and we will contact you with more details. Thank you for your support and generosity.",
+        "imageUrl": "img/event1_3.jpg",
+        "imageAlt": "Event 1 image 3"
       }
     ]
   },
@@ -35,9 +35,29 @@
     "location": "Bratislava Culinary Academy",
     "date": "2024-01-12T08:00:00Z",
     "webpage": "https://www.google.com",
-    "description": "Cooking Class for a Cause desc: Do you love cooking and want to make a difference in your community? If so, you are invited to join our special cooking class for a cause. In this class, you will learn new recipes and cooking techniques from our experienced chefs, while having fun with other food enthusiasts. You will also get to enjoy the delicious dishes you make at the end of the class. The best part is, all the proceeds from this event will go towards supporting local food banks and helping those in need. This is a great opportunity to improve your culinary skills, meet new friends, and contribute to a noble cause. Don’t miss it! Sing up now and secure your spot.",
+    "description": "Do you love cooking and want to make a difference in your community? If so, you are invited to join our special cooking class for a cause. In this class, you will learn new recipes and cooking techniques from our experienced chefs, while having fun with other food enthusiasts. You will also get to enjoy the delicious dishes you make at the end of the class. The best part is, all the proceeds from this event will go towards supporting local food banks and helping those in need. This is a great opportunity to improve your culinary skills, meet new friends, and contribute to a noble cause. Don’t miss it! Sing up now and secure your spot.",
     "imageUrl": "https://www.essexresort.com/i/SITE_170315_14300405_91EOU/content/CMS_10022017_111254590_R3HK4/A07CD8A2-D44E-3AEF-DE94D1A92EE1B1B3.JPG",
-    "imageAlt": "Cooking Class for a Cause"
+    "imageAlt": "Cooking Class for a Cause",
+    "data": [
+      {
+        "heading": "What you will learn",
+        "text": "In this cooking class for a cause, you will learn how to prepare some amazing dishes from different cuisines, such as Italian, Thai, Mexican, and more. You will also learn some useful cooking tips and tricks from our professional chefs, who have years of experience in the culinary industry. You will discover new flavors, ingredients, and techniques that will enhance your cooking skills and impress your guests.",
+        "imageUrl": "img/event2_1.jpg",
+        "imageAlt": "Event 2 image 1"
+      },
+      {
+        "heading": "The fun part of the class",
+        "text": "Not only will you learn how to cook, but you will also have a lot of fun in this cooking class for a cause. You will meet other people who share your passion for food and cooking, and make some new friends along the way. You will also get to taste the delicious food you make, and enjoy a satisfying meal at the end of the class. You will leave the class with a full stomach, a happy heart, and a certificate of completion.",
+        "imageUrl": "img/event2_2.jpg",
+        "imageAlt": "Event 2 image 2"
+      },
+      {
+        "heading": "How to support",
+        "text": "By joining this cooking class for a cause, you will also be supporting a good cause. All the proceeds from this event will go towards helping local food banks and charities that provide food and essentials to people who are facing hunger and poverty. You will be making a difference in your community and in the lives of those who need it most. You will also be raising awareness and inspiring others to join the fight against hunger. You will be a part of a movement that is making the world a better place.",
+        "imageUrl": "img/event2_3.jpg",
+        "imageAlt": "Event 2 image 3"
+      }      
+    ]
   },
   {
     "id": "3",
@@ -46,6 +66,20 @@
     "date": "2024-02-01T08:00:00Z",
     "description": "Indulge in a culinary adventure at the Bratislava Food Festival for Charity. Local restaurants and vendors will showcase their specialties, and a portion of the proceeds will go towards supporting local food banks. Join us for a day of great food and giving back to the community!",
     "imageUrl": "https://www.mainefiddleheadfestival.com/wp-content/uploads/2020/06/Food-Fest.jpg",
-    "imageAlt": "Bratislava Food Festival for Charity"
+    "imageAlt": "Bratislava Food Festival for Charity",
+    "data": [
+      {
+        "heading": "A feast for your senses",
+        "text": "At the Bratislava Food Festival for Charity, you will have the opportunity to taste a variety of dishes from different cuisines and cultures. You will find everything from traditional Slovakian food to exotic Asian delicacies, from savory snacks to sweet desserts, from vegetarian options to meat lovers’ favorites. You will also be able to sample some local drinks and beverages, such as wine, beer, coffee, and tea. You will be spoilt for choice at the Bratislava Food Festival for Charity.",
+        "imageUrl": "img/event3_1.jpg",
+        "imageAlt": "Event 3 image 1"
+      },
+      {
+        "heading": "A way to show your generosity",
+        "text": "By attending the Bratislava Food Festival for Charity, you will also be giving back to the community and helping those in need. A portion of the proceeds from the event will go towards supporting local food banks and charities that provide food and essentials to people who are facing hunger and poverty. You will be making a difference in your community and in the lives of those who need it most. You will also be raising awareness and inspiring others to join the fight against hunger. You will be a part of a movement that is making the world a better place.",
+        "imageUrl": "img/event3_2.jpg",
+        "imageAlt": "Event 3 image 2"
+      }      
+    ]
   }
 ]

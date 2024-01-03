@@ -305,6 +305,7 @@
       },
       "upcomingEvents": {
         "title": "Upcoming Events",
+        "browse": "Browse Events",
         "action": "Learn more"
       },
       "community": {
@@ -462,6 +463,7 @@
       },
       "upcomingEvents": {
         "title": "Upcoming Events",
+        "browse": "Browse Events",
         "action": "Learn more"
       },
       "community": {
