@@ -10,13 +10,12 @@ import ConfirmDialog from "../../core/components/ConfirmDialog";
 import RotatingNavButton from "../../core/components/RotatingNavButton";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import ArticleList from "../../donor/components/ArticleList";
-import DonationModal from "../../donor/components/DonationModal";
 import { useDonations } from "../../donor/hooks/useDonations";
 import articles from "../../mocks/articles.json";
 import events from "../../mocks/events.json";
+import ReservationModal from "../components/ReservationModal";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
-import ReservationModal from "../components/ReservationModal";
 
 const Home = () => {
   const { userInfo } = useAuth();
@@ -112,6 +111,7 @@ const Home = () => {
         open={isReservationVisible}
         handleClose={handleCloseReservationModal}
         id={modalId}
+        onClose={handleCloseReservationModal}
       />
 
       <Typography component="div" variant="h1" sx={{ mb: 2 }}>

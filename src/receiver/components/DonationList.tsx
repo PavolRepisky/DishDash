@@ -151,6 +151,7 @@ const DonationList = ({
         open={isDonationVisible}
         handleClose={handleCloseDonationModal}
         id={modalId}
+        reserve={true}
       />
     </>
   );

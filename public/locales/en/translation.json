@@ -497,6 +497,7 @@
     },
     "donationListing": {
       "title": "Available donations",
+      "reserve": "Reserve",
       "search": {
         "placeholder": "Search...",
         "submit": "Search"
@@ -525,9 +526,9 @@
     },
     "editReservation": {
       "title": "Edit reservation",
-      "submit": "Update",
+      "cancelReservation": "Cancel reservation",
       "notifications": {
-        "updateSuccess": "{{reservation}} has been updated!"
+        "updateSuccess": "Reserved items have been updated!"
       },
       "details": {
         "title": "Reservation details",
@@ -552,20 +553,21 @@
           },
           "additionalInfo": {
             "label": "Additional Information"
-          }
+          },
+          "noItems": "No items selected"
         }
       },
       "items": {
         "title": "Items"
-      }
+      },
+      "submit": "Update items"
     },
     "createReservation": {
       "title": "Create reservation",
-      "submit": "Create",
       "notifications": {
-        "createSuccess": "{{reservation}} has been created!",
-        "updateSuccess": "{{reservation}} has been updated!"
-      }
+        "createSuccess": "Items have been reserved!"
+      },
+      "submit": "Reserve items"
     }
   },
   "faq": {

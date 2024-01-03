@@ -8,6 +8,7 @@ import {
 import {
   Backdrop,
   Box,
+  Button,
   Fade,
   Grid,
   List,
@@ -20,15 +21,20 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import ConfirmDialog from "../../core/components/ConfirmDialog";
+import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import { useDonations } from "../../donor/hooks/useDonations";
 import { Donation } from "../../donor/types/Donation";
 import { DonationItem } from "../../donor/types/DonationItem";
+import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
 
 interface ReservationModalProps {
   open: boolean;
   handleClose: () => void;
   id: string;
+  onClose: () => void;
 }
 
 const style = {
@@ -43,8 +49,12 @@ const style = {
   p: 4,
 };
 
-const ReservationModal = (props: ReservationModalProps) => {
-  const { open, handleClose, id } = props;
+const ReservationModal = ({
+  open,
+  handleClose,
+  id,
+  onClose,
+}: ReservationModalProps) => {
   const { t, i18n } = useTranslation();
   const [items, setItems] = useState<DonationItem[]>([]);
   const theme = useTheme();
@@ -56,6 +66,33 @@ const ReservationModal = (props: ReservationModalProps) => {
   const donation = allDonations?.find(
     (donation: Donation) => donation.id === reservation?.donationId
   );
+  const navigate = useNavigate();
+  const { deleteReservations, isDeleting } = useDeleteReservations();
+  const snackbar = useSnackbar();
+  const [openConfirmCancelDialog, setOpenConfirmCancelDialog] = useState(false);
+
+  const handleEditReservation = () => {
+    navigate(`/${process.env.PUBLIC_URL}/receiver/reservations/edit/${id}`);
+  };
+
+  const handleCloseConfirmCancelDialog = () => {
+    setOpenConfirmCancelDialog(false);
+  };
+
+  const handleOpenConfirmCancelDialog = () => {
+    setOpenConfirmCancelDialog(true);
+  };
+
+  const handleCancelReservation = async () => {
+    try {
+      await deleteReservations([id]);
+      snackbar.success(t("receiver.home.notifications.cancelSuccess"));
+      setOpenConfirmCancelDialog(false);
+      onClose();
+    } catch (err: any) {
+      snackbar.error(t("common.errors.unexpected.subTitle"));
+    }
+  };
 
   const formatDate = (dateData: string) => {
     const date = new Date(dateData);
@@ -236,7 +273,29 @@ const ReservationModal = (props: ReservationModalProps) => {
                 </List>
               </Box>
             </Grid>
+
+            <Grid item xs={12} sx={{ display: "flex", justifyContent: "end" }}>
+              <Button
+                variant="outlined"
+                onClick={handleOpenConfirmCancelDialog}
+                sx={{ mr: 1 }}
+              >
+                {t("common.cancel")}
+              </Button>
+              <Button variant="contained" onClick={handleEditReservation}>
+                {t("common.edit")}
+              </Button>
+            </Grid>
           </Grid>
+
+          <ConfirmDialog
+            description={t("receiver.home.confirmations.cancel")}
+            pending={isDeleting}
+            onClose={handleCloseConfirmCancelDialog}
+            onConfirm={handleCancelReservation}
+            open={openConfirmCancelDialog}
+            title={t("common.confirmation")}
+          />
         </Box>
       </Fade>
     </Modal>

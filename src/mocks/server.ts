@@ -118,5 +118,18 @@ mock.onPut("/api/donations").reply((config) => {
   return [200, config.data];
 });
 
+// Reservations
 mock.onDelete("/api/reservations").reply(({ data }) => [200, data]);
 mock.onGet("/api/reservations").reply(200, reservations);
+mock.onPost("/api/reservations").reply((config) => {
+  const newData = {
+    ...JSON.parse(config.data),
+    id: generateId(),
+    active: true,
+    createdAt: new Date().toISOString(),
+  };
+  return [201, newData];
+});
+mock.onPut("/api/reservations").reply((config) => {
+  return [200, config.data];
+});

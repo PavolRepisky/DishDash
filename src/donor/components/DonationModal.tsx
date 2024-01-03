@@ -8,6 +8,7 @@ import {
 import {
   Backdrop,
   Box,
+  Button,
   Fade,
   Grid,
   List,
@@ -20,6 +21,7 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 import { useReservations } from "../../receiver/hooks/useReservations";
 import { useDonations } from "../hooks/useDonations";
 import { DonationItem } from "../types/DonationItem";
@@ -28,6 +30,7 @@ interface DonationModalProps {
   open: boolean;
   handleClose: () => void;
   id: string;
+  reserve?: boolean;
 }
 
 
@@ -40,11 +43,16 @@ const itemIcons = {
   other: ShoppingBagIcon,
 };
 
-const DonationModal = (props: DonationModalProps) => {
-  const { open, handleClose, id } = props;
+const DonationModal = ({
+  open,
+  handleClose,
+  id,
+  reserve,
+}: DonationModalProps) => {
   const { t, i18n } = useTranslation();
   const [items, setItems] = useState<DonationItem[]>([]);
   const theme = useTheme();
+  const navigate = useNavigate();
   const { data: allDonations } = useDonations();
   const { data: allReservations } = useReservations();
   const donation = allDonations?.find((donation) => donation.id === id);
@@ -73,6 +81,10 @@ const DonationModal = (props: DonationModalProps) => {
     return `${date.toLocaleDateString(i18n.language)} ${date.toLocaleTimeString(
       i18n.language
     )}`;
+  };
+
+  const handleReserveDonation = () => {
+    navigate(`/${process.env.PUBLIC_URL}/receiver/reservations/new/${id}`);
   };
 
   const textFieldStyle = {
@@ -245,6 +257,18 @@ const DonationModal = (props: DonationModalProps) => {
                 </List>
               </Box>
             </Grid>
+
+            {reserve && (
+              <Grid
+                item
+                xs={12}
+                sx={{ display: "flex", justifyContent: "end" }}
+              >
+                <Button variant="contained" onClick={handleReserveDonation}>
+                  {t("receiver.donationListing.reserve")}
+                </Button>
+              </Grid>
+            )}
           </Grid>
         </Box>
       </Fade>

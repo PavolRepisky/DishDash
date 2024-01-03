@@ -6,6 +6,7 @@ import AdminToolbar from "../../admin/components/AdminToolbar";
 import ConfirmDialog from "../../core/components/ConfirmDialog";
 import SelectToolbar from "../../core/components/SelectToolbar";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
+import { useDonations } from "../../donor/hooks/useDonations";
 import ReservationTable from "../components/ReservationTable";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
@@ -18,7 +19,8 @@ const ReservationManagement = () => {
   const [selected, setSelected] = useState<string[]>([]);
   const [reservationDeleted, setReservationDeleted] = useState<string[]>([]);
   const { deleteReservations, isDeleting } = useDeleteReservations();
-  const { data } = useReservations();
+  const { data: allReservations } = useReservations();
+  const { data: allDonations } = useDonations();
 
   const processing = isDeleting;
 
@@ -81,7 +83,8 @@ const ReservationManagement = () => {
         onEdit={handleEditReservation}
         onSelectedChange={handleSelectedChange}
         selected={selected}
-        reservations={data}
+        reservations={allReservations}
+        donations={allDonations}
       />
       <ConfirmDialog
         description={t("receiver.reservationsManagement.confirmations.delete")}

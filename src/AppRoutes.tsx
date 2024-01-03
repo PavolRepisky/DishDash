@@ -34,7 +34,7 @@ const ProfileInformation = lazy(
 const ProfilePassword = lazy(() => import("./admin/pages/ProfilePassword"));
 const Event = lazy(() => import("./core/pages/Event"));
 
-// Reciver
+// Receiver
 const ReceiverHome = lazy(() => import("./receiver/pages/Home"));
 const ReceiverLayout = lazy(
   () => import("./receiver/components/ReceiverLayout")
@@ -44,9 +44,11 @@ const ReservationManagement = lazy(
 );
 const DonationListing = lazy(() => import("./receiver/pages/DonationListing"));
 const EditReservation = lazy(() => import("./receiver/pages/EditReservation"));
+const CreateReservation = lazy(
+  () => import("./receiver/pages/CreateReservation")
+);
 
 // Routes
-
 const AppRoutes = () => {
   return (
     <Routes basename="/">
@@ -92,7 +94,10 @@ const AppRoutes = () => {
           <PrivateRoute path="password" element={<ProfilePassword />} />
         </PrivateRoute>
 
-        <PrivateRoute path="reservations/new" element={<EditReservation />} />
+        <PrivateRoute
+          path="reservations/new/:id"
+          element={<CreateReservation />}
+        />
         <PrivateRoute
           path="reservations/edit/:id"
           element={<EditReservation />}

@@ -27,6 +27,7 @@ import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Empty from "../../core/components/Empty";
 import * as selectUtils from "../../core/utils/selectUtils";
+import { Donation } from "../../donor/types/Donation";
 import { Reservation } from "../../donor/types/Reservation";
 
 function descendingComparator(a: any, b: any, orderBy: string) {
@@ -191,6 +192,7 @@ type ReservationRowProps = {
   processing: boolean;
   selected: boolean;
   reservation: Reservation;
+  donation?: Donation;
 };
 
 const ReservationRow = ({
@@ -201,6 +203,7 @@ const ReservationRow = ({
   processing,
   selected,
   reservation,
+  donation,
 }: ReservationRowProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const { i18n, t } = useTranslation();
@@ -218,12 +221,12 @@ const ReservationRow = ({
 
   const handleDelete = () => {
     handleCloseActions();
-    onDelete([reservation.id]);
+    onDelete([reservation.id ?? ""]);
   };
 
   const handleEdit = () => {
     handleCloseActions();
-    onEdit(reservation.id);
+    onEdit(reservation.id ?? "");
   };
 
   const formatDate = (dateData: string) => {
@@ -251,7 +254,7 @@ const ReservationRow = ({
           inputProps={{
             "aria-labelledby": labelId,
           }}
-          onClick={() => onCheck(reservation.id)}
+          onClick={() => onCheck(reservation.id ?? "")}
         />
       </TableCell>
       <TableCell>
@@ -259,10 +262,10 @@ const ReservationRow = ({
           <PhotoIcon sx={{ mr: 3, fontSize: "2.5rem" }} />
           <Box>
             <Typography component="div" variant="h6">
-              {/* {reservation.title} */}
+              {donation?.title}
             </Typography>
             <Typography color="textSecondary" variant="body2">
-              {/* {reservation.location} */}
+              {donation?.location}
             </Typography>
           </Box>
         </Box>
@@ -335,6 +338,7 @@ type ReservationTableProps = {
   onSelectedChange: (selected: string[]) => void;
   selected: string[];
   reservations?: Reservation[];
+  donations?: Donation[];
 };
 
 const ReservationTable = ({
@@ -344,6 +348,7 @@ const ReservationTable = ({
   processing,
   selected,
   reservations = [],
+  donations = [],
 }: ReservationTableProps) => {
   const [order, setOrder] = useState<Order>("desc");
   const [orderBy, setOrderBy] = useState<keyof Data>("date");
@@ -430,6 +435,9 @@ const ReservationTable = ({
                 processing={processing}
                 selected={isSelected(reservation.id ?? "")}
                 reservation={reservation}
+                donation={donations.find(
+                  (donation) => donation.id === reservation.donationId
+                )}
               />
             ))}
           </TableBody>
