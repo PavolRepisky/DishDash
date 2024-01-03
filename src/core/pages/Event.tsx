@@ -13,7 +13,7 @@ import {
   useTheme
 } from "@mui/material";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import AdminAppBar from "../../admin/components/AdminAppBar";
@@ -28,9 +28,11 @@ const Event = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { pathname } = useLocation();
+  const descriptionRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const theme = useTheme();
-  const xs = useMediaQuery(theme.breakpoints.down(450));
+  const xs = useMediaQuery(theme.breakpoints.down(450), {noSsr: true});
 
   const upcomingEventId = events.reduce((prev, curr) =>
     Math.abs(Date.parse(curr.date) - Date.now()) <
@@ -71,6 +73,35 @@ const Event = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // calculate and update image margin depending on where the bottom of the previous text is located
+    setTimeout(() => {
+
+      // disable on mobile
+      if (xs) return;
+
+      const arraySize = Math.min(imageRefs.current.length, descriptionRefs.current.length);
+      for (let index = 1; index < arraySize; index++) {
+        const imageEl = imageRefs.current[index];
+        const descEl = descriptionRefs.current[index];
+        const prevImageEl = imageRefs.current[index-1];
+        const prevDescEl = descriptionRefs.current[index-1];
+  
+        if (imageEl === null || descEl === null || prevImageEl === null || prevDescEl === null) continue;
+  
+        const image = imageEl.childNodes[0] as HTMLElement;
+        const currImgTop = image.getBoundingClientRect().top;
+        const prevDescBottom = ((prevDescEl as HTMLElement).childNodes[1] as HTMLElement).getBoundingClientRect().bottom;
+
+        const margin = 90;
+        const diff = currImgTop - prevDescBottom - margin;
+
+        if (diff > 0)
+          imageEl.style.marginTop = `-${diff}px`;
+      }
+    }, 30)
+    
+
   }, []);
 
   return (
@@ -196,45 +227,46 @@ const Event = () => {
         }}
       >
         <Grid container rowSpacing={10} columnSpacing={3}>
-          {currentEvent?.data?.map((item, index) => (
-            <React.Fragment key={index}>
-              {index % 2 === 1 ? (
-                <>
-                  <Grid item xs={12} sm={7}>
-                    <Typography variant="h3" sx={{ mb: 1 }}>
-                      {t(item.heading)}
-                    </Typography>
-                    <Typography variant="body1">{t(item.text)}</Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={5}>
-                    <BlurredEdgeImage 
-                      background={theme.palette.background.default}
-                      imageSrc={item.imageUrl}
-                      imageAlt={item.imageAlt}
-                      sx={{ mt: -5 }}
-                    />
-                  </Grid>
-                </>
-              ) : (
-                <>
-                  <Grid item xs={12} sm={5}>
-                    <BlurredEdgeImage 
-                      background={theme.palette.background.default}
-                      imageSrc={item.imageUrl}
-                      imageAlt={item.imageAlt}
-                      sx={{ mt: -5 }}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={7}>
-                    <Typography variant="h3" sx={{ mb: 1 }}>
-                      {t(item.heading)}
-                    </Typography>
-                    <Typography variant="body1">{t(item.text)}</Typography>
-                  </Grid>
-                </>
-              )}
-            </React.Fragment>
-          ))}
+          {currentEvent?.data?.map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                {index % 2 === 1 ? (
+                  <>
+                    <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
+                      <Typography variant="h3" sx={{ mb: 1 }}>
+                        {t(item.heading)}
+                      </Typography>
+                      <Typography variant="body1">{t(item.text)}</Typography>
+                    </Grid>
+                    <Grid item ref={el => imageRefs.current[index] = el} xs={12} sm={5}>
+                      <BlurredEdgeImage 
+                        background={theme.palette.background.default}
+                        imageSrc={item.imageUrl}
+                        imageAlt={item.imageAlt}
+                        sx={{ mt: xs ? 0 : -5 }}
+                      />
+                    </Grid>
+                  </>
+                ) : (
+                  <>
+                    <Grid item ref={el => imageRefs.current[index] = el} xs={12} sm={5}>
+                      <BlurredEdgeImage 
+                        background={theme.palette.background.default}
+                        imageSrc={item.imageUrl}
+                        imageAlt={item.imageAlt}
+                        sx={{ mt: xs ? 0 : -5 }}
+                      />
+                    </Grid>
+                    <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
+                      <Typography variant="h3" sx={{ mb: 1 }}>
+                        {t(item.heading)}
+                      </Typography>
+                      <Typography variant="body1">{t(item.text)}</Typography>
+                    </Grid>
+                  </>
+                )}
+              </React.Fragment>
+          )})}
         </Grid>
       </Container>
     </>
