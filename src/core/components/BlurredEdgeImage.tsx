@@ -9,7 +9,7 @@ interface BlurredEdgeImageProps {
 
 const BlurredEdgeImage = ({ background, imageSrc, imageAlt, sx}: BlurredEdgeImageProps) => {
   return (
-    <Box component="image" sx={{
+    <Box component="div" sx={{
       ...sx,
       display: "block", 
       position: "relative",
