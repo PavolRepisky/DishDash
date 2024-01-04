@@ -82,6 +82,7 @@ const CardCarousel = ({ variant, cards, cardsPerPage }: CardCarouselProps) => {
         >
           {t("common.carousel.prevPage")}
         </Button>
+        {variant === "overlay" && <Typography variant="body1" my="auto">Page {currentPage+1}/{Math.floor(cards.length / cardsPerPage) + 1}</Typography>}
         <Button
           onClick={handleNext}
           endIcon={<ArrowForward />}
