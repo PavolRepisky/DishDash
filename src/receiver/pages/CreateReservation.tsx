@@ -9,7 +9,7 @@ import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import { useDonations } from "../../donor/hooks/useDonations";
 import { Reservation } from "../../donor/types/Reservation";
 import { ReservationItem } from "../../donor/types/ReservationItem";
-import DonationData from "../components/DonationDisabledForm";
+import DonationDisabledForm from "../components/DonationDisabledForm";
 import { useCreateReservation } from "../hooks/useCreateReservation";
 
 const CreateReservation = () => {
@@ -77,7 +77,7 @@ const CreateReservation = () => {
             {t("receiver.editReservation.details.title")}
           </Typography>
 
-          {donation && <DonationData donation={donation} />}
+          {donation && <DonationDisabledForm donation={donation} />}
         </Grid>
 
         <Grid item xs={12} md={6}>

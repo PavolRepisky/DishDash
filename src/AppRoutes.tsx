@@ -48,6 +48,9 @@ const EditReservation = lazy(() => import("./receiver/pages/EditReservation"));
 const CreateReservation = lazy(
   () => import("./receiver/pages/CreateReservation")
 );
+const ReservationDetail = lazy(
+  () => import("./receiver/pages/ReservationDetail")
+);
 
 // Routes
 const AppRoutes = () => {
@@ -98,6 +101,7 @@ const AppRoutes = () => {
           <PrivateRoute path="password" element={<ProfilePassword />} />
         </PrivateRoute>
 
+        <PrivateRoute path="reservations/:id" element={<ReservationDetail />} />
         <PrivateRoute
           path="reservations/new/:id"
           element={<CreateReservation />}

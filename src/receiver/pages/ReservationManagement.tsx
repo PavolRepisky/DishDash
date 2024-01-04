@@ -48,6 +48,12 @@ const ReservationManagement = () => {
     );
   };
 
+  const handleViewReservation = (reservationId: string) => {
+    navigate(
+      `/${process.env.PUBLIC_URL}/receiver/reservations/${reservationId}`
+    );
+  };
+
   const handleCloseConfirmDeleteDialog = () => {
     setOpenConfirmDeleteDialog(false);
   };
@@ -81,6 +87,7 @@ const ReservationManagement = () => {
         processing={processing}
         onDelete={handleOpenConfirmDeleteDialog}
         onEdit={handleEditReservation}
+        onView={handleViewReservation}
         onSelectedChange={handleSelectedChange}
         selected={selected}
         reservations={allReservations}

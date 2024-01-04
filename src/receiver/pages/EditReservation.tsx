@@ -10,7 +10,7 @@ import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import { useDonations } from "../../donor/hooks/useDonations";
 import { Reservation } from "../../donor/types/Reservation";
 import { ReservationItem } from "../../donor/types/ReservationItem";
-import DonationData from "../components/DonationDisabledForm";
+import DonationDisabledForm from "../components/DonationDisabledForm";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
 import { useUpdateReservation } from "../hooks/useUpdateReservation";
@@ -112,7 +112,9 @@ const EditReservation = () => {
             {t("receiver.editReservation.details.title")}
           </Typography>
 
-          {matchingDonation && <DonationData donation={matchingDonation} />}
+          {matchingDonation && (
+            <DonationDisabledForm donation={matchingDonation} />
+          )}
         </Grid>
 
         <Grid item xs={12} md={6}>

@@ -3,6 +3,7 @@ import {
   Edit as EditIcon,
   MoreVert as MoreVertIcon,
   Photo as PhotoIcon,
+  Visibility as VisibilityIcon,
 } from "@mui/icons-material";
 import {
   Box,
@@ -189,6 +190,7 @@ type ReservationRowProps = {
   onCheck: (id: string) => void;
   onDelete: (reservationIds: string[]) => void;
   onEdit: (reservationId: string) => void;
+  onView: (reservationId: string) => void;
   processing: boolean;
   selected: boolean;
   reservation: Reservation;
@@ -200,6 +202,7 @@ const ReservationRow = ({
   onCheck,
   onDelete,
   onEdit,
+  onView,
   processing,
   selected,
   reservation,
@@ -221,12 +224,17 @@ const ReservationRow = ({
 
   const handleDelete = () => {
     handleCloseActions();
-    onDelete([reservation.id ?? ""]);
+    onDelete([reservation.id]);
   };
 
   const handleEdit = () => {
     handleCloseActions();
-    onEdit(reservation.id ?? "");
+    onEdit(reservation.id);
+  };
+
+  const handleView = () => {
+    handleCloseActions();
+    onView(reservation.id);
   };
 
   const formatDate = (dateData: string) => {
@@ -254,7 +262,7 @@ const ReservationRow = ({
           inputProps={{
             "aria-labelledby": labelId,
           }}
-          onClick={() => onCheck(reservation.id ?? "")}
+          onClick={() => onCheck(reservation.id)}
         />
       </TableCell>
       <TableCell>
@@ -313,6 +321,12 @@ const ReservationRow = ({
             horizontal: "right",
           }}
         >
+          <MenuItem onClick={handleView}>
+            <ListItemIcon>
+              <VisibilityIcon />
+            </ListItemIcon>{" "}
+            {t("common.view")}
+          </MenuItem>
           <MenuItem onClick={handleEdit}>
             <ListItemIcon>
               <EditIcon />
@@ -335,6 +349,7 @@ type ReservationTableProps = {
   processing: boolean;
   onDelete: (reservationIds: string[]) => void;
   onEdit: (reservationId: string) => void;
+  onView: (reservationId: string) => void;
   onSelectedChange: (selected: string[]) => void;
   selected: string[];
   reservations?: Reservation[];
@@ -344,6 +359,7 @@ type ReservationTableProps = {
 const ReservationTable = ({
   onDelete,
   onEdit,
+  onView,
   onSelectedChange,
   processing,
   selected,
@@ -431,9 +447,10 @@ const ReservationTable = ({
                 key={reservation.id}
                 onCheck={handleClick}
                 onDelete={onDelete}
+                onView={onView}
                 onEdit={onEdit}
                 processing={processing}
-                selected={isSelected(reservation.id ?? "")}
+                selected={isSelected(reservation.id)}
                 reservation={reservation}
                 donation={donations.find(
                   (donation) => donation.id === reservation.donationId
