@@ -71,6 +71,17 @@ const Event = () => {
     )}`;
   };
 
+  const boxStyle = {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    background: `${theme.palette.background.paper}`,
+    mb: 10,
+    py: "24px",
+    borderRadius: "25px",
+    boxSizing: "border-box"     
+  }
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -150,19 +161,7 @@ const Event = () => {
           </Grid>
 
           <Grid item xs={12} sm={5}>
-            <Container
-              sx={{
-                display: "flex",
-                height: "100%",
-                justifyContent: "space-evenly",
-                flexDirection: "column",
-                border: 1,
-                borderRadius: 1,
-                borderColor: "grey.200",
-                px: 3,
-                bgcolor: "background.paper",
-              }}
-            >
+            <Container sx={ boxStyle }>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Stack direction="row" gap={1} sx={{ my: { xs: 1, sm: 0 } }}>
                   <PlaceIcon />
@@ -234,18 +233,7 @@ const Event = () => {
                 {index % 2 === 1 ? (
                   <>
                     <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          flexDirection: "column",
-                          background: `${theme.palette.background.paper}`,
-                          mb: 10,
-                          py: "24px",
-                          borderRadius: "25px",
-                          boxSizing: "border-box"        
-                        }}
-                      >
+                      <Box sx={ boxStyle } >
                         <Typography variant="h3" sx={{ mx: 3}}>
                           {t(item.heading)}
                         </Typography>
@@ -273,18 +261,7 @@ const Event = () => {
                       />
                     </Grid>
                     <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
-                    <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          flexDirection: "column",
-                          background: `${theme.palette.background.paper}`,
-                          mb: 10,
-                          py: "24px",
-                          borderRadius: "25px",
-                          boxSizing: "border-box"        
-                        }}
-                      >
+                      <Box sx={ boxStyle } >
                         <Typography variant="h3" sx={{ mx: 3}}>
                           {t(item.heading)}
                         </Typography>
