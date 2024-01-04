@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./core/components/PrivateRoute";
+import PublicRoute from "./core/components/PublicRoute";
 
 // Landing
 const Landing = lazy(() => import("./landing/pages/Landing"));
@@ -52,11 +53,14 @@ const CreateReservation = lazy(
 const AppRoutes = () => {
   return (
     <Routes basename="/">
-      <Route path="/" element={<Landing />} />
-      <Route path="register" element={<Register />} />
-      <Route path="login" element={<Login />} />
-      <Route path="forgot-password" element={<ForgotPassword />} />
-      <Route path="forgot-password-submit" element={<ForgotPasswordSubmit />} />
+      <PublicRoute path="/" element={<Landing />} />
+      <PublicRoute path="register" element={<Register />} />
+      <PublicRoute path="login" element={<Login />} />
+      <PublicRoute path="forgot-password" element={<ForgotPassword />} />
+      <PublicRoute
+        path="forgot-password-submit"
+        element={<ForgotPasswordSubmit />}
+      />
 
       <PrivateRoute path="donor" element={<DonorLayout />} roles={["donor"]}>
         <PrivateRoute path="/" element={<DonorHome />} />
