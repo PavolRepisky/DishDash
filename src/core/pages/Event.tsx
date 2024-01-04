@@ -91,7 +91,8 @@ const Event = () => {
   
         const image = imageEl.childNodes[0] as HTMLElement;
         const currImgTop = image.getBoundingClientRect().top;
-        const prevDescBottom = ((prevDescEl as HTMLElement).childNodes[1] as HTMLElement).getBoundingClientRect().bottom;
+        const prevDesc = (prevDescEl as HTMLElement).childNodes[0] as HTMLElement;
+        const prevDescBottom = (prevDesc.childNodes[1] as HTMLElement).getBoundingClientRect().bottom;
 
         const margin = 90;
         const diff = currImgTop - prevDescBottom - margin;
@@ -136,7 +137,7 @@ const Event = () => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
-          background: "white",
+          background: `${theme.palette.background.paper}`,
           mb: 10,
           py: "24px",
           borderRadius: "25px",
@@ -233,10 +234,24 @@ const Event = () => {
                 {index % 2 === 1 ? (
                   <>
                     <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
-                      <Typography variant="h3" sx={{ mb: 1 }}>
-                        {t(item.heading)}
-                      </Typography>
-                      <Typography variant="body1">{t(item.text)}</Typography>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          flexDirection: "column",
+                          background: `${theme.palette.background.paper}`,
+                          mb: 10,
+                          py: "24px",
+                          borderRadius: "25px",
+                          boxSizing: "border-box"        
+                        }}
+                      >
+                        <Typography variant="h3" sx={{ mx: 3}}>
+                          {t(item.heading)}
+                        </Typography>
+                        <Typography variant="body1" sx={{ mx: 3 }}>{t(item.text)}</Typography>
+                      </Box>
+
                     </Grid>
                     <Grid item ref={el => imageRefs.current[index] = el} xs={12} sm={5}>
                       <BlurredEdgeImage 
@@ -258,10 +273,23 @@ const Event = () => {
                       />
                     </Grid>
                     <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
-                      <Typography variant="h3" sx={{ mb: 1 }}>
-                        {t(item.heading)}
-                      </Typography>
-                      <Typography variant="body1">{t(item.text)}</Typography>
+                    <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          flexDirection: "column",
+                          background: `${theme.palette.background.paper}`,
+                          mb: 10,
+                          py: "24px",
+                          borderRadius: "25px",
+                          boxSizing: "border-box"        
+                        }}
+                      >
+                        <Typography variant="h3" sx={{ mx: 3}}>
+                          {t(item.heading)}
+                        </Typography>
+                        <Typography variant="body1" sx={{ mx: 3 }}>{t(item.text)}</Typography>
+                      </Box>
                     </Grid>
                   </>
                 )}
