@@ -79,7 +79,7 @@ const Event = () => {
     mb: 10,
     py: "24px",
     borderRadius: "25px",
-    boxSizing: "border-box"     
+    boxSizing: "border-box"        
   }
 
   useEffect(() => {
@@ -142,26 +142,26 @@ const Event = () => {
         {currentEvent?.title}
       </Typography>
 
-      <Container
-        component={"section"}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          background: `${theme.palette.background.paper}`,
-          mb: 10,
-          py: "24px",
-          borderRadius: "25px",
-          boxSizing: "border-box"        
-        }}
-      >
+      <Container component={"section"} sx={boxStyle} >
         <Grid container columnSpacing={5}>
           <Grid item xs={12} sm={7}>
             <Typography variant="body1">{currentEvent?.description}</Typography>
           </Grid>
 
           <Grid item xs={12} sm={5}>
-            <Container sx={ boxStyle }>
+            <Container
+              sx={{
+                display: "flex",
+                height: "100%",
+                justifyContent: "space-evenly",
+                flexDirection: "column",
+                border: 1,
+                borderRadius: 1,
+                borderColor: "grey.200",
+                px: 3,
+                bgcolor: `${theme.palette.background.paper}`,
+              }}
+            >
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Stack direction="row" gap={1} sx={{ my: { xs: 1, sm: 0 } }}>
                   <PlaceIcon />
@@ -233,7 +233,7 @@ const Event = () => {
                 {index % 2 === 1 ? (
                   <>
                     <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
-                      <Box sx={ boxStyle } >
+                      <Box sx={boxStyle} >
                         <Typography variant="h3" sx={{ mx: 3}}>
                           {t(item.heading)}
                         </Typography>
@@ -261,7 +261,7 @@ const Event = () => {
                       />
                     </Grid>
                     <Grid item ref={el => descriptionRefs.current[index] = el} xs={12} sm={7}>
-                      <Box sx={ boxStyle } >
+                    <Box sx={boxStyle} >
                         <Typography variant="h3" sx={{ mx: 3}}>
                           {t(item.heading)}
                         </Typography>
