@@ -58,6 +58,10 @@ const Home = () => {
     navigate(`/${process.env.PUBLIC_URL}/receiver/event/${id}`);
   };
 
+  const handleArticleSelect = (id: String) => { 
+    navigate(`/${process.env.PUBLIC_URL}/receiver/article/${id}`);
+  };
+
 
   const unpickedReservationsData: any = (data || [])
     .filter((reservation) => reservation.active)
@@ -81,6 +85,7 @@ const Home = () => {
 
   const articleData = articles.map((article) => ({
     ...article,
+    action: () => handleArticleSelect(article.id),
     actionText: t("donor.home.community.action"),
     actionTextAlt: t("donor.home.community.actionAlt")
   }));
@@ -119,6 +124,7 @@ const Home = () => {
         {t("receiver.home.activeReservations.title")}
       </Typography>
       <CardCarousel
+        variant="regular"
         cards={unpickedReservationsData}
         cardsPerPage={l ? 6 : md ? 6 : sm ? 4 : xs ? 2 : 1}
       />
@@ -126,7 +132,7 @@ const Home = () => {
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
         {t("donor.home.upcomingEvents.title")}
       </Typography>
-      <CardCarousel cards={eventData} cardsPerPage={3} />
+      <CardCarousel variant="regular" cards={eventData} cardsPerPage={3} />
 
       <Typography component="div" variant="h2" sx={{ mt: 10, mb: 3 }}>
         {t("donor.home.community.title")}

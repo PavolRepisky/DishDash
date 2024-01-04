@@ -129,7 +129,7 @@ const Event = () => {
           {t("donor.home.upcomingEvents.browse")}
         </Typography>
 
-        <CardCarousel cards={eventData} cardsPerPage={xs ? 1 : 3} />
+        <CardCarousel variant="regular" cards={eventData} cardsPerPage={xs ? 1 : 3} />
       </Container>
 
 

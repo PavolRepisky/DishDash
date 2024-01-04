@@ -1,3 +1,4 @@
+import { Article } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -14,29 +15,33 @@ interface Extra {
   text: string;
 }
 
-interface Extra {
-  heading: string;
-  text: string
+interface ImageObject {
+  imageUrl: string;
+  imageAlt: string;
 }
 
 interface ArticleCardProps {
   id: string;
+  createdAt: string;
   title: string;
   text: string;
   imageUrl: string;
   imageAlt: string;
+  action: () => void;
   actionText: string;
-  actionTextAlt: string;
+  actionTextAlt?: string;
   currentPage?: number;
   extras?: Array<Extra>;
 }
 
 const ArticleCard = ({
   id,
+  createdAt,
   title,
   text,
   imageUrl,
   imageAlt,
+  action,
   actionText,
   actionTextAlt,
   currentPage,
@@ -121,7 +126,7 @@ const ArticleCard = ({
           </CardContent>
           <CardActions ref={cardActionRef} sx={{ mt: "auto" }}>
             <Button
-              onClick={handleOnClick}
+              onClick={action}
               size="small"
               variant={isExpanded ? "outlined" : "contained"}
               sx={{ py: 0, mt: "auto" }}
@@ -161,10 +166,12 @@ const ArticleList = ({ articles, itemsPerPage }: ArticleListProps) => {
           <Grid item xs={12} key={index}>
             <ArticleCard
               id={article.id}
+              createdAt={article.createdAt}
               title={article.title}
               text={article.text}
               imageUrl={article.imageUrl}
               imageAlt={article.imageAlt}
+              action={article.action}
               actionText={article.actionText}
               actionTextAlt={article.actionTextAlt}
               currentPage={currentPage}

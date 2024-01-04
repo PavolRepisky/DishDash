@@ -43,6 +43,10 @@ const Home = () => {
     navigate(`/${process.env.PUBLIC_URL}/donor/event/${id}`);
   };
 
+  const handleArticleSelect = (id: String) => {
+    navigate(`/${process.env.PUBLIC_URL}/donor/article/${id}`)
+  }
+
   const activeDonationsData = donations
     .filter((donation) => donation.active)
     .map((donation) => ({
@@ -80,6 +84,7 @@ const Home = () => {
 
   const articleData = articles.map((article) => ({
     ...article,
+    action: () => handleArticleSelect(article.id),
     actionText: t("donor.home.community.action"),
     actionTextAlt: t("donor.home.community.actionAlt"),
   }));
@@ -121,6 +126,7 @@ const Home = () => {
         {t("donor.home.activeDonations.title")}
       </Typography>
       <CardCarousel
+        variant="regular"
         cards={activeDonationsData}
         cardsPerPage={xl ? 6 : l ? 5 : md ? 4 : sm ? 3 : xs ? 2 : 1}
       />
@@ -129,6 +135,7 @@ const Home = () => {
         {t("donor.home.fulfilledDonations.title")}
       </Typography>
       <CardCarousel
+        variant="regular"
         cards={recentFulfilledDonationsData}
         cardsPerPage={xl ? 6 : l ? 5 : md ? 4 : sm ? 3 : xs ? 2 : 1}
       />
@@ -137,6 +144,7 @@ const Home = () => {
         {t("donor.home.upcomingEvents.title")}
       </Typography>
       <CardCarousel
+        variant="regular"
         cards={eventData}
         cardsPerPage={xl ? 4 : l ? 3 : sm ? 2 : xs ? 1 : 1}
       />

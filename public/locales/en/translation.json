@@ -281,7 +281,8 @@
         "home": "Home",
         "settings": "Settings",
         "donationManagement": "Donations",
-        "events": "Events"
+        "events": "Events",
+        "articles": "Articles"
       }
     },
     "home": {
@@ -311,7 +312,8 @@
       "community": {
         "title": "Community",
         "action": "Read more",
-        "actionAlt": "Read less"
+        "actionAlt": "Read",
+        "browse": "Browse Articles"
       }
     },
     "donationManagement": {

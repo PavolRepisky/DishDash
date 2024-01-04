@@ -10,6 +10,7 @@ import {
   Slide,
   Tooltip,
   Typography,
+  useTheme,
 } from "@mui/material";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -24,13 +25,15 @@ interface CardCarouselProps {
     secondaryActionText?: string;
     secondaryAction?: () => void;
   }>;
+  variant: "regular" | "overlay";
   cardsPerPage: number;
 }
 
-const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
+const CardCarousel = ({ variant, cards, cardsPerPage }: CardCarouselProps) => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const cardRef = useRef<any>(null);
+  const theme = useTheme();
 
   const handleNext = () => {
     setCurrentPage(
@@ -45,6 +48,20 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
         Math.ceil(cards.length / cardsPerPage)
     );
   };
+
+  const parseHexColor = (hex: string) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    
+    return [
+      r,
+      g,
+      b
+    ]
+  }
+
+  const [ bg_r, bg_g, bg_b ] = parseHexColor(theme.palette.background.paper);
 
   const startIndex = currentPage * cardsPerPage;
   const endIndex = Math.min(startIndex + cardsPerPage, cards.length);
@@ -82,7 +99,101 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
               key={index}
               xs={12 / Math.min(cardsPerPage, endIndex - startIndex)}
             >
-              <Card
+              {variant === "overlay" && <Card
+                ref={cardRef}
+                sx={{
+                  position: "relative",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "160px",
+                  overflow: "hidden",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  height="180"
+                  image={card.imageUrl}
+                  alt={card.title}
+                  sx={{
+                    position: "absolute"
+                  }}
+                />
+
+                <CardContent
+                  sx={{
+                    position: "absolute",
+                    width: "100%",
+                    paddingX: "0",
+                    paddingTop: "0",
+                    flexGrow: 1,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  <Box sx={{
+                    // padding: "1em",
+                    px: "24px",
+                    paddingTop: "24px",
+                    paddingBottom: "8px",
+                    width: "100%",
+                    background: `rgba(${bg_r}, ${bg_g}, ${bg_b}, 0.7)`,
+                  }}>
+                    <Tooltip title={card.title}>
+                      <Typography
+                        variant="h5"
+                        component="div"
+                        noWrap
+                        width={"100%"}
+                        textOverflow={"ellipsis"}
+                        sx={{
+                          mb: 1,
+                        }}
+                      >
+                        {card.title}
+                      </Typography>
+                    </Tooltip>
+
+                    <Tooltip title={card.location}>
+                      <Typography
+                        variant="body2"
+                        component="div"
+                        noWrap
+                        width={"100%"}
+                        textOverflow={"ellipsis"}
+                        color="text.secondary"
+                        sx={{
+                          mb: 1,
+                        }}
+                      >
+                        {card.location}
+                      </Typography>
+                    </Tooltip>
+                  </Box>
+
+                </CardContent>
+
+                <CardActions sx={{ mt: "auto", justifyContent: "start" }}>
+                  {card.secondaryAction && (
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      sx={{ py: 0, mt: "auto" }}
+                      onClick={card.secondaryAction}
+                    >
+                      {card.secondaryActionText}
+                    </Button>
+                  )}
+                  <Button
+                    size="small"
+                    variant="contained"
+                    sx={{ py: 0, mt: "auto" }}
+                    onClick={card.primaryAction}
+                  >
+                    {card.primaryActionText}
+                  </Button>
+                </CardActions>
+              </Card>}
+              {variant === "regular" && <Card
                 ref={cardRef}
                 sx={{
                   display: "flex",
@@ -157,7 +268,7 @@ const CardCarousel = ({ cards, cardsPerPage }: CardCarouselProps) => {
                     {card.primaryActionText}
                   </Button>
                 </CardActions>
-              </Card>
+              </Card>}
             </Grid>
           ))}
         </Grid>

@@ -66,10 +66,10 @@ export const lightPalette = {
   },
   primary: {
     main: "#2962FF",
-    contrastText: "#FFF",
+    contrastText: "#FFFFFF",
   },
   secondary: {
-    main: "#FFF",
+    main: "#FFFFFF",
   },
   success: {
     main: "#00E676",
@@ -84,7 +84,7 @@ export const lightPalette = {
   },
   divider: palette.grey[100],
   background: {
-    paper: "#FFF",
+    paper: "#FFFFFF",
     default: palette.grey[50],
   },
   action: {
