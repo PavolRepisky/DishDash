@@ -13,7 +13,6 @@ import ArticleList from "../../donor/components/ArticleList";
 import { useDonations } from "../../donor/hooks/useDonations";
 import articles from "../../mocks/articles.json";
 import events from "../../mocks/events.json";
-import ReservationModal from "../components/ReservationModal";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
 
@@ -35,9 +34,6 @@ const Home = () => {
   const { deleteReservations, isDeleting } = useDeleteReservations();
   const { data: allReservations } = useReservations();
   const { data: allDonations } = useDonations();
-
-  const [isReservationVisible, setIsReservationVisible] = useState(false);
-  const [modalId, setModalId] = useState("");
 
   const handleCloseConfirmCancelDialog = () => {
     setOpenConfirmCancelDialog(false);
@@ -75,7 +71,7 @@ const Home = () => {
         location: donation?.location,
         imageUrl: donation?.imageUrl,
         primaryActionText: t("common.view"),
-        primaryAction: () => handleOpenReservationModal(reservation.id),
+        primaryAction: () => handleViewReservation(reservation.id),
         secondaryActionText: t("common.cancel"),
         secondaryAction: () => handleOpenConfirmCancelDialog(reservation.id),
       };
@@ -95,24 +91,17 @@ const Home = () => {
     actionTextAlt: t("donor.home.community.actionAlt"),
   }));
 
-  const handleOpenReservationModal = (id: string) => {
-    setModalId(id);
-    setIsReservationVisible(true);
+  const handleViewReservation = (reservationId: string) => {
+    navigate(
+      `/${process.env.PUBLIC_URL}/receiver/reservations/${reservationId}`
+    );
   };
-  const handleCloseReservationModal = () => setIsReservationVisible(false);
 
   return (
     <>
       <AdminAppBar>
         <AdminToolbar />
       </AdminAppBar>
-
-      <ReservationModal
-        open={isReservationVisible}
-        handleClose={handleCloseReservationModal}
-        id={modalId}
-        onClose={handleCloseReservationModal}
-      />
 
       <Typography component="div" variant="h1" sx={{ mb: 2 }}>
         {t("receiver.home.welcome.title", { name: userInfo?.firstName })}
