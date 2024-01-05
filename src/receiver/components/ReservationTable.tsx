@@ -3,6 +3,7 @@ import {
   Edit as EditIcon,
   MoreVert as MoreVertIcon,
   Photo as PhotoIcon,
+  Visibility as VisibilityIcon,
 } from "@mui/icons-material";
 import {
   Box,
@@ -27,6 +28,7 @@ import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Empty from "../../core/components/Empty";
 import * as selectUtils from "../../core/utils/selectUtils";
+import { Donation } from "../../donor/types/Donation";
 import { Reservation } from "../../donor/types/Reservation";
 
 function descendingComparator(a: any, b: any, orderBy: string) {
@@ -188,9 +190,11 @@ type ReservationRowProps = {
   onCheck: (id: string) => void;
   onDelete: (reservationIds: string[]) => void;
   onEdit: (reservationId: string) => void;
+  onView: (reservationId: string) => void;
   processing: boolean;
   selected: boolean;
   reservation: Reservation;
+  donation?: Donation;
 };
 
 const ReservationRow = ({
@@ -198,9 +202,11 @@ const ReservationRow = ({
   onCheck,
   onDelete,
   onEdit,
+  onView,
   processing,
   selected,
   reservation,
+  donation,
 }: ReservationRowProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const { i18n, t } = useTranslation();
@@ -224,6 +230,11 @@ const ReservationRow = ({
   const handleEdit = () => {
     handleCloseActions();
     onEdit(reservation.id);
+  };
+
+  const handleView = () => {
+    handleCloseActions();
+    onView(reservation.id);
   };
 
   const formatDate = (dateData: string) => {
@@ -259,10 +270,10 @@ const ReservationRow = ({
           <PhotoIcon sx={{ mr: 3, fontSize: "2.5rem" }} />
           <Box>
             <Typography component="div" variant="h6">
-              {reservation.title}
+              {donation?.title}
             </Typography>
             <Typography color="textSecondary" variant="body2">
-              {reservation.location}
+              {donation?.location}
             </Typography>
           </Box>
         </Box>
@@ -310,6 +321,12 @@ const ReservationRow = ({
             horizontal: "right",
           }}
         >
+          <MenuItem onClick={handleView}>
+            <ListItemIcon>
+              <VisibilityIcon />
+            </ListItemIcon>{" "}
+            {t("common.view")}
+          </MenuItem>
           <MenuItem onClick={handleEdit}>
             <ListItemIcon>
               <EditIcon />
@@ -332,18 +349,22 @@ type ReservationTableProps = {
   processing: boolean;
   onDelete: (reservationIds: string[]) => void;
   onEdit: (reservationId: string) => void;
+  onView: (reservationId: string) => void;
   onSelectedChange: (selected: string[]) => void;
   selected: string[];
   reservations?: Reservation[];
+  donations?: Donation[];
 };
 
 const ReservationTable = ({
   onDelete,
   onEdit,
+  onView,
   onSelectedChange,
   processing,
   selected,
   reservations = [],
+  donations = [],
 }: ReservationTableProps) => {
   const [order, setOrder] = useState<Order>("desc");
   const [orderBy, setOrderBy] = useState<keyof Data>("date");
@@ -426,10 +447,14 @@ const ReservationTable = ({
                 key={reservation.id}
                 onCheck={handleClick}
                 onDelete={onDelete}
+                onView={onView}
                 onEdit={onEdit}
                 processing={processing}
-                selected={isSelected(reservation.id ?? "")}
+                selected={isSelected(reservation.id)}
                 reservation={reservation}
+                donation={donations.find(
+                  (donation) => donation.id === reservation.donationId
+                )}
               />
             ))}
           </TableBody>

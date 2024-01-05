@@ -1,6 +1,7 @@
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
 import { useAuth } from "../../auth/contexts/AuthProvider";
@@ -9,12 +10,11 @@ import ConfirmDialog from "../../core/components/ConfirmDialog";
 import RotatingNavButton from "../../core/components/RotatingNavButton";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import ArticleList from "../../donor/components/ArticleList";
+import { useDonations } from "../../donor/hooks/useDonations";
 import articles from "../../mocks/articles.json";
 import events from "../../mocks/events.json";
-import DonationModal from "../../donor/components/DonationModal";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
-import { useNavigate } from "react-router";
 
 const Home = () => {
   const { userInfo } = useAuth();
@@ -23,16 +23,17 @@ const Home = () => {
   const navigate = useNavigate();
   const [openConfirmCancelDialog, setOpenConfirmCancelDialog] = useState(false);
   const [reservationCanceled, setReservationCanceled] = useState<string[]>([]);
+
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.up(450));
   const sm = useMediaQuery(theme.breakpoints.up(840));
   const md = useMediaQuery(theme.breakpoints.up(1100));
   const l = useMediaQuery(theme.breakpoints.up(1300));
-  const { deleteReservations, isDeleting } = useDeleteReservations();
-  const { data } = useReservations();
+  const xl = useMediaQuery(theme.breakpoints.up(1920));
 
-  const [isDonationVisible, setIsDonationVisible] = useState(false);
-  const [modalId, setModalId] = useState("");
+  const { deleteReservations, isDeleting } = useDeleteReservations();
+  const { data: allReservations } = useReservations();
+  const { data: allDonations } = useDonations();
 
   const handleCloseConfirmCancelDialog = () => {
     setOpenConfirmCancelDialog(false);
@@ -54,7 +55,7 @@ const Home = () => {
     }
   };
 
-  const handleEventSelect = (id: String) => { 
+  const handleEventSelect = (id: String) => {
     navigate(`/${process.env.PUBLIC_URL}/receiver/event/${id}`);
   };
 
@@ -65,49 +66,48 @@ const Home = () => {
 
   const unpickedReservationsData: any = (data || [])
     .filter((reservation) => reservation.active)
-    .map((reservation) => ({
-      title: reservation.title,
-      location: reservation.location,
-      imageUrl: reservation.imageUrl,
-      primaryActionText: t("common.view"),
-      primaryAction: () => handleOpenDonationModal(reservation.id),
-      secondaryActionText: t("common.cancel"),
-      secondaryAction: () => handleOpenConfirmCancelDialog(reservation.id),
-    }));
+    .map((reservation) => {
+      const donation = allDonations?.find(
+        (donation) => donation.id === reservation.donationId
+      );
+
+      return {
+        title: donation?.title,
+        location: donation?.location,
+        imageUrl: donation?.imageUrl,
+        primaryActionText: t("common.view"),
+        primaryAction: () => handleViewReservation(reservation.id),
+        secondaryActionText: t("common.cancel"),
+        secondaryAction: () => handleOpenConfirmCancelDialog(reservation.id),
+      };
+    });
 
   const eventData = events.map((event) => ({
     title: event.title,
     location: event.location,
     imageUrl: event.imageUrl,
     primaryActionText: t("donor.home.upcomingEvents.action"),
-    primaryAction: () => handleEventSelect(event.id)
+    primaryAction: () => handleEventSelect(event.id),
   }));
 
   const articleData = articles.map((article) => ({
     ...article,
     action: () => handleArticleSelect(article.id),
     actionText: t("donor.home.community.action"),
-    actionTextAlt: t("donor.home.community.actionAlt")
+    actionTextAlt: t("donor.home.community.actionAlt"),
   }));
 
-  const handleOpenDonationModal = (id: string) => { 
-    setModalId(id);
-    setIsDonationVisible(true);
-  }
-  const handleCloseDonationModal = () => setIsDonationVisible(false);
-
+  const handleViewReservation = (reservationId: string) => {
+    navigate(
+      `/${process.env.PUBLIC_URL}/receiver/reservations/${reservationId}`
+    );
+  };
 
   return (
     <>
       <AdminAppBar>
-        <AdminToolbar></AdminToolbar>
+        <AdminToolbar />
       </AdminAppBar>
-
-      <DonationModal 
-        open={isDonationVisible} 
-        handleClose={handleCloseDonationModal}
-        id={modalId} 
-      />
 
       <Typography component="div" variant="h1" sx={{ mb: 2 }}>
         {t("receiver.home.welcome.title", { name: userInfo?.firstName })}
@@ -117,7 +117,7 @@ const Home = () => {
       </Typography>
       <RotatingNavButton
         buttonText={t("receiver.home.welcome.cta")}
-        to={`/${process.env.PUBLIC_URL}/donor/donations/new`}
+        to={`/${process.env.PUBLIC_URL}/receiver/donations`}
       />
 
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
@@ -126,13 +126,17 @@ const Home = () => {
       <CardCarousel
         variant="regular"
         cards={unpickedReservationsData}
-        cardsPerPage={l ? 6 : md ? 6 : sm ? 4 : xs ? 2 : 1}
+        cardsPerPage={xl ? 6 : l ? 5 : md ? 4 : sm ? 3 : xs ? 2 : 1}
       />
 
       <Typography component="div" variant="h2" sx={{ mt: 10 }}>
         {t("donor.home.upcomingEvents.title")}
       </Typography>
-      <CardCarousel variant="regular" cards={eventData} cardsPerPage={3} />
+      <CardCarousel
+        variant="regular"
+        cards={eventData}
+        cardsPerPage={xl ? 6 : l ? 5 : md ? 4 : sm ? 3 : xs ? 2 : 1}
+      />
 
       <Typography component="div" variant="h2" sx={{ mt: 10, mb: 3 }}>
         {t("donor.home.community.title")}

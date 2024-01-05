@@ -45,6 +45,7 @@ const RotatingNavButton = ({ buttonText, to }: RotatingNavButtonProps) => {
       component={RouterLink}
       to={to}
       sx={{
+        maxWidth: "fit-content",
         animation: rotate ? `${rotationAnimation} 0.5s ease-in-out` : "none",
       }}
       variant="contained"

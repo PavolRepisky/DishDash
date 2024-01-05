@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./core/components/PrivateRoute";
+import PublicRoute from "./core/components/PublicRoute";
 
 // Landing
 const Landing = lazy(() => import("./landing/pages/Landing"));
@@ -35,7 +36,7 @@ const ProfilePassword = lazy(() => import("./admin/pages/ProfilePassword"));
 const Event = lazy(() => import("./core/pages/Event"));
 const Article = lazy(() => import("./core/pages/Article"));
 
-// Reciver
+// Receiver
 const ReceiverHome = lazy(() => import("./receiver/pages/Home"));
 const ReceiverLayout = lazy(
   () => import("./receiver/components/ReceiverLayout")
@@ -45,17 +46,25 @@ const ReservationManagement = lazy(
 );
 const DonationListing = lazy(() => import("./receiver/pages/DonationListing"));
 const EditReservation = lazy(() => import("./receiver/pages/EditReservation"));
+const CreateReservation = lazy(
+  () => import("./receiver/pages/CreateReservation")
+);
+const ReservationDetail = lazy(
+  () => import("./receiver/pages/ReservationDetail")
+);
 
 // Routes
-
 const AppRoutes = () => {
   return (
     <Routes basename="/">
-      <Route path="/" element={<Landing />} />
-      <Route path="register" element={<Register />} />
-      <Route path="login" element={<Login />} />
-      <Route path="forgot-password" element={<ForgotPassword />} />
-      <Route path="forgot-password-submit" element={<ForgotPasswordSubmit />} />
+      <PublicRoute path="/" element={<Landing />} />
+      <PublicRoute path="register" element={<Register />} />
+      <PublicRoute path="login" element={<Login />} />
+      <PublicRoute path="forgot-password" element={<ForgotPassword />} />
+      <PublicRoute
+        path="forgot-password-submit"
+        element={<ForgotPasswordSubmit />}
+      />
 
       <PrivateRoute path="donor" element={<DonorLayout />} roles={["donor"]}>
         <PrivateRoute path="/" element={<DonorHome />} />
@@ -95,7 +104,11 @@ const AppRoutes = () => {
           <PrivateRoute path="password" element={<ProfilePassword />} />
         </PrivateRoute>
 
-        <PrivateRoute path="reservations/new" element={<EditReservation />} />
+        <PrivateRoute path="reservations/:id" element={<ReservationDetail />} />
+        <PrivateRoute
+          path="reservations/new/:id"
+          element={<CreateReservation />}
+        />
         <PrivateRoute
           path="reservations/edit/:id"
           element={<EditReservation />}

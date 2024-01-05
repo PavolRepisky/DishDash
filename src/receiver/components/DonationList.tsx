@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import DonationModal from "../../donor/components/DonationModal";
 
 interface DonationCardProps {
   id: string;
@@ -90,6 +91,8 @@ const DonationList = ({
   itemsPerRow,
 }: DonationListProps) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isDonationVisible, setIsDonationVisible] = useState(false);
+  const [modalId, setModalId] = useState("");
 
   const indexOfLastDonation = currentPage * itemsPerPage;
   const indexOfFirstDonation = indexOfLastDonation - itemsPerPage;
@@ -101,6 +104,12 @@ const DonationList = ({
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
+
+  const handleOpenDonationModal = (id: string) => {
+    setModalId(id);
+    setIsDonationVisible(true);
+  };
+  const handleCloseDonationModal = () => setIsDonationVisible(false);
 
   return (
     <>
@@ -114,7 +123,7 @@ const DonationList = ({
               imageUrl={donation.imageUrl}
               imageAlt={donation.imageAlt}
               actionText={donation.actionText}
-              action={() => donation.action(donation.id)}
+              action={() => handleOpenDonationModal(donation.id)}
             />
           </Grid>
         ))}
@@ -137,6 +146,13 @@ const DonationList = ({
           )
         )}
       </Box>
+
+      <DonationModal
+        open={isDonationVisible}
+        handleClose={handleCloseDonationModal}
+        id={modalId}
+        reserve={true}
+      />
     </>
   );
 };

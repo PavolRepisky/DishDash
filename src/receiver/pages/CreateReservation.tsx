@@ -5,75 +5,43 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
-import ConfirmDialog from "../../core/components/ConfirmDialog";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import { useDonations } from "../../donor/hooks/useDonations";
 import { Reservation } from "../../donor/types/Reservation";
 import { ReservationItem } from "../../donor/types/ReservationItem";
 import DonationDisabledForm from "../components/DonationDisabledForm";
-import { useDeleteReservations } from "../hooks/useDeleteReservations";
-import { useReservations } from "../hooks/useReservations";
-import { useUpdateReservation } from "../hooks/useUpdateReservation";
+import { useCreateReservation } from "../hooks/useCreateReservation";
 
-const EditReservation = () => {
-  const { id: reservationId } = useParams();
+const CreateReservation = () => {
+  const { id: donationId } = useParams();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const snackbar = useSnackbar();
 
   const [items, setItems] = useState<ReservationItem[]>([]);
   const [itemsStatus, setItemsStatus] = useState("");
-  const [openConfirmCancelDialog, setOpenConfirmCancelDialog] = useState(false);
-  const [reservationCanceled, setReservationCanceled] = useState<string[]>([]);
 
-  const { data: allReservations } = useReservations();
   const { data: allDonations } = useDonations();
-  const { updateReservation, isUpdating } = useUpdateReservation();
-  const { deleteReservations, isDeleting } = useDeleteReservations();
+  const { createReservation, isCreating } = useCreateReservation();
 
-  const reservation = allReservations?.find(
-    (reservation) => reservation.id === reservationId
-  );
-  const matchingDonation = allDonations?.find(
-    (donation) => donation.id === reservation?.donationId
-  );
+  const donation = allDonations?.find((donation) => donation.id === donationId);
 
-  const handleCloseConfirmCancelDialog = () => {
-    setOpenConfirmCancelDialog(false);
-  };
-
-  const handleOpenConfirmCancelDialog = (reservationId: string) => {
-    setReservationCanceled([reservationId]);
-    setOpenConfirmCancelDialog(true);
-  };
-
-  const handleCancelReservation = async () => {
-    try {
-      await deleteReservations(reservationCanceled);
-      snackbar.success(t("receiver.home.notifications.cancelSuccess"));
-      setOpenConfirmCancelDialog(false);
-      navigate(`/${process.env.PUBLIC_URL}/receiver/reservations`);
-    } catch (err: any) {
-      snackbar.error(t("common.errors.unexpected.subTitle"));
-    }
-  };
-
-  const handleUpdateReservation = async () => {
+  const handleCreateReservation = async () => {
     if (items.every((item) => item.quantity === 0)) {
       setItemsStatus(t("receiver.editReservation.details.form.noItems"));
       return;
     }
 
     const updatedItems = items.filter((item) => item.quantity > 0);
-    const updatedReservation = {
-      ...reservation,
+    const reservation = {
+      donationId: donation?.id,
       items: updatedItems,
     };
 
     try {
-      await updateReservation(updatedReservation as Reservation);
+      await createReservation(reservation as Reservation);
       snackbar.success(
-        t("receiver.editReservation.notifications.updateSuccess")
+        t("receiver.createReservation.notifications.createSuccess")
       );
       navigate(`/${process.env.PUBLIC_URL}/receiver/reservations`);
     } catch (err: any) {
@@ -82,27 +50,24 @@ const EditReservation = () => {
   };
 
   useEffect(() => {
-    if (!reservation || !matchingDonation) {
+    if (!donation) {
       navigate(`/${process.env.PUBLIC_URL}/404`);
     }
 
-    const initialItems = matchingDonation?.items.map((donationItem) => {
+    const initialItems = donation?.items.map((donationItem) => {
       return {
         id: donationItem.id ?? "",
-        quantity:
-          reservation?.items.find(
-            (reservationItem) => reservationItem.id === donationItem.id
-          )?.quantity ?? 0,
+        quantity: 0,
       };
     });
     setItems(initialItems ?? []);
-  }, [navigate, reservation, matchingDonation]);
+  }, [navigate, donation]);
 
   return (
     <>
       <AdminAppBar>
         <AdminToolbar
-          title={t("receiver.editReservation.title")}
+          title={t("receiver.createReservation.title")}
         ></AdminToolbar>
       </AdminAppBar>
 
@@ -112,9 +77,7 @@ const EditReservation = () => {
             {t("receiver.editReservation.details.title")}
           </Typography>
 
-          {matchingDonation && (
-            <DonationDisabledForm donation={matchingDonation} />
-          )}
+          {donation && <DonationDisabledForm donation={donation} />}
         </Grid>
 
         <Grid item xs={12} md={6}>
@@ -131,7 +94,7 @@ const EditReservation = () => {
           </FormHelperText>
 
           {items.map((item, index) => {
-            const donationItem = matchingDonation?.items.find(
+            const donationItem = donation?.items.find(
               (dItem) => dItem.id === item.id
             );
 
@@ -193,42 +156,19 @@ const EditReservation = () => {
           <Box sx={{ mt: 5, display: "flex", justifyContent: "end" }}>
             <LoadingButton
               type="submit"
-              variant="outlined"
-              color="primary"
-              disabled={isDeleting || isUpdating}
-              loading={isDeleting || isUpdating}
-              onClick={() =>
-                handleOpenConfirmCancelDialog(reservation?.id ?? "")
-              }
-              sx={{ mr: 1 }}
-            >
-              {t("receiver.editReservation.cancelReservation")}
-            </LoadingButton>
-
-            <LoadingButton
-              type="submit"
               variant="contained"
               color="primary"
-              disabled={isDeleting || isUpdating}
-              loading={isDeleting || isUpdating}
-              onClick={handleUpdateReservation}
+              disabled={isCreating}
+              loading={isCreating}
+              onClick={handleCreateReservation}
             >
-              {t("receiver.editReservation.submit")}
+              {t("receiver.createReservation.submit")}
             </LoadingButton>
           </Box>
         </Grid>
       </Grid>
-
-      <ConfirmDialog
-        description={t("receiver.home.confirmations.cancel")}
-        pending={isDeleting}
-        onClose={handleCloseConfirmCancelDialog}
-        onConfirm={handleCancelReservation}
-        open={openConfirmCancelDialog}
-        title={t("common.confirmation")}
-      />
     </>
   );
 };
 
-export default EditReservation;
+export default CreateReservation;

@@ -5,6 +5,20 @@ import {
 } from "@mui/icons-material";
 
 export const createThemeComponents = (theme: any) => ({
+  MuiCssBaseline: {
+    styleOverrides: {
+      html: {
+        height: "100%",
+
+        "#root": {
+          height: "100%",
+        }
+      },
+      body: {
+        height: "100%",
+      }
+    }
+  },
   MuiAccordion: {
     styleOverrides: {
       root: {

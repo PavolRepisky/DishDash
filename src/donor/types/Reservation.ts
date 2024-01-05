@@ -1,15 +1,9 @@
-import { DonationItem } from "./DonationItem";
+import { ReservationItem } from "./ReservationItem";
 
 export interface Reservation {
   id: string;
-  title: string;
-  location: string;
-  from: string;
-  until: string;
-  additionalInfo?: string;
+  donationId: string;
   active?: boolean;
-  items: DonationItem[];
+  items: ReservationItem[];
   createdAt?: string;
-  imageAlt: string;
-  imageUrl: string;
 }

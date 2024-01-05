@@ -13,13 +13,12 @@ import {
   ListItemText,
   useTheme,
 } from "@mui/material";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, Link as RouterLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../auth/contexts/AuthProvider";
 import { drawerCollapsedWidth, drawerWidth } from "../config/layout";
 import Logo from "./Logo";
-import { useEffect } from "react";
-
 
 type SidebarProps = {
   collapsed: boolean;
@@ -47,7 +46,7 @@ const Sidebar = ({
     const eventsBtn = document.getElementsByClassName("events420")[0] as HTMLElement;
     const articlesBtn = document.getElementsByClassName("articles420")[0] as HTMLElement;
     if (pathname.includes("event")) {
-      eventsBtn.classList.add("Mui-selected");    
+      eventsBtn.classList.add("Mui-selected");
     } else {
       eventsBtn.classList.remove("Mui-selected");
     }
@@ -63,7 +62,7 @@ const Sidebar = ({
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
       <IconButton
         component={RouterLink}
-        to={"/admin"}
+        to={`/${process.env.PUBLIC_URL}${userInfo?.role}`}
         sx={{
           "&:hover": { background: "transparent" },
           p: 4,
