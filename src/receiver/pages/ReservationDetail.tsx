@@ -3,7 +3,6 @@ import {
   Egg as EggIcon,
   LocalPizza as LocalPizzaIcon,
   Pets as PetsIcon,
-  QrCode2 as QrCodeIcon,
   ShoppingBag as ShoppingBagIcon,
 } from "@mui/icons-material";
 import {
@@ -13,30 +12,28 @@ import {
   List,
   ListItem,
   ListItemText,
+  Stack,
+  TextField,
   Typography,
   useTheme,
-  TextField,
-  Stack
 } from "@mui/material";
-import Carousel from "react-material-ui-carousel";
+import { createHash } from "crypto";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import Carousel from "react-material-ui-carousel";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
-import ConfirmDialog from "../../core/components/ConfirmDialog";
 import CarouselImageItem from "../../core/components/CarouselImageItem";
+import ConfirmDialog from "../../core/components/ConfirmDialog";
+import ReactGoogleMap from "../../core/components/ReactGoogleMap";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import { useDonations } from "../../donor/hooks/useDonations";
+import { Reservation } from "../../donor/types/Reservation";
 import DonationDisabledForm from "../components/DonationDisabledForm";
+import QRCodeModal from "../components/QRCodeModal";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
-import ReactGoogleMap from "../../core/components/ReactGoogleMap";
-import { createHash } from "crypto";
-import { Reservation } from "../../donor/types/Reservation";
-import QRCodeModal from "../components/QRCodeModal";
-
-
 
 const ReservationDetail = () => {
   const { id: reservationId, hash } = useParams();
@@ -51,27 +48,25 @@ const ReservationDetail = () => {
   const [openConfirmCancelDialog, setOpenConfirmCancelDialog] = useState(false);
   const [openQRModal, setOpenQRModal] = useState(false);
 
-
   const createhash = (obj: any) => {
     const hash = createHash("sha256");
     hash.update(JSON.stringify(obj));
     return hash.digest("hex");
-  }
+  };
 
   let reservation: Reservation | undefined;
   let wrongHash = false;
 
   if (hash) {
-    reservation = allReservations?.find(reservation => { 
+    reservation = allReservations?.find((reservation) => {
       const hashed = createhash(reservation);
       console.log(`hashed reservation = ${hashed}`);
       return createhash(reservation) === hash;
-    })
+    });
 
     if (reservation === undefined) {
       wrongHash = true;
     }
-
   } else {
     reservation = allReservations?.find(
       (reservation) => reservation.id === reservationId
@@ -101,9 +96,7 @@ const ReservationDetail = () => {
       await deleteReservations([reservationId]);
       snackbar.success(t("receiver.home.notifications.cancelSuccess"));
       setOpenConfirmCancelDialog(false);
-      navigate(
-        `/${process.env.PUBLIC_URL}/receiver/`
-      );
+      navigate(`/${process.env.PUBLIC_URL}/receiver/`);
     } catch (err: any) {
       snackbar.error(t("common.errors.unexpected.subTitle"));
     }
@@ -111,86 +104,94 @@ const ReservationDetail = () => {
 
   const handleOpenQRModal = () => {
     setOpenQRModal(true);
-  }
+  };
 
-  const address = matchingDonation?.location; 
-  const images = matchingDonation?.images?.map((item, index) => ({imageUrl: item, imageAlt: `Image ${index}`})) 
+  const address = matchingDonation?.location;
+  const images = matchingDonation?.images?.map((item, index) => ({
+    imageUrl: item,
+    imageAlt: `Image ${index}`,
+  }));
 
   useEffect(() => {
-    if (hash && wrongHash) 
-      navigate(`/${process.env.PUBLIC_URL}/404`); 
-  }, [])
+    if (hash && wrongHash) navigate(`/${process.env.PUBLIC_URL}/404`);
+  }, []);
 
   // this is a workaround
   // TODO - change to the website url once deployed, netlify requires process.env.PUBLIC_URL to be set to "" so this wont work
-  const url = `http://localhost:3000/qr/${createhash(reservation)}`
+  const url = `http://localhost:3000/qr/${createhash(reservation)}`;
   console.log(url);
 
   return (
     <>
-      <QRCodeModal 
-        open={openQRModal} 
-        handleClose={() => setOpenQRModal(false)} 
-        hashedReservation={url} 
+      <QRCodeModal
+        open={openQRModal}
+        handleClose={() => setOpenQRModal(false)}
+        hashedReservation={url}
       />
 
-      {
-        !hash &&
+      {!hash && (
         <AdminAppBar>
           <AdminToolbar
             title={t("receiver.reservationDetails.title")}
           ></AdminToolbar>
         </AdminAppBar>
-      }
-
+      )}
 
       <Grid container spacing={3}>
-        { !hash && 
+        {!hash && (
           <Grid item xs={12} md={5}>
-          <Box mt={1}>
-            <Carousel>
-              {matchingDonation?.images && images && matchingDonation.images?.map((_, index) => {
-                return (
-                  <CarouselImageItem key={index} images={[images[index]]} numberOfImages={1} sx={{ borderRadius: "10px" }} />
-                )
-              })}
-            </Carousel>
-          </Box>
-          { address && 
-            <Box>
-              <ReactGoogleMap location={address} sx={{ width: "auto", height: "300px" }}/>
+            <Box mt={1}>
+              <Carousel>
+                {matchingDonation?.images &&
+                  images &&
+                  matchingDonation.images?.map((_, index) => {
+                    return (
+                      <CarouselImageItem
+                        key={index}
+                        images={[images[index]]}
+                        numberOfImages={1}
+                        sx={{ borderRadius: "10px" }}
+                      />
+                    );
+                  })}
+              </Carousel>
             </Box>
-          }
-
+            {address && (
+              <Box>
+                <ReactGoogleMap
+                  location={address}
+                  sx={{ width: "auto", height: "300px" }}
+                />
+              </Box>
+            )}
           </Grid>
-        }
+        )}
 
-        <Grid item xs={12} md={7} mt={hash ? 3 : 0} mx={hash ? "auto" : 0 }>
-
+        <Grid item xs={12} md={7} mt={hash ? 3 : 0} mx={hash ? "auto" : 0}>
           <Typography component="h2" variant="h3" sx={{ mb: 1 }}>
             {t("donor.editDonation.infoForm.title")}
           </Typography>
-            { hash &&
-              <TextField
-                margin="normal"
-                fullWidth
-                id="title"
-                label={t("receiver.editReservation.details.form.id.label")}
-                name="title"
-                autoFocus
-                disabled
-                value={matchingDonation?.id}
-                sx={{
-                  "& .MuiInputBase-input.Mui-disabled": {
-                    WebkitTextFillColor: `${theme.palette.text.primary}`,
-                  },
-                  width: "100%",
-                }}
-              />
-            }
-            {matchingDonation && (
-              <DonationDisabledForm donation={matchingDonation} />
-            )}
+          {hash && (
+            <TextField
+              margin="normal"
+              fullWidth
+              id="title"
+              label={t("receiver.editReservation.details.form.id.label")}
+              name="title"
+              autoFocus
+              disabled
+              value={matchingDonation?.id}
+              sx={{
+                "& .MuiInputBase-input.Mui-disabled": {
+                  WebkitTextFillColor: `${theme.palette.text.primary}`,
+                },
+                width: "100%",
+              }}
+            />
+          )}
+          {matchingDonation && (
+            <DonationDisabledForm donation={matchingDonation} />
+          )}
 
           <Typography component="h2" variant="h3" sx={{ mb: 1 }}>
             {t("donor.editDonation.itemForm.title")}
@@ -238,9 +239,12 @@ const ReservationDetail = () => {
             </List>
           </Box>
         </Grid>
-        {
-          !hash && 
-          <Grid item xs={12} sx={{ display: "flex", justifyContent: "space-between" }}>
+        {!hash && (
+          <Grid
+            item
+            xs={12}
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
             <Button
               variant="outlined"
               onClick={handleOpenQRModal}
@@ -261,8 +265,7 @@ const ReservationDetail = () => {
               </Button>
             </Stack>
           </Grid>
-        }
-
+        )}
       </Grid>
 
       <ConfirmDialog
