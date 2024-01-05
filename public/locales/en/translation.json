@@ -539,9 +539,13 @@
       "notifications": {
         "updateSuccess": "Reserved items have been updated!"
       },
+      "openQR": "Reveal QR Code",
       "details": {
         "title": "Reservation details",
         "form": {
+          "id": {
+            "label": "Donation ID"
+          },
           "title": {
             "label": "Title"
           },

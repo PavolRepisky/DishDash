@@ -14,33 +14,70 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  useTheme,
+  TextField,
+  Stack
 } from "@mui/material";
-import { useState } from "react";
+import Carousel from "react-material-ui-carousel";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
 import ConfirmDialog from "../../core/components/ConfirmDialog";
+import CarouselImageItem from "../../core/components/CarouselImageItem";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
 import { useDonations } from "../../donor/hooks/useDonations";
 import DonationDisabledForm from "../components/DonationDisabledForm";
 import { useDeleteReservations } from "../hooks/useDeleteReservations";
 import { useReservations } from "../hooks/useReservations";
+import ReactGoogleMap from "../../core/components/ReactGoogleMap";
+import { createHash } from "crypto";
+import { Reservation } from "../../donor/types/Reservation";
+import QRCodeModal from "../components/QRCodeModal";
+
+
 
 const ReservationDetail = () => {
-  const { id: reservationId } = useParams();
+  const { id: reservationId, hash } = useParams();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const snackbar = useSnackbar();
+  const theme = useTheme();
 
   const { data: allReservations } = useReservations();
   const { data: allDonations } = useDonations();
   const { deleteReservations, isDeleting } = useDeleteReservations();
   const [openConfirmCancelDialog, setOpenConfirmCancelDialog] = useState(false);
+  const [openQRModal, setOpenQRModal] = useState(false);
 
-  const reservation = allReservations?.find(
-    (reservation) => reservation.id === reservationId
-  );
+
+  const createhash = (obj: any) => {
+    const hash = createHash("sha256");
+    hash.update(JSON.stringify(obj));
+    return hash.digest("hex");
+  }
+
+  let reservation: Reservation | undefined;
+  let wrongHash = false;
+
+  if (hash) {
+    reservation = allReservations?.find(reservation => { 
+      const hashed = createhash(reservation);
+      console.log(`hashed reservation = ${hashed}`);
+      return createhash(reservation) === hash;
+    })
+
+    if (reservation === undefined) {
+      wrongHash = true;
+    }
+
+  } else {
+    reservation = allReservations?.find(
+      (reservation) => reservation.id === reservationId
+    );
+  }
+
   const matchingDonation = allDonations?.find(
     (donation) => donation.id === reservation?.donationId
   );
@@ -64,30 +101,97 @@ const ReservationDetail = () => {
       await deleteReservations([reservationId]);
       snackbar.success(t("receiver.home.notifications.cancelSuccess"));
       setOpenConfirmCancelDialog(false);
+      navigate(
+        `/${process.env.PUBLIC_URL}/receiver/`
+      );
     } catch (err: any) {
       snackbar.error(t("common.errors.unexpected.subTitle"));
     }
   };
 
+  const handleOpenQRModal = () => {
+    setOpenQRModal(true);
+  }
+
+  const address = matchingDonation?.location; 
+  const images = matchingDonation?.images?.map((item, index) => ({imageUrl: item, imageAlt: `Image ${index}`})) 
+
+  useEffect(() => {
+    if (hash && wrongHash) 
+      navigate(`/${process.env.PUBLIC_URL}/404`); 
+  }, [])
+
+  // this is a workaround
+  // TODO - change to the website url once deployed, netlify requires process.env.PUBLIC_URL to be set to "" so this wont work
+  const url = `http://localhost:3000/qr/${createhash(reservation)}`
+  console.log(url);
+
   return (
     <>
-      <AdminAppBar>
-        <AdminToolbar
-          title={t("receiver.reservationDetails.title")}
-        ></AdminToolbar>
-      </AdminAppBar>
+      <QRCodeModal 
+        open={openQRModal} 
+        handleClose={() => setOpenQRModal(false)} 
+        hashedReservation={url} 
+      />
+
+      {
+        !hash &&
+        <AdminAppBar>
+          <AdminToolbar
+            title={t("receiver.reservationDetails.title")}
+          ></AdminToolbar>
+        </AdminAppBar>
+      }
+
 
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        { !hash && 
+          <Grid item xs={12} md={5}>
+          <Box mt={1}>
+            <Carousel>
+              {matchingDonation?.images && images && matchingDonation.images?.map((_, index) => {
+                return (
+                  <CarouselImageItem key={index} images={[images[index]]} numberOfImages={1} sx={{ borderRadius: "10px" }} />
+                )
+              })}
+            </Carousel>
+          </Box>
+          { address && 
+            <Box>
+              <ReactGoogleMap location={address} sx={{ width: "auto", height: "300px" }}/>
+            </Box>
+          }
+
+          </Grid>
+        }
+
+        <Grid item xs={12} md={7} mt={hash ? 3 : 0} mx={hash ? "auto" : 0 }>
+
           <Typography component="h2" variant="h3" sx={{ mb: 1 }}>
             {t("donor.editDonation.infoForm.title")}
           </Typography>
-          {matchingDonation && (
-            <DonationDisabledForm donation={matchingDonation} />
-          )}
-        </Grid>
+            { hash &&
+              <TextField
+                margin="normal"
+                fullWidth
+                id="title"
+                label={t("receiver.editReservation.details.form.id.label")}
+                name="title"
+                autoFocus
+                disabled
+                value={matchingDonation?.id}
+                sx={{
+                  "& .MuiInputBase-input.Mui-disabled": {
+                    WebkitTextFillColor: `${theme.palette.text.primary}`,
+                  },
+                  width: "100%",
+                }}
+              />
+            }
+            {matchingDonation && (
+              <DonationDisabledForm donation={matchingDonation} />
+            )}
 
-        <Grid item xs={12} md={6}>
           <Typography component="h2" variant="h3" sx={{ mb: 1 }}>
             {t("donor.editDonation.itemForm.title")}
           </Typography>
@@ -133,35 +237,32 @@ const ReservationDetail = () => {
               })}
             </List>
           </Box>
-
-          <Typography component="h2" variant="h3" sx={{ mt: 5, mb: 1 }}>
-            {t("receiver.reservationDetails.qrCode")}
-          </Typography>
-          <Typography
-            component="h2"
-            variant="body1"
-            sx={{ mb: 1 }}
-            color="text.secondary"
-          >
-            {t("receiver.reservationDetails.qrCodeMessage")}
-          </Typography>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <QrCodeIcon sx={{ fontSize: "15rem" }} />
-          </Box>
         </Grid>
+        {
+          !hash && 
+          <Grid item xs={12} sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Button
+              variant="outlined"
+              onClick={handleOpenQRModal}
+              sx={{ mr: 5 }}
+            >
+              {t("receiver.editReservation.openQR")}
+            </Button>
+            <Stack direction="row">
+              <Button
+                variant="outlined"
+                onClick={handleOpenConfirmCancelDialog}
+                sx={{ mr: 1 }}
+              >
+                {t("receiver.editReservation.cancelReservation")}
+              </Button>
+              <Button variant="contained" onClick={handleEditReservation}>
+                {t("common.edit")}
+              </Button>
+            </Stack>
+          </Grid>
+        }
 
-        <Grid item xs={12} sx={{ display: "flex", justifyContent: "end" }}>
-          <Button
-            variant="outlined"
-            onClick={handleOpenConfirmCancelDialog}
-            sx={{ mr: 1 }}
-          >
-            {t("receiver.editReservation.cancelReservation")}
-          </Button>
-          <Button variant="contained" onClick={handleEditReservation}>
-            {t("common.edit")}
-          </Button>
-        </Grid>
       </Grid>
 
       <ConfirmDialog

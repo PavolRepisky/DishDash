@@ -11,6 +11,7 @@ import { Reservation } from "../../donor/types/Reservation";
 import { ReservationItem } from "../../donor/types/ReservationItem";
 import DonationDisabledForm from "../components/DonationDisabledForm";
 import { useCreateReservation } from "../hooks/useCreateReservation";
+import { useAuth } from "../../auth/contexts/AuthProvider";
 
 const CreateReservation = () => {
   const { id: donationId } = useParams();

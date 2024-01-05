@@ -6,19 +6,21 @@ interface ImageObject {
   imageAlt: string;
 }
 
-interface ArticleImageItemProps {
+interface CarouselImageItemProps {
   images: Array<ImageObject>;
   numberOfImages: 1 | 2 | 3;
+  sx?: Object;
 }
 
 
-const ArticleImageItem = ({ images, numberOfImages }: ArticleImageItemProps) => {
+const CarouselImageItem = ({ images, numberOfImages, sx }: CarouselImageItemProps) => {
 
   return (
     <Box sx={{
       height: "300px",
       display: "flex",
-      flexDirection: "row"
+      flexDirection: "row",
+
     }}>
       { numberOfImages === 3 && 
       <>
@@ -38,9 +40,20 @@ const ArticleImageItem = ({ images, numberOfImages }: ArticleImageItemProps) => 
           objectFit: "cover", 
         }}/>
       </>}
+      {
+        numberOfImages === 1 &&
+
+          <img src={images[0].imageUrl} alt={images[0].imageAlt} style={{   
+            ...sx,           
+            width: "100%",
+            height: "100%",
+            objectFit: "cover"
+          }}/>
+
+      }
 
     </Box>
   )
 }
 
-export default ArticleImageItem;
+export default CarouselImageItem;

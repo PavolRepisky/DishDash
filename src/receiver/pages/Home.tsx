@@ -64,7 +64,7 @@ const Home = () => {
   };
 
 
-  const unpickedReservationsData: any = (data || [])
+  const unpickedReservationsData: any = (allReservations || [])
     .filter((reservation) => reservation.active)
     .map((reservation) => {
       const donation = allDonations?.find(

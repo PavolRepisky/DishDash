@@ -33,16 +33,6 @@ interface DonationModalProps {
   reserve?: boolean;
 }
 
-
-
-const itemIcons = {
-  coffee: CoffeeIcon,
-  egg: EggIcon,
-  pizza: LocalPizzaIcon,
-  pet: PetsIcon,
-  other: ShoppingBagIcon,
-};
-
 const DonationModal = ({
   open,
   handleClose,

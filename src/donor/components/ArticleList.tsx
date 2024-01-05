@@ -107,7 +107,7 @@ const ArticleCard = ({
             >
               {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{ maxHeight: "80px"}}>
               {text}
             </Typography>
 

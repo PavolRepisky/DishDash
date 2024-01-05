@@ -66,6 +66,8 @@ const AppRoutes = () => {
         element={<ForgotPasswordSubmit />}
       />
 
+      <PublicRoute path="qr/:hash" element={<ReservationDetail />} />
+
       <PrivateRoute path="donor" element={<DonorLayout />} roles={["donor"]}>
         <PrivateRoute path="/" element={<DonorHome />} />
 

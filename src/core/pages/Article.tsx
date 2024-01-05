@@ -11,18 +11,16 @@ import {
   useTheme
 } from "@mui/material";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
 import articles from "../../mocks/articles.json";
 import RecentNotifications from "../components/RecentNotifications";
-import BlurredEdgeImage from "../components/BlurredEdgeImage";
-import ArticleList from "../../donor/components/ArticleList";
 import CardCarousel from "../components/CardCarousel";
 import Carousel from "react-material-ui-carousel";
-import ArticleImageItem from "../components/ArticleImageItem";
+import CarouselImageItem from "../components/CarouselImageItem";
 
 const Article = () => {
   const { i18n, t } = useTranslation();
@@ -165,7 +163,7 @@ const Article = () => {
             // if (index*3 >= currentArticle?.imageGallery.length) return;
 
             return (
-              <ArticleImageItem key={index} numberOfImages={3} images={currentArticle?.imageGallery.slice((index * 3), (index * 3)+3)}/>
+              <CarouselImageItem key={index} numberOfImages={3} images={currentArticle?.imageGallery.slice((index * 3), (index * 3)+3)}/>
             )
           })}
         </Carousel>
