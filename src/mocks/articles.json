@@ -124,7 +124,7 @@
   },
   {
     "id": "6",
-    "author": "Jozko Mrkvicka",
+    "author": "Frodo Baggins",
     "createdAt": "2023-07-12:00:00Z",
     "title": "Understanding Food Labels",
     "bannerImageUrl": "",
@@ -134,14 +134,22 @@
     "imageAlt": "Food labels detial",
     "extras": [
       {
-        "heading": "Heading 1",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+        "heading": "Check the serving size and servings per container",
+        "text": "The serving size is the amount of food that is typically eaten at one time, and the servings per container is the number of servings in the whole package. The serving size and servings per container can help you compare different products and control your portions. The nutrition facts and the ingredients list are based on one serving, so you need to multiply them by the number of servings you eat to get the total amount of nutrients and calories you consume."
+      },
+      {
+        "heading": "Check the serving size and servings per container",
+        "text": "The calories and the calories from fat tell you how much energy you get from one serving of food. The calories from fat are a subset of the total calories, and they indicate how much fat is in the food. The general guideline is to choose foods that are low in calories and fat, especially saturated and trans fat, which can raise your cholesterol and increase your risk of heart disease and stroke."
+      },
+      {
+        "heading": "Pay attention to the % Daily Value (%DV)",
+        "text": "The %DV tells you how much of a nutrient one serving of food provides compared to the recommended daily intake for a 2,000-calorie diet. The %DV can help you evaluate whether a food is high or low in a certain nutrient. The general rule is to choose foods that have 5% or less of the %DV for nutrients you want to limit, such as sodium, cholesterol, and sugar, and 20% or more of the %DV for nutrients you want to get more of, such as fiber, calcium, and iron."
       }
     ]
   },
   {
     "id": "7",
-    "author": "Jozko Mrkvicka",
+    "author": "Pan Prstenov",
     "createdAt": "2023-08-01T08:00:00Z",
     "title": "Reducing Food Waste",
     "bannerImageUrl": "",
@@ -151,21 +159,95 @@
     "imageAlt": "Reducing Food Waste Image",
     "extras": [
       {
-        "heading": "Heading 1",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis. Duis euismod vulputate egestas. Aliquam vel mauris eget"
+        "heading": "Plan your meals and shop smart",
+        "text": "Planning your meals ahead of time can help you avoid buying more food than you need, and also use up the food you already have. You can use online tools, apps, or calendars to plan your meals, and make a shopping list based on your plan. When shopping, stick to your list and avoid impulse buying. You can also check the expiration dates of the products and buy only what you can consume before they go bad."
+      },
+      {
+        "heading": "Store and preserve your food properly",
+        "text": "Storing and preserving your food properly can help you extend its shelf life and prevent spoilage. You can use containers, bags, or wraps to seal your food and keep it fresh. You can also use your fridge, freezer, or pantry to store your food at the right temperature and humidity. You can also preserve your food by canning, drying, pickling, or fermenting it. You can find more tips on how to store and preserve your food on websites, such as Save The Food or Love Food Hate Waste."
+      },
+      {
+        "heading": "Use your leftovers and scraps creatively",
+        "text": "Using your leftovers and scraps creatively can help you reduce food waste and save money. You can use your leftovers to make new dishes, such as soups, salads, sandwiches, or casseroles. You can also use your scraps, such as peels, stems, or bones, to make stocks, sauces, or compost. You can also donate your leftovers or scraps to a food bank, a soup kitchen, or an animal shelter."      
+      }
+    ],
+    "imageGallery": [
+      {
+        "imageUrl": "img/articles/article3_1.jpg",
+        "imageAlt": "image 1"
+      },
+      {
+        "imageUrl": "img/articles/article3_2.jpg",
+        "imageAlt": "image 2"
+      },
+      {
+        "imageUrl": "img/articles/article3_3.jpg",
+        "imageAlt": "image 3"
+      },
+      {
+        "imageUrl": "img/articles/article3_4.jpg",
+        "imageAlt": "image 4"
+      },
+      {
+        "imageUrl": "img/articles/article3_5.jpg",
+        "imageAlt": "image 5"
+      },
+      {
+        "imageUrl": "img/articles/article3_6.jpg",
+        "imageAlt": "image 6"
       }
     ]
   },
   {
     "id": "8",
-    "author": "Jozko Mrkvicka",
+    "author": "Janko a Marienka",
     "createdAt": "2023-09-10T08:00:00Z",
     "title": "Cooking on a Budget",
     "bannerImageUrl": "",
     "bannerImageUrlAlt": "",
     "text": "Explore budget-friendly cooking tips and recipes to create delicious and nutritious meals without breaking the bank. Learn how to make the most of affordable ingredients while still enjoying flavorful and satisfying dishes. Discover cost-effective cooking techniques, meal planning strategies, and resources that can help you save money on groceries. Cooking on a budget doesn't mean sacrificing taste or nutrition—find creative ways to make affordable and wholesome meals.",
     "imageUrl": "https://assets.mynetdiary.com/blog/cooking-healthy-on-a-budget.jpeg",
-    "imageAlt": "Cooking on a Budget Image"
+    "imageAlt": "Cooking on a Budget Image",
+    "extras": [
+      {
+        "heading": "Use seasonal and local produce",
+        "text": "Seasonal and local fruits and vegetables are usually cheaper, fresher, and more flavorful than imported or out-of-season ones. They also have more nutrients and antioxidants that can benefit your health. You can find seasonal and local produce at farmers’ markets, community-supported agriculture (CSA) programs, or even your own backyard garden."
+      },
+      {
+        "heading": "Plan your meals and shop smart",
+        "text": "Planning your meals ahead of time can help you avoid food waste, save time, and stick to your budget. You can use online tools, apps, or cookbooks to find recipes that suit your preferences and dietary needs. You can also check the sales and coupons at your local grocery store and plan your meals around them. When shopping, make a list of the ingredients you need and stick to it. Avoid impulse buying and unnecessary items that can increase your spending."
+      },
+      {
+        "heading": "Cook from scratch and use leftovers",
+        "text": "Cooking from scratch can help you save money, control the quality and quantity of your ingredients, and customize your dishes to your liking. You can also use leftovers to create new meals or snacks. For example, you can turn leftover rice into fried rice, leftover chicken into chicken salad, or leftover bread into bread pudding. You can also freeze leftovers for later use or donate them to a food bank or shelter."
+      }
+    ],
+    "imageGallery": [
+      {
+        "imageUrl": "img/articles/article2_1.jpg",
+        "imageAlt": "image 1"
+      },
+      {
+        "imageUrl": "img/articles/article2_2.jpg",
+        "imageAlt": "image 2"
+      },
+      {
+        "imageUrl": "img/articles/article2_3.jpg",
+        "imageAlt": "image 3"
+      },
+      {
+        "imageUrl": "img/articles/article2_4.jpg",
+        "imageAlt": "image 4"
+      },
+      {
+        "imageUrl": "img/articles/article2_5.jpg",
+        "imageAlt": "image 5"
+      },
+      {
+        "imageUrl": "img/articles/article2_6.jpg",
+        "imageAlt": "image 6"
+      }
+    ]
   },
   {
     "id": "9",
@@ -193,27 +275,27 @@
     ],
     "imageGallery": [
       {
-        "imageUrl": "img/article1_1.jpg",
+        "imageUrl": "img/articles/article1_1.jpg",
         "imageAlt": "image 1"
       },
       {
-        "imageUrl": "img/article1_2.jpg",
+        "imageUrl": "img/articles/article1_2.jpg",
         "imageAlt": "image 2"
       },
       {
-        "imageUrl": "img/article1_3.jpg",
+        "imageUrl": "img/articles/article1_3.jpg",
         "imageAlt": "image 3"
       },
       {
-        "imageUrl": "img/article1_4.jpg",
+        "imageUrl": "img/articles/article1_4.jpg",
         "imageAlt": "image 4"
       },
       {
-        "imageUrl": "img/article1_5.jpg",
+        "imageUrl": "img/articles/article1_5.jpg",
         "imageAlt": "image 5"
       },
       {
-        "imageUrl": "img/article1_6.jpg",
+        "imageUrl": "img/articles/article1_6.jpg",
         "imageAlt": "image 6"
       }
     ]

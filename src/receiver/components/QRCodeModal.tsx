@@ -69,7 +69,7 @@ const QRCodeModal = ({
           <Typography
             component="h2"
             variant="body1"
-            sx={{ mb: 5 }}
+            sx={{ mb: 5, maxWidth: "350px" }}
             color="text.secondary"
           >
             {t("receiver.reservationDetails.qrCodeMessage")}

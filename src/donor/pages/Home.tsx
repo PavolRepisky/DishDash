@@ -82,14 +82,14 @@ const Home = () => {
     primaryAction: () => handleEventSelect(event.id),
   }));
 
-  const articleData = articles.map((article) => ({
-    ...article,
-    action: () => handleArticleSelect(article.id),
-    actionText: t("donor.home.community.action"),
-    actionTextAlt: t("donor.home.community.actionAlt"),
-  }));
-
-  console.log(articleData);
+  const articleData = articles
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+    .map((article) => ({
+      ...article,
+      action: () => handleArticleSelect(article.id),
+      actionText: t("donor.home.community.action"),
+      actionTextAlt: t("donor.home.community.actionAlt"),
+    }));
 
   const handleOpenDonationModal = (id: string) => {
     setModalId(id);

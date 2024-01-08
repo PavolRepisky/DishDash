@@ -72,18 +72,22 @@ const ArticleCard = ({
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: isExpanded ? cardHeight : "200px",
+        height: isExpanded ? cardHeight : "235px",
         overflow: "hidden",
       }}
     >
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={false} sm={6} md={4} sx={{
+          display: {
+            xs: "none", sm: "block"
+          }
+        }}>
           <img
             style={{
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              marginTop: "-30px",
+              marginTop: "0px",
             }}
             alt={imageAlt}
             src={imageUrl}

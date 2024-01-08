@@ -27,8 +27,6 @@ const Article = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { pathname } = useLocation();
-  const descriptionRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.down(450), {noSsr: true});
@@ -58,7 +56,7 @@ const Article = () => {
   };
 
   const articleData = articles
-  .filter((article) => article.id !== articleId)
+  // .filter((article) => article.id !== articleId)
   .map((article) => ({
     id: article.id,
     title: article.title,
@@ -71,7 +69,9 @@ const Article = () => {
   
 
   const currentArticle = articles.find((article) => article.id === articleId);
+  const selectedArticleIndex = articleData.findIndex((article) => article.title === currentArticle?.title);
 
+  // console.log(`selectedArticle index = ${selectedArticle}`);
 
 
   const boxStyle = {
@@ -102,7 +102,7 @@ const Article = () => {
           {t("donor.home.community.browse")}
         </Typography>
 
-        <CardCarousel variant="overlay" cards={articleData} cardsPerPage={xs ? 1 : 3} />
+        <CardCarousel variant="overlay" cards={articleData} cardsPerPage={xs ? 1 : 3} selectedCard={selectedArticleIndex} disableOnClick={true}/>
       </Container>
 
 
@@ -158,7 +158,7 @@ const Article = () => {
         <Carousel>
           { currentArticle?.imageGallery !== undefined && new Array(Math.floor(currentArticle?.imageGallery?.length / 3)).fill(null).map((_, index) => {
 
-            console.log(index);
+            // console.log(index);
 
             // if (index*3 >= currentArticle?.imageGallery.length) return;
 

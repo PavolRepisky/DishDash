@@ -530,7 +530,7 @@
     "reservationDetails": {
       "title": "Detaily rezervácie",
       "qrCode": "QR kód",
-      "qrCodeMessage": "Predložte ho pri preberaní darovania."
+      "qrCodeMessage": "Predložte ho pri preberaní darovania. Kliknutím na kód si ho môžete uložiť."
     },
     "editReservation": {
       "title": "Upraviť rezerváciu",

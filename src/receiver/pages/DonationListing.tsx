@@ -50,7 +50,21 @@ const DonationListing = () => {
   const [filtersOpened, setFiltersOpened] = useState(false);
 
   const handleCategoryChange = (event: any, newCategories: string[]) => {
+
+    // console.log(event.target);
+
+    if (event.target.value === "all" && event.target.getAttribute("aria-pressed") === "false") {
+      newCategories = ["all"];
+      // console.log(newCategories);
+    }
+
+    if (newCategories.length > 1) {
+      newCategories = newCategories.filter((value) => value !== "all");
+    }
+
     setSelectedCategories(newCategories);
+
+    // console.log(newCategories);
   };
 
   const categoryFilter = (donation: Donation) => {
@@ -281,20 +295,20 @@ const DonationListing = () => {
         aria-label="Categories"
         sx={{ mb: 3 }}
       >
-        <ToggleButton value="all">
+        <ToggleButton value="all" sx={{ mr: 1 }}>
           {t("donor.editDonation.foodTypes.all.label")}
         </ToggleButton>
-        <ToggleButton value="preparedFood">
+        <ToggleButton value="preparedFood" sx={{ mr: 1 }}>
           {t("donor.editDonation.foodTypes.preparedFood.label")}
         </ToggleButton>
-        <ToggleButton value="beverages">
+        <ToggleButton value="beverages" sx={{ mr: 1 }}>
           {t("donor.editDonation.foodTypes.beverages.label")}
         </ToggleButton>
 
-        <ToggleButton value="grocery">
+        <ToggleButton value="grocery" sx={{ mr: 1 }}>
           {t("donor.editDonation.foodTypes.grocery.label")}
         </ToggleButton>
-        <ToggleButton value="fruitsVegetables">
+        <ToggleButton value="fruitsVegetables" sx={{ mr: 1 }}>
           {t("donor.editDonation.foodTypes.fruitsVegetables.label")}
         </ToggleButton>
         <ToggleButton value="petFood">

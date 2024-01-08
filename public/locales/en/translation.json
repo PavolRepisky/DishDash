@@ -530,7 +530,7 @@
     "reservationDetails": {
       "title": "Reservation details",
       "qrCode": "QR code",
-      "qrCodeMessage": "Present it, when picking up the donation."
+      "qrCodeMessage": "Present it, when picking up the donation. Click on the code to save it."
     },
     "editReservation": {
       "title": "Edit reservation",
