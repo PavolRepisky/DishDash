@@ -84,8 +84,8 @@ const DonationListing = () => {
 
   let allDonations = (data || []).map((donation) => ({
     ...donation,
-    actionText: t("common.view"),
-    action: handleViewDonation,
+    primaryActionText: t("common.view"),
+    secondaryActionText: t("receiver.donationListing.reserve"),
   }));
 
   const handleSearch = (donations: any, query: string) => {

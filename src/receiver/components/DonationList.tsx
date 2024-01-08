@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import DonationModal from "../../donor/components/DonationModal";
 
 interface DonationCardProps {
@@ -17,8 +18,10 @@ interface DonationCardProps {
   location: string;
   imageUrl?: string;
   imageAlt?: string;
-  actionText: string;
-  action: (donationId: string) => void;
+  primaryActionText: string;
+  primaryAction: (donationId: string) => void;
+  secondaryActionText: string;
+  secondaryAction: (donationId: string) => void;
 }
 
 const DonationCard = ({
@@ -27,8 +30,10 @@ const DonationCard = ({
   location,
   imageUrl,
   imageAlt,
-  actionText,
-  action,
+  primaryActionText,
+  primaryAction,
+  secondaryActionText,
+  secondaryAction,
 }: DonationCardProps) => {
   return (
     <Card
@@ -66,13 +71,23 @@ const DonationCard = ({
         </Typography>
       </CardContent>
       <CardActions sx={{ mt: "auto", justifyContent: "start" }}>
+        {secondaryAction && (
+          <Button
+            size="small"
+            variant="outlined"
+            sx={{ py: 0, mt: "auto" }}
+            onClick={() => secondaryAction(id)}
+          >
+            {secondaryActionText}
+          </Button>
+        )}
         <Button
           size="small"
           variant="contained"
           sx={{ py: 0, mt: "auto" }}
-          onClick={() => action(id)}
+          onClick={() => primaryAction(id)}
         >
-          {actionText}
+          {primaryActionText}
         </Button>
       </CardActions>
     </Card>
@@ -93,6 +108,7 @@ const DonationList = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [isDonationVisible, setIsDonationVisible] = useState(false);
   const [modalId, setModalId] = useState("");
+  const navigate = useNavigate();
 
   const indexOfLastDonation = currentPage * itemsPerPage;
   const indexOfFirstDonation = indexOfLastDonation - itemsPerPage;
@@ -111,6 +127,10 @@ const DonationList = ({
   };
   const handleCloseDonationModal = () => setIsDonationVisible(false);
 
+  const handleReserveDonation = (id: string) => {
+    navigate(`/${process.env.PUBLIC_URL}/receiver/reservations/new/${id}`);
+  };
+
   return (
     <>
       <Grid container gap={3} justifyContent="left">
@@ -122,8 +142,10 @@ const DonationList = ({
               location={donation.location}
               imageUrl={donation.imageUrl}
               imageAlt={donation.imageAlt}
-              actionText={donation.actionText}
-              action={() => handleOpenDonationModal(donation.id)}
+              primaryActionText={donation.primaryActionText}
+              primaryAction={() => handleOpenDonationModal(donation.id)}
+              secondaryActionText={donation.secondaryActionText}
+              secondaryAction={() => handleReserveDonation(donation.id)}
             />
           </Grid>
         ))}
