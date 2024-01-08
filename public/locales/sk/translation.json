@@ -1,320 +1,680 @@
-{"common": {"backHome": "Späť na Domov",
-  "cancel": "Zrušiť",
-  "confirm": "Potvrďte",
-  "confirmation": "Potvrdenie",
-  "delete": "Odstrániť",
-  "view": "Zobraziť",
-  "repeat": "Opakujte",
-  "edit": "Upraviť",
-  "apply": "Aplikovať",
-  "reset": "Obnovenie",
-  "retry": "Skúste to znova",
-  "selected": "Vybrané",
-  "update": "Aktualizácia",
-  "errors": {"forbidden": {"subTitle": "Nemáte prístup k zobrazeniu tejto stránky"},
-   "notFound": {"subTitle": "Je nám ľúto, ale nenašli sme stránku, ktorú ste hľadali. Možno ste zle zadali adresu URL? Nezabudnite si skontrolovať pravopis.",
-    "title": "Ups!"},
-   "unexpected": {"subTitle": "Niečo sa pokazilo! Ak problém pretrváva, kontaktujte nás!",
-    "title": "Ups!"},
-   "underConstructions": {"subTitle": "Na tejto stránke aktívne pracujeme.",
-    "title": "Vo výstavbe!"}},
-  "snackbar": {"error": "Chyba", "success": "Úspech"},
-  "validations": {"email": "Neplatná e-mailová adresa",
-   "phone": "Neplatné telefónne číslo",
-   "max": "Musí mať najviac {{size}} znakov",
-   "min": "Musí mať {{size}} znakov alebo viac",
-   "passwordMatch": "Heslo sa nezhoduje",
-   "required": "Požadované",
-   "invalid": "Neplatná hodnota"},
-  "carousel": {"prevPage": "Predchádzajúci", "nextPage": "Ďalšie"},
-  "header": {"settings": "Nastavenia",
-   "notifications": {"empty": {"title": "Váš zoznam oznámení je prázdny"},
-    "seeAll": "Zobraziť všetky oznámenia",
-    "ariaControls": "Vyskakovacie okno s oznámeniami",
-    "ariaLabel": ""}}},
- "landing": {"nav": {"signUp": "Zaregistrujte sa",
-   "howItWorks": "Ako to funguje",
-   "aboutUs": "O nás",
-   "contact": "Kontakt",
-   "cta": "Prihlásiť sa",
-   "settingsAria": "Prepínacie tlačidlo Nastavenia",
-   "tabsAria": "Ponuka navigačných odkazov"},
-  "hero": {"title": "Pridajte sa k nám v boji proti hladu",
-   "subTitle": "Vitajte v spoločnosti DishDash, kde sa vášeň pre dobré jedlo spája so snahou o zlepšenie sveta. Sme platforma, ktorá sa venuje premene prebytočného reštauračného jedla na príležitosť nakŕmiť tých, ktorí to najviac potrebujú!",
-   "imgUrl": "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-   "imgAlt": "Ľudia si delia krabice na darovanie potravín",
-   "cta": "Začnite"},
-  "howItWorks": {"title": "Ako to funguje",
-   "donor": {"toggleText": "Ako darovať",
-    "toggleAriaLabel": "Prepínacie tlačidlo postupu darovania",
-    "steps": {"1": {"title": "Zaregistrujte sa ako darca potravín",
-      "description": "Ak máte prebytočné potraviny, ktoré chcete darovať, môžete sa zaregistrovať na našej webovej stránke ako darca potravín. Budete musieť uviesť niekoľko základných informácií, ako je vaše meno, e-mail a telefónne číslo.",
-      "imgUrl": "img/register-as-donor.jpg",
-      "imgAlt": "Registrácia používateľa do aplikácie pomocou prenosného počítača"},
-     "2": {"title": "Vytvorenie zoznamu potravín",
-      "description": "Po prihlásení môžete na našej webovej lokalite vytvoriť nový zoznam potravín. Budete musieť uviesť niekoľko informácií o potravinách, ktoré chcete darovať, a špecifikovať miesto a časový rámec, v ktorom si má príjemca potravín potraviny vyzdvihnúť.",
-      "imgUrl": "img/create-donation.jpg",
-      "imgAlt": "Obrázok jedla na webovej stránke otvorenej v notebooku a mobile"},
-     "3": {"title": "Prijatie oznámenia",
-      "description": "Keď si príjemca potravín rezervuje vaše jedlo, dostanete upozornenie. Môžete si zobraziť podrobnosti rezervácie, napríklad meno a kontakt na príjemcu potravín a čas vyzdvihnutia.",
-      "imgUrl": "img/receive-notification.jpg",
-      "imgAlt": "Žena, ktorá dostáva upozornenie na mobilný telefón, pričom drží šálku"},
-     "4": {"title": "Naskenujte kód QR",
-      "description": "Keď si príjemca potravín príde vyzdvihnúť jedlo, naskenujte kód QR, ktorý dostal. QR kód bude obsahovať informácie o potravinách, ktoré sa majú vydať.",
-      "imgUrl": "img/scan-qr.jpg",
-      "imgAlt": "Darca, ktorý skenuje qr kód na mobile, pri stretnutí s príjemcom"}}},
-   "receiver": {"toggleText": "Ako si rezervovať",
-    "toggleAriaLabel": "Tlačidlo prepínania krokov prijímača",
-    "steps": {"1": {"title": "Zaregistrujte sa ako príjemca potravín",
-      "imgUrl": "img/register-as-receiver.jpg",
-      "imgAlt": "Používateľ sa identifikuje ako charitatívny pracovník",
-      "description": "Ak potrebujete potraviny, môžete sa zaregistrovať na našej webovej stránke ako príjemca potravín. Budete musieť uviesť niekoľko základných informácií, ako je vaše meno, e-mail, telefónne číslo a adresa. Budete tiež musieť overiť svoju totožnosť a oprávnenosť nahraním dokladu o príjme, ťažkostiach alebo charitatívnom zamestnaní."},
-     "2": {"title": "Prehľadávať zoznamy potravín",
-      "imgUrl": "img/browse-food.jpg",
-      "imgAlt": "Príjemca prezerá dostupné ponuky potravín na prenosnom počítači",
-      "description": "Po prihlásení si môžete prezerať dostupné ponuky potravín na našej webovej stránke. Ponuku jedál môžete filtrovať podľa kategórie, vzdialenosti a dostupnosti, aby ste našli jedlo, ktoré vyhovuje vašim potrebám a preferenciám. Keď nájdete požadované jedlo, môžete si ho rezervovať na vyzdvihnutie kliknutím na tlačidlo Rezervovať."},
-     "3": {"title": "Prijatie kódu QR",
-      "imgUrl": "img/receive-qrcode.jpg",
-      "imgAlt": "Príjemca dostane potvrdenie s kódom QR na svojom telefóne",
-      "description": "Dostanete potvrdzujúci e-mail s údajmi o darcovi potravín, mieste a čase vyzdvihnutia. Dostanete aj QR kód, ktorý budete musieť ukázať darcovi potravín, keď si prídete vyzdvihnúť potraviny."},
-     "4": {"title": "Vyzdvihnite jedlo",
-      "imgUrl": "img/food-pickup.jpg",
-      "imgAlt": "Príjemca sa prezentuje kódom QR, vyzdvihne si jedlo",
-      "description": "Postupujte podľa pokynov darcu potravín. Po preukázaní sa kódom QR si budete môcť od darcu prevziať potraviny."}}}},
-  "aboutUs": {"title": "O nás",
-   "paragraphs": {"story": {"title": "Náš príbeh",
-     "text": "Z univerzitného projektu sa zrodila myšlienka vytvoriť pozitívnu zmenu prostredníctvom prepojenia darcov s tými, ktorí to potrebujú. Sme skupina študentov, ktorých nadchol boj proti plytvaniu potravinami a nasýtenie ľudí v núdzi. Príbeh DishDash je príbehom o tom, ako sa z jednoduchého nápadu stala misia, ktorá spája komunitu, aby urobila svet lepším.",
-     "imgAlt": "Foto Fakulta matematiky fyziky a informatiky Univerzity Komenského v Bratislave"},
-    "mission": {"title": "Naše poslanie",
-     "text": "V spoločnosti DishDash sa snažíme znižovať plytvanie potravinami a zároveň bojovať proti hladu. Naším poslaním je budovať mosty medzi darcami a príjemcami, ktorí zdieľajú rovnakú víziu sveta, v ktorom má každý prístup k výživným potravinám. Veríme, že každý tanier sa počíta a každé darované jedlo je krokom k udržateľnejšej a starostlivejšej budúcnosti.",
-     "imgAlt": "Ľudia pracujúci na prenosných počítačoch"},
-    "goal": {"title": "Čo robíme",
-     "text": "Sme inovatívna platforma, ktorá spája darcov s prebytkom kvalitných potravín s ľuďmi v ekonomických ťažkostiach. Uľahčujeme darovanie potravín a zabezpečujeme, aby sa každá nespotrebovaná porcia stala príležitosťou nakŕmiť niekoho v núdzi.",
-     "imgAlt": "Muž drží pohár s nápisom: Rob to, čo miluješ"},
-    "help": {"title": "Ako môžete pomôcť",
-     "text": "Pozývame všetkých, aby sa k nám pridali v našom boji proti hladu. Stačí niekoľko kliknutí a môžete prispieť na podporu tých, ktorí potrebujú pomocnú ruku. Každý príspevok sa počíta a má význam. Pomôžte nám šíriť túto myšlienku. Zdieľajte našu platformu na svojich sociálnych sieťach, povedzte o nás svojim priateľom a rodine. Čím viac ľudí sa k našej veci pridá, tým väčší vplyv môžeme mať.",
-     "imgAlt": "Mnoho ľudí sa drží za ruky"}}},
-  "getInTouch": {"title": "Kontaktujte nás",
-   "subtitle": "Máte otázky alebo obavy? Obráťte sa na nás bez váhania! Sme tu, aby sme vám pomohli s akýmikoľvek otázkami.",
-   "form": {"email": {"label": "E-mailová adresa"},
-    "message": {"label": "Správa"},
-    "submit": "Odoslať"}},
-  "notifications": {"messageSend": "Správa bola úspešne odoslaná!"}},
- "auth": {"register": {"title": "Zaregistrujte sa",
-   "subTitle": "Zaregistrujte sa ako darca alebo príjemca a pripojte sa k nám teraz!",
-   "form": {"firstName": {"label": "Kresťanské meno"},
-    "lastName": {"label": "Priezvisko"},
-    "email": {"label": "E-mailová adresa"},
-    "phone": {"label": "Telefón"},
-    "password": {"label": "Heslo"},
-    "role": {"label": "Úloha",
-     "aria": "Ponuka možností roly používateľa",
-     "options": {"donor": "Darca", "receiver": "Prijímač"}},
-    "submit": "Zaregistrujte sa"},
-   "existingAccount": {"question": "Už máte účet?", "action": "Prihláste sa!"},
-   "notifications": {"success": "Vaše konto bolo úspešne vytvorené!"}},
-  "login": {"title": "Prihlásiť sa",
-   "subTitle": "Zadajte svoje poverenia na prístup k svojmu kontu.",
-   "form": {"email": {"label": "E-mailová adresa"},
-    "password": {"label": "Heslo"},
-    "submit": "Prihlásiť sa"},
-   "forgotPassword": "Zabudli ste heslo?",
-   "newAccount": {"question": "Nemáte účet?", "action": "Zaregistrujte sa!"},
-   "invalidCredentials": "Nesprávna e-mailová adresa alebo heslo"},
-  "forgotPassword": {"title": "Získajte overovací kód",
-   "subTitle": "Zadajte svoj e-mail, aby ste obnovili svoje heslo a získali prístup k svojmu kontu.",
-   "form": {"email": {"label": "E-mailová adresa"},
-    "submit": "Odoslať potvrdenie"},
-   "notifications": {"success": "E-mail bol úspešne odoslaný!"},
-   "backToLogin": "Späť na prihlásenie"},
-  "forgotPasswordSubmit": {"title": "Zmena hesla",
-   "subTitle": "Zadajte kód z e-mailu a nastavte nové heslo.",
-   "form": {"code": {"label": "Kód"},
-    "newPassword": {"label": "Nové heslo"},
-    "confirmPassword": {"label": "Potvrdenie hesla"},
-    "submit": "Zmena hesla"},
-   "notifications": {"success": "Vaše heslo bolo úspešne zmenené!"},
-   "backToLogin": "Späť na prihlásenie",
-   "invalidCode": "Neplatný overovací kód"}},
- "donor": {"drawer": {"menu": {"help": "Pomoc",
-    "home": "Domov",
-    "settings": "Nastavenia",
-    "donationManagement": "Dary",
-    "events": "Podujatia",
-    "articles": "Články"}},
-  "home": {"welcome": {"subTitle": "Vitajte späť, cítite sa veľkorysí?",
-    "title": "Ahoj {{name}},",
-    "cta": "Darujme"},
-   "toolbar": {"title": "Domov"},
-   "activeDonations": {"title": "Aktívne darcovstvo",
-    "action": "Zobraziť",
-    "actionAlt": "Opakujte"},
-   "fulfilledDonations": {"title": "Splnené dary",
-    "action": "Zobraziť",
-    "actionAlt": "Opakujte"},
-   "upcomingEvents": {"title": "Nadchádzajúce podujatia",
-    "browse": "Prehľadávať podujatia",
-    "action": "Zistite viac"},
-   "community": {"title": "Komunita",
-    "action": "Prečítajte si viac",
-    "actionAlt": "Prečítajte si",
-    "browse": "Prehľadávať články"}},
-  "donationManagement": {"title": "Dary",
-   "confirmations": {"delete": "Ste si istí, že chcete tento dar vymazať?"},
-   "table": {"headers": {"actions": "Činnosti",
-     "donation": "Darovanie",
-     "createdAt": "Dátum",
-     "status": "Stav"},
-    "selectAria": "Vyberte všetky dary",
-    "actionsAria": "Darovacie akcie",
-    "actionsMenuAria": "Ponuka akcií darovania"},
-   "notifications": {"deleteSuccess": "Príspevky boli vymazané!"},
-   "active": "Aktívne",
-   "fulfilled": "Splnené",
-   "noDonations": "Zatiaľ žiadne dary.",
-   "addDonation": "Pridať dar"},
-  "editDonation": {"title": "Upraviť darcovstvo",
-   "infoForm": {"title": "Informácie",
-    "donationTitle": {"label": "Názov",
-     "placeholder": "Zadajte stručný a opisný názov svojho daru."},
-    "location": {"label": "Miesto vyzdvihnutia",
-     "placeholder": "Zadajte miesto, kde si príjemca môže vyzdvihnúť dar."},
-    "from": {"label": "K dispozícii od*", "date": "Dátum", "time": "Čas"},
-    "until": {"label": "K dispozícii do*", "date": "Dátum", "time": "Čas"},
-    "additionalInfo": {"label": "Ďalšie informácie",
-     "placeholder": "Zadajte svoje preferencie alebo v prípade potreby uveďte osobitné pokyny týkajúce sa potravín alebo procesu vyzdvihnutia."},
-    "submit": "Aktualizácia"},
-   "itemForm": {"title": "Položky",
-    "name": {"label": "Názov", "placeholder": "Zadajte názov jednej položky"},
-    "quantity": {"label": "Množstvo"},
-    "type": {"label": "Typ", "aria": "Typ"},
-    "unit": {"label": "Jednotka", "aria": "Jednotka"},
-    "submit": "Pridať"},
-   "foodTypes": {"all": {"label": "Všetky"},
-    "beverages": {"label": "Nápoje"},
-    "grocery": {"label": "Potraviny"},
-    "petFood": {"label": "Krmivo pre domáce zvieratá"},
-    "preparedFood": {"label": "Pripravené potraviny"},
-    "fruitsVegetables": {"label": "Ovocie a zelenina"}},
-   "units": {"grams": {"label": "Gramy"},
-    "kilograms": {"label": "Kilogramy"},
-    "liters": {"label": "Litre"},
-    "deciliters": {"label": "Decilitre"},
-    "milliliters": {"label": "Mililitre"},
-    "pieces": {"label": "Pices"}},
-   "removeItemAria": "Odstrániť položku",
-   "noItems": "Žiadne pridané položky",
-   "notifications": {"updateSuccess": "{{donation}} bolo aktualizované!"}},
-  "createDonation": {"title": "Vytvoriť darcovstvo",
-   "submit": "Vytvoriť stránku",
-   "notifications": {"createSuccess": "{{donation}} bolo vytvorené!",
-    "updateSuccess": "{{donation}} bolo aktualizované!"}}},
- "receiver": {"drawer": {"menu": {"home": "Domov",
-    "reservationManagement": "Rezervácie",
-    "donations": "Dary"}},
-  "home": {"welcome": {"subTitle": "Vitajte späť, máte pocit hladu?",
-    "title": "Ahoj {{name}},",
-    "cta": "Prehľadávanie darov"},
-   "toolbar": {"title": "Domov"},
-   "activeReservations": {"title": "Aktívne rezervácie", "action": "Zobraziť"},
-   "upcomingEvents": {"title": "Nadchádzajúce podujatia",
-    "browse": "Prehľadávať podujatia",
-    "action": "Zistite viac"},
-   "community": {"title": "Komunita", "action": "Prečítajte si viac"},
-   "confirmations": {"cancel": "Ste si istí, že chcete zrušiť túto rezerváciu?"},
-   "notifications": {"cancelSuccess": "Rezervácia bola zrušená!"}},
-  "reservationManagement": {"title": "Rezervácie",
-   "confirmations": {"delete": "Ste si istí, že chcete túto rezerváciu vymazať?"},
-   "table": {"headers": {"actions": "Činnosti",
-     "reservation": "Rezervácia",
-     "createdAt": "Dátum",
-     "status": "Stav"}},
-   "notifications": {"deleteSuccess": "Rezervácie boli vymazané!"},
-   "active": "Aktívne",
-   "pickedUp": "Vyzdvihnuté",
-   "noReservations": "Zatiaľ nie sú žiadne výhrady."},
-  "donationListing": {"title": "Dostupné dary",
-   "reserve": "Rezerva",
-   "search": {"placeholder": "Vyhľadávanie...", "submit": "Vyhľadávanie"},
-   "filters": {"title": "Filtre",
-    "distance": {"label": "Vzdialenosť (m)"},
-    "from": {"label": "K dispozícii od"},
-    "until": {"label": "K dispozícii do"},
-    "date": {"label": "Dátum"},
-    "time": {"label": "Čas"}},
-   "categories": {"grocery": "Potraviny"}},
-  "reservationDetails": {"title": "Podrobnosti o rezervácii",
-   "qrCode": "Kód QR",
-   "qrCodeMessage": "Pri preberaní daru ho predložte."},
-  "editReservation": {"title": "Upraviť rezerváciu",
-   "cancelReservation": "Zrušiť rezerváciu",
-   "notifications": {"updateSuccess": "Rezervované položky boli aktualizované!"},
-   "openQR": "Odhalenie kódu QR",
-   "details": {"title": "Podrobnosti o rezervácii",
-    "form": {"id": {"label": "ID daru"},
-     "title": {"label": "Názov"},
-     "location": {"label": "Miesto vyzdvihnutia"},
-     "from": {"label": "K dispozícii od"},
-     "until": {"label": "K dispozícii do"},
-     "date": {"label": "Dátum"},
-     "time": {"label": "Čas"},
-     "additionalInfo": {"label": "Ďalšie informácie"},
-     "noItems": "Žiadne vybrané položky"}},
-   "items": {"title": "Položky"},
-   "submit": "Aktualizácia položiek"},
-  "createReservation": {"title": "Vytvorenie rezervácie",
-   "notifications": {"createSuccess": "Položky boli rezervované!"},
-   "submit": "Rezervné položky"}},
- "faq": {"noAnswerLink": "Nemôžete ho tu nájsť? Pozrite si naše Centrum pomoci.",
-  "questions": {"title1": "Na čo slúži táto aplikácia?",
-   "answer1": "Táto aplikácia je určená na zníženie plytvania potravinami a hladu prostredníctvom prepojenia darcov potravín s ich príjemcami. Darcovia potravín sú reštaurácie, potraviny, obchody alebo jednotlivci, ktorí majú prebytočné potraviny, ktoré chcú darovať namiesto toho, aby ich vyhodili. Príjemcovia potravín sú charitatívne organizácie, organizácie alebo jednotlivci, ktorí potrebujú potraviny a môžu si ich od darcov vyzdvihnúť.",
-   "title2": "Ako aplikácia funguje?",
-   "answer2": "Táto aplikácia funguje ako trh s darovanými potravinami, kde môžu darcovia potravín zverejniť svoje dostupné potraviny a príjemcovia potravín si ich môžu rezervovať na vyzdvihnutie. Darcovia potravín si môžu vytvoriť profil, pridať svoju polohu, nahrať fotografie a opisy svojich potravín a určiť čas a spôsob vyzdvihnutia. Príjemcovia potravín si môžu prezerať potravinové položky vo svojom okolí, filtrovať ich podľa kategórie, vzdialenosti a dostupnosti a rezervovať si tie, ktoré chcú.",
-   "title3": "Kto môže túto aplikáciu používať?",
-   "answer3": "Táto aplikácia je otvorená pre každého, kto chce darovať alebo prijímať potraviny. Príjemcovia potravín sa však musia zaregistrovať a overiť svoju totožnosť a oprávnenosť predtým, ako si môžu rezervovať potraviny. Príjemcami potravín môžu byť charitatívne organizácie, organizácie alebo jednotlivci, ktorí čelia potravinovej neistote alebo ťažkostiam. Darcami potravín môžu byť podniky alebo jednotlivci, ktorí majú prebytočné potraviny, ktoré sú ešte jedlé a bezpečné na konzumáciu.",
-   "title4": "Aké druhy potravín možno darovať?",
-   "answer4": "Darovať môžete akýkoľvek druh potravín, ktoré sú ešte bezpečné na konzumáciu a spĺňajú normy bezpečnosti potravín vo vašej oblasti. Patria sem varené alebo nevarené potraviny, balené alebo nebalené potraviny, čerstvé alebo mrazené potraviny a zvyšky alebo prebytky potravín. Upozorňujeme však, že aplikácia neprijíma potraviny, ktoré sú po dátume spotreby, boli otvorené alebo čiastočne skonzumované, alebo majú známky pokazenia či kontaminácie. Ste zodpovední za to, že potraviny, ktoré darujete, sú v dobrej kvalite a stave.",
-   "title5": "Ako môžem darovať potraviny?",
-   "answer5": "Ak máte prebytočné potraviny, ktoré chcete darovať, môžete sa zaregistrovať ako darca potravín na webovej stránke a vytvoriť si zoznam potravín. Pri zaradení potravín do zoznamu musíte uviesť miesto a časový rámec vyzdvihnutia potravín. Charitatívne organizácie alebo jednotlivci si potom môžu tieto potraviny rezervovať na vyzdvihnutie a dostanú QR kód, ktorý budú musieť predložiť na naskenovanie pri vyzdvihnutí potravín - tým sa potvrdí dokončenie darovania.",
-   "title6": "Ako si môžem rezervovať jedlo?",
-   "answer6": "Ak si chcete rezervovať potraviny, musíte sa v aplikácii zaregistrovať ako príjemca potravín a prezrieť si zoznamy dostupných potravín vo vašej oblasti. Výpisy potravín môžete filtrovať podľa kategórie, vzdialenosti a dostupnosti, aby ste našli potraviny, ktoré vyhovujú vašim potrebám a preferenciám. Keď nájdete zoznam potravín, ktoré chcete, môžete si ich rezervovať na vyzdvihnutie kliknutím na tlačidlo Rezervovať. Dostanete QR kód, ktorý budete musieť ukázať darcovi potravín, keď si prídete jedlo vyzdvihnúť. Tým sa potvrdí prevzatie potravín.",
-   "title7": "Čo sa stane, ak si nemôžem vyzdvihnúť rezervované jedlo?",
-   "answer7": "Ak si z akéhokoľvek dôvodu nemôžete vyzdvihnúť rezervované jedlo, zrušte svoju rezerváciu čo najskôr prostredníctvom aplikácie. Uvoľníte tak potraviny pre iných príjemcov, ktorí ich môžu potrebovať.",
-   "title8": "Je používanie tejto aplikácie spoplatnené?",
-   "answer8": "Nie, používanie tejto aplikácie nie je spoplatnené. Je úplne bezplatná pre darcov aj príjemcov."},
-  "title": "Často kladené otázky"},
- "help": {"menu": {"contact": "Kontakt",
-   "faq": "ČASTO KLADENÉ OTÁZKY",
-   "guide": "Sprievodca",
-   "support": "Podpora"},
-  "title": "Centrum pomoci"},
- "notifications": {"newReservation": "Položky boli rezervované z vášho daru: {{donation}}."},
- "profile": {"activity": {"empty": "Tu sa budú zobrazovať záznamy o vašej aktivite!",
-   "logs": {"donationAdded": "<bold>Vy</bold> ste vytvorili nový dar: <bold>{{resource}}</bold>",
-    "donationUpdated": "<bold>Vy</bold> ste aktualizovali dar: <bold>{{resource}}</bold>",
-    "donationDeleted": "<bold>Vy</bold> ste vymazali dar: <bold>{{resource}}</bold>"}},
-  "info": {"form": {"email": {"label": "E-mailová adresa"},
-    "firstName": {"label": "Kresťanské meno"},
-    "gender": {"label": "Pohlavie",
-     "options": {"f": "Ženy", "m": "Muži", "n": "NC"}},
-    "lastName": {"label": "Priezvisko"}},
-   "title": "Aktualizácia profilu"},
-  "menu": {"activity": "Aktivita", "info": "Informácie", "password": "Heslo"},
-  "notifications": {"informationUpdated": "Informácie aktualizované!",
-   "passwordChanged": "Heslo zmenené!"},
-  "password": {"form": {"current": {"label": "Aktuálne heslo"},
-    "confirm": {"label": "Potvrdenie hesla"},
-    "new": {"label": "Nové heslo"}},
-   "title": "Zmena hesla"}},
- "settings": {"drawer": {"direction": {"label": "Smer",
-    "options": {"ltr": "LTR", "rtl": "RTL"}},
-   "language": {"label": "Jazyk",
-    "aria": "Jazyk",
-    "options": {"en": "Angličtina", "sk": "Slovak"}},
-   "mode": {"label": "Režim", "options": {"dark": "Dark", "light": "Svetlo"}},
-   "sidebar": {"label": "Bočný panel",
-    "options": {"collapsed": "Zrútené stránky", "full": "Úplný"}},
-   "title": "Nastavenia"}},
- "events": {"location": "Umiestnenie",
-  "date": "Dátum",
-  "website": "Webová lokalita"}}
+{
+  "common": {
+    "backHome": "Späť domov",
+    "cancel": "Zrušiť",
+    "confirm": "Potvrdiť",
+    "confirmation": "Potvrdenie",
+    "delete": "Vymazať",
+    "view": "Zobraziť",
+    "repeat": "Zopakovať",
+    "edit": "Upraviť",
+    "apply": "Použiť",
+    "reset": "Obnoviť",
+    "retry": "Skúsiť znova",
+    "selected": "Vybrané",
+    "update": "Aktualizovať",
+    "errors": {
+      "forbidden": {
+        "subTitle": "Nemáte prístup k zobrazeniu tejto stránky"
+      },
+      "notFound": {
+        "subTitle": "Ospravedlňujeme sa, stránka, ktorú hľadáte, sa nenašla. Možno ste zadali nesprávnu adresu URL?",
+        "title": "Ups!"
+      },
+      "unexpected": {
+        "subTitle": "Niečo sa pokazilo! Ak problém pretrváva, kontaktujte nás!",
+        "title": "Ups!"
+      },
+      "underConstructions": {
+        "subTitle": "Na tejto stránke aktívne pracujeme.",
+        "title": "Vo výstavbe!"
+      }
+    },
+    "snackbar": {
+      "error": "Chyba",
+      "success": "Úspech"
+    },
+    "validations": {
+      "email": "Neplatná e-mailová adresa",
+      "phone": "Neplatné telefónne číslo",
+      "max": "Musí mať {{size}} alebo menej znakov",
+      "min": "Musí mať {{size}} alebo viac znakov",
+      "passwordMatch": "Heslá sa nezhodujú",
+      "required": "Povinné",
+      "invalid": "Neplatná hodnota"
+    },
+    "carousel": {
+      "prevPage": "Predchádzajúce",
+      "nextPage": "Ďalšie"
+    },
+    "header": {
+      "settings": "Nastavenia",
+      "notifications": {
+        "empty": {
+          "title": "Váš zoznam upozornení je prázdny"
+        },
+        "seeAll": "Zobraziť všetky upozornenia",
+        "ariaControls": "Popover s upozorneniami"
+      }
+    }
+  },
+  "landing": {
+    "nav": {
+      "signUp": "Registrácia",
+      "howItWorks": "Ako to funguje",
+      "aboutUs": "O nás",
+      "contact": "Kontakt",
+      "cta": "Prihlásiť sa",
+      "settingsAria": "Prepínač nastavení",
+      "tabsAria": "Navigačné odkazy v menu"
+    },
+    "hero": {
+      "title": "Zapojte sa do boja proti hladu",
+      "subTitle": "Vitajte v DishDash, kde sa vášeň pre dobré jedlo stretáva s odhodlaním spraviť svet lepším miestom. Sme platforma, ktorá sa venuje premene prebytočného jedla na príležitosť nakŕmiť tých, ktorí to najviac potrebujú!",
+      "imgUrl": "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imgAlt": "Ľudia zdieľajúci krabice s potravinovými príspevkami",
+      "cta": "Začať"
+    },
+    "howItWorks": {
+      "title": "Ako to funguje",
+      "donor": {
+        "toggleText": "Darovanie",
+        "toggleAriaLabel": "Prepínač pre postup darovania",
+        "steps": {
+          "1": {
+            "title": "Registrujte sa ako darca jedla",
+            "description": "Ak máte prebytočné jedlo, ktoré chcete darovať, môžete sa na našej stránke prihlásiť ako darca jedla. Budete musieť poskytnúť niektoré základné informácie, ako je vaše meno, e-mail a telefónne číslo",
+            "imgUrl": "img/register-as-donor.jpg",
+            "imgAlt": "Používateľ registrujúci sa do aplikácie pomocou notebooku"
+          },
+          "2": {
+            "title": "Vytvorte nový záznam o jedle",
+            "description": "Po prihlásení môžete vytvoriť nový záznam o predbytočnom jedle. Budete musieť poskytnúť nejaké informácie o potravinách, ktoré chcete darovať, a špecifikovať miesto a časový rámec, kedy je možné si jedlo vyzdvihnúť.",
+            "imgUrl": "img/create-donation.jpg",
+            "imgAlt": "Obrázok jedla na webovej stránke otvorenej na notebooku a mobilnom zariadení"
+          },
+          "3": {
+            "title": "Počkajte na upozornenie",
+            "description": "Po tom čo si príjemca vaše jedlo rezervuje, dostanete upozornenie.",
+            "imgUrl": "img/receive-notification.jpg",
+            "imgAlt": "Žena držiaca pohár, dostávajúca upozornenie na mobilný telefón"
+          },
+          "4": {
+            "title": "Oskenovanie potvrdenia",
+            "description": "Po príchode príjemcu, naskenujte jeho QR kód, pre zobrazenie stránky s informáciam o potravinách, ktoré mu majú byť vydanné.",
+            "imgUrl": "img/scan-confirmation.jpg",
+            "imgAlt": "Osoba skenujúca qr kód mobilom"
+          }
+        }
+      },
+      "receiver": {
+        "toggleText": "Rezervácia",
+        "toggleAriaLabel": "Prepínač pre postup rezervovania",
+        "steps": {
+          "1": {
+            "title": "Zaregistrujte sa ako príjemca",
+            "imgUrl": "img/register-as-receiver.jpg",
+            "imgAlt": "Osoba držiaca preukaz totožnosti.",
+            "description": "Ak potrebujete potraviny, môžete sa zaregistrovať na našej webovej stránke ako príjemca. Budete musieť uviesť niekoľko základných informácií, ako je vaše meno, e-mail a telefónne číslo."
+          },
+          "2": {
+            "title": "Prehľadajte záznamy jedál",
+            "imgUrl": "img/browse-food.jpg",
+            "imgAlt": "Osoba prezerajúca dostupné ponuky jedál na notebooku.",
+            "description": "Po prihlásení si môžete prezrieť dostupné ponuky edál. Môžete ich filtrovať podľa kategórie, vzdialenosti a dostupnosti a nájsť tak jedlo, ktoré vyhovuje vašim potrebám a preferenciám. Keď nájdete záznam, ktorý vám vyhovuje, môžete si ho rezervovať celý alebo len jeho časť."
+          },
+          "3": {
+            "title": "Počajte na QR kód",
+            "imgUrl": "img/receive-qrcode.jpg",
+            "imgAlt": "Osoba dostávajúca potvrdenie s kódom QR na svojom telefóne",
+            "description": "Po rezervácii sa Vám zobrazí stránka s podrobnosťami o rezervácie, ako napríklad: miesto vyzdvihnutia a čas vyzdvihnutia. Dostanete aj QR kód, ktorý ukážete darcovi jedla, pri vyzdvihovaní jedla."
+          },
+          "4": {
+            "title": "Vyzdvihnite jedlo",
+            "imgUrl": "img/food-pickup.jpg",
+            "imgAlt": "Osoba, ktorá sa pri preberaní jedla prezentuje QR kódom",
+            "description": "Dorazte na miesto vyzvihnutia a riadte sa pokynami darcu jedla, ak boli poskytnuté. Po preukázaní sa kódom QR si budete môcť od darcu prevziať potraviny."
+          }
+        }
+      }
+    },
+    "aboutUs": {
+      "title": "O nás",
+      "paragraphs": {
+        "story": {
+          "title": "Naša história",
+          "text": "Z univerzitného projektu sa zrodila myšlienka vytvoriť pozitívnu zmenu prostredníctvom prepojenia darcov s tými, ktorí to potrebujú. Sme skupina študentov, ktorých nadchol boj proti plytvaniu potravinami a nasýtenie ľudí v núdzi. Príbeh DishDash je príbehom o tom, ako sa z jednoduchého nápadu stala misia, ktorá spája komunitu, aby urobila svet lepším.",
+          "imgAlt": "Fotografia Fakulty matematiky, fyziky a informatiky Univerzity Komenského v Bratislave"
+        },
+        "mission": {
+          "title": "Naša misia",
+          "text": "V spoločnosti DishDash sa snažíme znižovať plytvanie potravinami a zároveň bojovať proti hladu. Naším poslaním je budovať mosty medzi darcami a príjemcami, ktorí zdieľajú rovnakú víziu sveta, v ktorom má každý prístup k výživným potravinám. Veríme, že každý tanier sa počíta a každé darované jedlo je krokom k udržateľnejšej a starostlivejšej budúcnosti.",
+          "imgAlt": "Ľudia pracujúci na počítačoch"
+        },
+        "goal": {
+          "title": "Čo robíme",
+          "text": "Sme inovatívna platforma, ktorá spája darcov s prebytkom potravín s ľuďmi v ekonomických ťažkostiach. Uľahčujeme darovanie potravín a zabezpečujeme, aby sa každá nespotrebovaná porcia stala príležitosťou nakŕmiť niekoho v núdzi.",
+          "imgAlt": "Muž držiaci šálku so sloganom: Rob, čo miluješ"
+        },
+        "help": {
+          "title": "Ako môžete pomôcť",
+          "text": "Pozývame všetkých, aby sa k nám pridali v boji proti hladu. Stačí niekoľko kliknutí a môžete prispieť na podporu tých, ktorí potrebujú pomocnú ruku. Každý príspevok sa počíta a má význam. Pomôžte nám šíriť túto myšlienku. Zdieľajte našu platformu na svojich sociálnych sieťach, povedzte o nás svojim priateľom a rodine. Čím viac ľudí sa k nám pridá, tým väčší vplyv môžeme mať.",
+          "imgAlt": "Mnoho ľudí držiacich sa za ruky"
+        }
+      }
+    },
+    "getInTouch": {
+      "title": "Spojte sa s nami",
+      "subtitle": "Máte otázky alebo obavy? Neváhajte nás kontaktovať!",
+      "form": {
+        "email": {
+          "label": "E-mailová adresa"
+        },
+        "message": {
+          "label": "Správa"
+        },
+        "submit": "Odoslať"
+      }
+    },
+    "notifications": {
+      "messageSend": "Správa bola úspešne odoslaná!"
+    }
+  },
+  "auth": {
+    "register": {
+      "title": "Registrácia",
+      "subTitle": "Zaregistrujte sa ako darca alebo príjemca a pripojte sa k nám hneď teraz!",
+      "form": {
+        "firstName": {
+          "label": "Krstné meno"
+        },
+        "lastName": {
+          "label": "Priezvisko"
+        },
+        "email": {
+          "label": "E-mailová adresa"
+        },
+        "phone": {
+          "label": "Telefónne číslo"
+        },
+        "password": {
+          "label": "Heslo"
+        },
+        "role": {
+          "label": "Rola",
+          "aria": "Možnosti používateľskej role",
+          "options": {
+            "donor": "Darca",
+            "receiver": "Príjemca"
+          }
+        },
+        "submit": "Registrovať sa"
+      },
+      "existingAccount": {
+        "question": "Už máte účet?",
+        "action": "Prihlásiť sa!"
+      },
+      "notifications": {
+        "success": "Váš účet bol úspešne vytvorený!"
+      }
+    },
+    "login": {
+      "title": "Prihlásenie",
+      "subTitle": "Zadajte svoje prihlasovacie údaje a získajte prístup k svojmu účtu.",
+      "form": {
+        "email": {
+          "label": "E-mailová adresa"
+        },
+        "password": {
+          "label": "Heslo"
+        },
+        "submit": "Prihlásiť sa"
+      },
+      "forgotPassword": "Zabudli ste heslo?",
+      "newAccount": {
+        "question": "Nemáte účet?",
+        "action": "Zaregistrujte sa!"
+      },
+      "invalidCredentials": "Nesprávna e-mailová adresa alebo heslo"
+    },
+    "forgotPassword": {
+      "title": "Získať overovací kód",
+      "subTitle": "Zadajte svoj e-mail pre obnovenie hesla a opätovný prístup k svojmu účtu.",
+      "form": {
+        "email": {
+          "label": "E-mailová adresa"
+        },
+        "submit": "Odoslať potvrdenie"
+      },
+      "notifications": {
+        "success": "E-mail bol úspešne odoslaný!"
+      },
+      "backToLogin": "Späť na prihlásenie"
+    },
+    "forgotPasswordSubmit": {
+      "title": "Zmena hesla",
+      "subTitle": "Zadajte kód z e-mailu a nastavte si nové heslo.",
+      "form": {
+        "code": {
+          "label": "Kód"
+        },
+        "newPassword": {
+          "label": "Nové heslo"
+        },
+        "confirmPassword": {
+          "label": "Potvrďte heslo"
+        },
+        "submit": "Zmeniť heslo"
+      },
+      "notifications": {
+        "success": "Vaše heslo bolo úspešne zmenené!"
+      },
+      "backToLogin": "Späť na prihlásenie",
+      "invalidCode": "Neplatný overovací kód"
+    }
+  },
+  "donor": {
+    "drawer": {
+      "menu": {
+        "help": "Pomoc",
+        "home": "Domov",
+        "settings": "Nastavenia",
+        "donationManagement": "Darovania",
+        "events": "Udalosti",
+        "articles": "Články"
+      }
+    },
+    "home": {
+      "welcome": {
+        "subTitle": "Vitajte späť, máte chuť pomôcť?",
+        "title": "Ahoj {{name}},",
+        "cta": "Poďme darovať"
+      },
+      "toolbar": {
+        "title": "Domov"
+      },
+      "activeDonations": {
+        "title": "Vaše aktívne darovania",
+        "action": "Zobraziť",
+        "actionAlt": "Zopakovať"
+      },
+      "fulfilledDonations": {
+        "title": "Vaše dokončené darovania",
+        "action": "Zobraziť",
+        "actionAlt": "Zopakovať"
+      },
+      "upcomingEvents": {
+        "title": "Nadchádzajúce udalosti",
+        "browse": "Prezrieť si udalosti",
+        "action": "Dozvedieť sa viac"
+      },
+      "community": {
+        "title": "Komunita",
+        "action": "Čítať viac",
+        "actionAlt": "Čítať",
+        "browse": "Prezrieť si články"
+      }
+    },
+    "donationManagement": {
+      "title": "Vaše darovania",
+      "confirmations": {
+        "delete": "Ste si istí, že chcete odstrániť toto darovanie?"
+      },
+      "table": {
+        "headers": {
+          "actions": "Akcie",
+          "donation": "Darovanie",
+          "createdAt": "Dátum",
+          "status": "Stav"
+        },
+        "selectAria": "Vybrať všetky darovania",
+        "actionsAria": "Akcie s darovaniami",
+        "actionsMenuAria": "Menu akcií s darovaniami"
+      },
+      "notifications": {
+        "deleteSuccess": "Darovanie(nia) bolo úspešne odstránené!"
+      },
+      "active": "Aktívne",
+      "fulfilled": "Dokončené",
+      "noDonations": "Zatiaľ nemáte žiadne darovania.",
+      "addDonation": "Pridať darovanie"
+    },
+    "editDonation": {
+      "title": "Upraviť darovanie",
+      "infoForm": {
+        "title": "Informácie",
+        "donationTitle": {
+          "label": "Názov",
+          "placeholder": "Zadajte stručný názov pre vaše darovanie."
+        },
+        "location": {
+          "label": "Miesto odberu",
+          "placeholder": "Zadajte miesto, kde si príjemca môže prevziať darovanie."
+        },
+        "from": {
+          "label": "Dostupné od*",
+          "date": "Dátum",
+          "time": "Čas"
+        },
+        "until": {
+          "label": "Dostupné do*",
+          "date": "Dátum",
+          "time": "Čas"
+        },
+        "additionalInfo": {
+          "label": "Dodatočné informácie",
+          "placeholder": "Zadajte svoje preferencie alebo poskytnite akékoľvek špeciálne pokyny týkajúce sa potravinových položiek alebo procesu odberu, ak je to potrebné."
+        },
+        "submit": "Aktualizovať"
+      },
+      "itemForm": {
+        "title": "Položky",
+        "name": {
+          "label": "Názov",
+          "placeholder": "Zadajte názov pre dané jedlo"
+        },
+        "quantity": {
+          "label": "Množstvo"
+        },
+        "type": {
+          "label": "Typ",
+          "aria": "Typ"
+        },
+        "unit": {
+          "label": "Jednotka",
+          "aria": "Jednotka"
+        },
+        "submit": "Pridať"
+      },
+      "foodTypes": {
+        "all": {
+          "label": "Všetko"
+        },
+        "beverages": {
+          "label": "Nápoje"
+        },
+        "grocery": {
+          "label": "Potraviny"
+        },
+        "petFood": {
+          "label": "Krmivo pre zvieratá"
+        },
+        "preparedFood": {
+          "label": "Pripravené jedlo"
+        },
+        "fruitsVegetables": {
+          "label": "Ovocie a zelenina"
+        }
+      },
+      "units": {
+        "grams": {
+          "label": "Gramy"
+        },
+        "kilograms": {
+          "label": "Kilogramy"
+        },
+        "liters": {
+          "label": "Litre"
+        },
+        "deciliters": {
+          "label": "Decilitre"
+        },
+        "milliliters": {
+          "label": "Mililitre"
+        },
+        "pieces": {
+          "label": "Kusy"
+        }
+      },
+      "removeItemAria": "Odstrániť položku",
+      "noItems": "Žiadne jedlo nebolo pridané",
+      "notifications": {
+        "updateSuccess": "Darovanie: \"{{donation}}\", bolo úspešne aktualizované!"
+      }
+    },
+    "createDonation": {
+      "title": "Vytvoriť darovanie",
+      "submit": "Vytvoriť",
+      "notifications": {
+        "createSuccess": "Darovanie: \"{{donation}}\", bolo úspešne vytvorené!",
+        "updateSuccess": "Darovanie: \"{{donation}}\", bolo úspešne aktualizované!"
+      }
+    }
+  },
+  "receiver": {
+    "drawer": {
+      "menu": {
+        "home": "Domov",
+        "reservationManagement": "Rezervácie",
+        "donations": "Darovania"
+      }
+    },
+    "home": {
+      "welcome": {
+        "subTitle": "Vitajte späť, máte hlad?",
+        "title": "Ahoj {{name}},",
+        "cta": "Prezrieť darovania"
+      },
+      "toolbar": {
+        "title": "Domov"
+      },
+      "activeReservations": {
+        "title": "Tvoje aktívne rezervácie",
+        "action": "Zobraziť"
+      },
+      "upcomingEvents": {
+        "title": "Nadchádzajúce udalosti",
+        "browse": "Prezrieť si udalosti",
+        "action": "Dozvedieť sa viac"
+      },
+      "community": {
+        "title": "Komunita",
+        "action": "Čítať viac"
+      },
+      "confirmations": {
+        "cancel": "Si si istý, že chceš zrušiť túto rezerváciu?"
+      },
+      "notifications": {
+        "cancelSuccess": "Rezervácia bola úspešne zrušená!"
+      }
+    },
+    "reservationManagement": {
+      "title": "Tvoje rezervácie",
+      "confirmations": {
+        "delete": "Si si istý, že chceš odstrániť túto rezerváciu?"
+      },
+      "table": {
+        "headers": {
+          "actions": "Akcie",
+          "reservation": "Rezervácia",
+          "createdAt": "Dátum",
+          "status": "Stav"
+        }
+      },
+      "notifications": {
+        "deleteSuccess": "Rezervácia(y) bola úspešne odstránená!"
+      },
+      "active": "Aktívne",
+      "pickedUp": "Prevzaté",
+      "noReservations": "Zatiaľ nemáte žiadne rezervácie."
+    },
+    "donationListing": {
+      "title": "Dostupné darovania",
+      "reserve": "Rezervovať",
+      "search": {
+        "placeholder": "Hľadať...",
+        "submit": "Hľadať"
+      },
+      "filters": {
+        "title": "Filtre",
+        "distance": {
+          "label": "Vzdialenosť (m)"
+        },
+        "from": {
+          "label": "Dostupné od"
+        },
+        "until": {
+          "label": "Dostupné do"
+        },
+        "date": {
+          "label": "Dátum"
+        },
+        "time": {
+          "label": "Čas"
+        }
+      },
+      "categories": {
+        "grocery": "Potraviny"
+      }
+    },
+    "reservationDetails": {
+      "title": "Detaily rezervácie",
+      "qrCode": "QR kód",
+      "qrCodeMessage": "Predložte ho pri preberaní darovania."
+    },
+    "editReservation": {
+      "title": "Upraviť rezerváciu",
+      "cancelReservation": "Zrušiť rezerváciu",
+      "notifications": {
+        "updateSuccess": "položky boli úspešne aktualizované!"
+      },
+      "openQR": "Zobraziť QR kód",
+      "details": {
+        "title": "Detaily rezervácie",
+        "form": {
+          "id": {
+            "label": "ID darovania"
+          },
+          "title": {
+            "label": "Názov"
+          },
+          "location": {
+            "label": "Miesto odberu"
+          },
+          "from": {
+            "label": "Dostupné od"
+          },
+          "until": {
+            "label": "Dostupné do"
+          },
+          "date": {
+            "label": "Dátum"
+          },
+          "time": {
+            "label": "Čas"
+          },
+          "additionalInfo": {
+            "label": "Dodatočné informácie"
+          },
+          "noItems": "Žiadne vybrané položky"
+        }
+      },
+      "items": {
+        "title": "Položky"
+      },
+      "submit": "Aktualizovať položky"
+    },
+    "createReservation": {
+      "title": "Vytvoriť rezerváciu",
+      "notifications": {
+        "createSuccess": "Položky boli úspešne zarezervované!"
+      },
+      "submit": "Rezervovať položky"
+    }
+  },
+  "faq": {
+    "questions": {
+      "title1": "Na čo slúži táto aplikácia?",
+      "answer1": "Táto aplikácia je určená na zníženie plytvania jedlom a hladu prostredníctvom prepojenia darcov s ich príjemcami. Darcovia sú reštaurácie, potraviny, obchody alebo jednotlivci, ktorí majú prebytočné jedlo, ktoré chcú darovať namiesto toho, aby ho vyhodili. Príjemcovia sú charitatívne organizácie, organizácie alebo jednotlivci, ktorí potrebujú jedlo a môžu si ho od darcov vyzdvihnúť.",
+      "title2": "Ako aplikácia funguje?",
+      "answer2": "Táto aplikácia funguje ako trh s darovanýn jedlom, kde môžu darcovia zverejniť svoje dostupné jedlá a príjemcovia si ich môžu rezervovať na vyzdvihnutie. Darcovia si môžu vytvoriť profil, pridať svoju polohu, nahrať fotografie a opisy svojich jedál a určiť čas a spôsob vyzdvihnutia. Príjemcovia si môžu prezerať položky jedál vo svojom okolí, filtrovať ich podľa kategórie, vzdialenosti a dostupnosti a rezervovať si tie, ktoré chcú.",
+      "title3": "Kto môže túto aplikáciu používať?",
+      "answer3": "Táto aplikácia je otvorená pre každého, kto chce darovať alebo prijímať jedlá. Príjemcami môžu byť charitatívne organizácie, organizácie alebo jednotlivci, ktorí čelia potravinovej neistote alebo inými ťažkostiam. Darcami môžu byť podniky alebo jednotlivci, ktorí majú prebytočné jedlá, ktoré sú ešte jedlé a bezpečné na konzumáciu.",
+      "title4": "Aké druhy jedál možno darovať?",
+      "answer4": "Darovať môžete akýkoľvek druh jedál, ktoré sú ešte bezpečné na konzumáciu a spĺňajú normy bezpečnosti. Patria sem varené alebo nevarené, balené alebo nebalené, čerstvé alebo mrazené a zvyšky jedál. Upozorňujeme však, že aplikácia neprijíma jedlá, ktoré sú po dátume spotreby, boli otvorené alebo čiastočne skonzumované, alebo majú známky pokazenia či kontaminácie. Ste zodpovední za to, že jedlo, ktoré darujete, sú v dobrej kvalite a stave.",
+      "title5": "Ako môžem darovať jedlo?",
+      "answer5": "Ak máte prebytočné jedlo, ktoré chcete darovať, môžete sa zaregistrovať ako darca na našej platforme a vytvoriť si zoznam jedál. Pri zaradení jedla do zoznamu musíte uviesť miesto a časový rámec jeho  vyzdvihnutia. Charitatívne organizácie alebo jednotlivci si potom môžu tieto jedlá rezervovať na vyzdvihnutie a dostanú QR kód, ktorý budú musieť predložiť na naskenovanie pri ich vyzdvihnutí - tým sa potvrdí dokončenie darovania.",
+      "title6": "Ako si môžem rezervovať jedlo?",
+      "answer6": "Ak si chcete rezervovať jedlo, musíte sa v aplikácii zaregistrovať ako príjemca a prezrieť si zoznamy dostupných jedál vo vašej oblasti. Výpisy jedál môžete filtrovať podľa kategórie, vzdialenosti a dostupnosti, aby ste našli jedlá, ktoré vyhovujú vašim potrebám a preferenciám. Keď nájdete jedlo, ktoré chcete, môžete si ich rezervovať na vyzdvihnutie kliknutím na tlačidlo Rezervovať. Dostanete QR kód, ktorý budete musieť ukázať darcovi, keď si prídete jedlo vyzdvihnúť. Tým sa potvrdí ich prevzatie.",
+      "title7": "Čo sa stane, ak si nemôžem vyzdvihnúť rezervované jedlo?",
+      "answer7": "Ak si z akéhokoľvek dôvodu nemôžete vyzdvihnúť rezervované jedlo, zrušte svoju rezerváciu čo najskôr prostredníctvom aplikácie. Uvoľníte tak jedlo pre iných príjemcov, ktorí ich môžu potrebovať.",
+      "title8": "Je používanie tejto aplikácie spoplatnené?",
+      "answer8": "Nie, používanie tejto aplikácie nie je spoplatnené. Je úplne bezplatná pre darcov aj príjemcov."
+    },
+    "title": "Často kladené otázky"
+  },
+  "help": {
+    "menu": {
+      "contact": "Kontakt",
+      "faq": "Často kladené otázky",
+      "guide": "Sprievodca",
+      "support": "Podpora"
+    },
+    "title": "Centrum pomoci"
+  },
+  "notifications": {
+    "newReservation": "Položky boli rezervované z vášho daru: \"{{donation}}\"."
+  },
+  "profile": {
+    "activity": {
+      "empty": "Tu sa budú zobrazovať záznamy o vašej aktivite!",
+      "logs": {
+        "donationAdded": "<bold>Vy</bold> ste vytvorili nový dar: <bold>{{resource}}</bold>",
+        "donationUpdated": "<bold>Vy</bold> ste aktualizovali dar: <bold>{{resource}}</bold>",
+        "donationDeleted": "<bold>Vy</bold> ste vymazali dar: <bold>{{resource}}</bold>"
+      }
+    },
+    "info": {
+      "form": {
+        "email": { "label": "E-mailová adresa" },
+        "firstName": { "label": "Krstné meno" },
+        "lastName": { "label": "Priezvisko" }
+      },
+      "title": "Aktualizácia profilu"
+    },
+    "menu": {
+      "activity": "Aktivita",
+      "info": "Informácie",
+      "password": "Heslo"
+    },
+    "notifications": {
+      "informationUpdated": "Informácie boli úspešne aktualizované!",
+      "passwordChanged": "Heslo bolo úspešne zmenené!"
+    },
+    "password": {
+      "form": {
+        "current": { "label": "Aktuálne heslo" },
+        "confirm": { "label": "Potvrdenie hesla" },
+        "new": { "label": "Nové heslo" }
+      },
+      "title": "Zmena hesla"
+    }
+  },
+  "settings": {
+    "drawer": {
+      "direction": {
+        "label": "Smer",
+        "options": { "ltr": "LTR", "rtl": "RTL" }
+      },
+      "language": {
+        "label": "Jazyk",
+        "aria": "Jazyk",
+        "options": { "en": "Angličtina", "sk": "Slovenčina" }
+      },
+      "mode": {
+        "label": "Režim",
+        "options": { "dark": "Tmavý", "light": "Svetlý" }
+      },
+      "sidebar": {
+        "label": "Bočný panel",
+        "options": { "collapsed": "Zúžený", "full": "Úplný" }
+      },
+      "title": "Nastavenia"
+    }
+  },
+  "events": {
+    "location": "Lokácia",
+    "date": "Dátum",
+    "website": "Web-stránka"
+  }
+}
