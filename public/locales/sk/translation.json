@@ -102,7 +102,7 @@
           "4": {
             "title": "Oskenovanie potvrdenia",
             "description": "Po príchode príjemcu, naskenujte jeho QR kód, pre zobrazenie stránky s informáciam o potravinách, ktoré mu majú byť vydanné.",
-            "imgUrl": "img/scan-confirmation.jpg",
+            "imgUrl": "img/scan-qr.jpg",
             "imgAlt": "Osoba skenujúca qr kód mobilom"
           }
         }
