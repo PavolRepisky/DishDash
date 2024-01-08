@@ -84,7 +84,7 @@ const EditReservation = () => {
   };
 
   useEffect(() => {
-    if (!reservation || !matchingDonation) {
+    if (!reservation || !matchingDonation || !reservation.active) {
       navigate(`/${process.env.PUBLIC_URL}/404`);
     }
 

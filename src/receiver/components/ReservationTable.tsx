@@ -327,12 +327,14 @@ const ReservationRow = ({
             </ListItemIcon>{" "}
             {t("common.view")}
           </MenuItem>
-          <MenuItem onClick={handleEdit}>
-            <ListItemIcon>
-              <EditIcon />
-            </ListItemIcon>{" "}
-            {t("common.edit")}
-          </MenuItem>
+          {reservation.active && (
+            <MenuItem onClick={handleEdit}>
+              <ListItemIcon>
+                <EditIcon />
+              </ListItemIcon>{" "}
+              {t("common.edit")}
+            </MenuItem>
+          )}
           <MenuItem onClick={handleDelete}>
             <ListItemIcon>
               <DeleteIcon />

@@ -327,12 +327,14 @@ const DonationRow = ({
             </ListItemIcon>{" "}
             {t("common.view")}
           </MenuItem>
-          <MenuItem onClick={handleEdit}>
-            <ListItemIcon>
-              <EditIcon />
-            </ListItemIcon>{" "}
-            {t("common.edit")}
-          </MenuItem>
+          {donation.active && (
+            <MenuItem onClick={handleEdit}>
+              <ListItemIcon>
+                <EditIcon />
+              </ListItemIcon>{" "}
+              {t("common.edit")}
+            </MenuItem>
+          )}
           <MenuItem onClick={handleRepeat}>
             <ListItemIcon>
               <RepeatIcon />

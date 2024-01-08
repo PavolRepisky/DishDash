@@ -34,12 +34,12 @@ import * as Yup from "yup";
 import AdminAppBar from "../../admin/components/AdminAppBar";
 import AdminToolbar from "../../admin/components/AdminToolbar";
 import { useSnackbar } from "../../core/contexts/SnackbarProvider";
+import ImagePicker from "../components/ImagePicker";
 import { useCreateDonation } from "../hooks/useCreateDonation";
 import { useDonations } from "../hooks/useDonations";
 import { useUpdateDonation } from "../hooks/useUpdateDonation";
 import { Donation } from "../types/Donation";
 import { DonationItem } from "../types/DonationItem";
-import ImagePicker from "../components/ImagePicker";
 
 const foodTypes = [
   {
@@ -112,12 +112,14 @@ const EditDonation = () => {
   useEffect(() => {
     if (donation) {
       setItems(donation.items);
-      
+
       if (donation.images) {
         setImgItems(donation.images);
       }
-
     } else if (editMode || repeatMode) {
+      navigate(`/${process.env.PUBLIC_URL}/404`);
+    }
+    if (editMode && !donation?.active) {
       navigate(`/${process.env.PUBLIC_URL}/404`);
     }
   }, [donation, navigate, editMode, repeatMode]);
@@ -600,7 +602,6 @@ const EditDonation = () => {
           <ImagePicker items={imgItems} setItems={setImgItems} />
         </Grid>
       </Grid>
-
     </>
   );
 };
