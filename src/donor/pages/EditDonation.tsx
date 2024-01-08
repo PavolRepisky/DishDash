@@ -514,6 +514,9 @@ const EditDonation = () => {
                   helperText={
                     itemFormik.touched.quantity && itemFormik.errors.quantity
                   }
+                  inputProps={{
+                    min: 0,
+                  }}
                 />
               </Grid>
               <Grid item xs={2}>
