@@ -39,11 +39,15 @@ const CreateReservation = () => {
     };
 
     try {
-      await createReservation(reservation as Reservation);
+      const createdReservation = await createReservation(
+        reservation as Reservation
+      );
       snackbar.success(
         t("receiver.createReservation.notifications.createSuccess")
       );
-      navigate(`/${process.env.PUBLIC_URL}/receiver/reservations`);
+      navigate(
+        `/${process.env.PUBLIC_URL}/receiver/reservations/${createdReservation.id }`
+      );
     } catch (err: any) {
       snackbar.error(t("common.errors.unexpected.subTitle"));
     }

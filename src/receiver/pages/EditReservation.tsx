@@ -75,7 +75,9 @@ const EditReservation = () => {
       snackbar.success(
         t("receiver.editReservation.notifications.updateSuccess")
       );
-      navigate(`/${process.env.PUBLIC_URL}/receiver/reservations`);
+      navigate(
+        `/${process.env.PUBLIC_URL}/receiver/reservations/${reservation?.id}`
+      );
     } catch (err: any) {
       snackbar.error(t("common.errors.unexpected.subTitle"));
     }
