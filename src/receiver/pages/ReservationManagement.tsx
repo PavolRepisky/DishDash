@@ -94,7 +94,7 @@ const ReservationManagement = () => {
         donations={allDonations}
       />
       <ConfirmDialog
-        description={t("receiver.reservationsManagement.confirmations.delete")}
+        description={t("receiver.reservationManagement.confirmations.delete")}
         pending={processing}
         onClose={handleCloseConfirmDeleteDialog}
         onConfirm={handleDeleteReservations}

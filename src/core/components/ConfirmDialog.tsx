@@ -41,7 +41,11 @@ const ConfirmDialog = ({
         <SvgContainer>
           <ConfirmSvg style={{ maxWidth: 280, width: "100%" }} />
         </SvgContainer>
-        <DialogTitle id="confirm-dialog-title" sx={{ pb: 1, pt: 0 }}>
+        <DialogTitle
+          id="confirm-dialog-title"
+          sx={{ pb: 1, pt: 0, pl: 0, fontSize: "1.25rem" }}
+          textAlign={"left"}
+        >
           {title}
         </DialogTitle>
         {description && (
