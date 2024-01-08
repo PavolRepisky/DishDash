@@ -118,7 +118,14 @@ const ReservationDetail = () => {
 
   // this is a workaround
   // TODO - change to the website url once deployed, netlify requires process.env.PUBLIC_URL to be set to "" so this wont work
-  const url = `http://localhost:3000/qr/${createhash(reservation)}`;
+
+  let url: string;
+  if (process.env.NODE_ENV === "production") {
+    url = `https://dishdashproj.netlify.app/qr/${createhash(reservation)}`;
+  } else {
+    url = `http://localhost:3000/qr/${createhash(reservation)}`;
+  }
+
   console.log(url);
 
   return (

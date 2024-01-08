@@ -111,10 +111,10 @@ const Event = () => {
         if (diff > 0)
           imageEl.style.marginTop = `-${diff}px`;
       }
-    }, 30)
+    }, 500)
     
 
-  }, [xs]);
+  }, [xs, imageRefs, descriptionRefs, id]);
 
   return (
     <>

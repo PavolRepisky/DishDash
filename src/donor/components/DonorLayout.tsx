@@ -52,7 +52,7 @@ const DonorLayout = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", height: "100%" }}>
+    <Box sx={{ display: "flex", minHeight: "100vh", height: "100%" }}>
       <Sidebar
         collapsed={collapsed}
         mobileOpen={open}

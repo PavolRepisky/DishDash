@@ -8,14 +8,14 @@ export const createThemeComponents = (theme: any) => ({
   MuiCssBaseline: {
     styleOverrides: {
       html: {
-        height: "100%",
+        minHeight: "100vh",
 
         "#root": {
-          height: "100%",
+          minHeight: "100vh",
         }
       },
       body: {
-        height: "100%",
+        minHeight: "100vh",
       }
     }
   },

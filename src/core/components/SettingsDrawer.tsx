@@ -38,6 +38,7 @@ const SettingsDrawer = ({ onDrawerToggle, open }: SettingsDrawerProps) => {
   };
 
   const handleLanguageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log((event.target as HTMLInputElement).value)
     i18n.changeLanguage((event.target as HTMLInputElement).value);
   };
 
@@ -96,7 +97,7 @@ const SettingsDrawer = ({ onDrawerToggle, open }: SettingsDrawerProps) => {
               label={t("settings.drawer.language.options.en")}
             />
             <FormControlLabel
-              value="fr"
+              value="sk"
               control={<Radio />}
               label={t("settings.drawer.language.options.sk")}
             />
